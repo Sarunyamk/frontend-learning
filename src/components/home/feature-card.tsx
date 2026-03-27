@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import Link from 'next/link';
+import { fadeUp } from '@/lib/framer-motion/framer-motion';
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   CreditCard,
@@ -38,8 +39,9 @@ export function FeatureCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true, amount: 0.1 }}
       transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
       whileHover={{ scale: 1.02 }}
