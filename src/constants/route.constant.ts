@@ -29,4 +29,12 @@ export const ROUTES = {
   // Framer Motion
   FRAMER_MOTION: '/features/framer-motion',
   FRAMER_MOTION_EXAMPLES: '/features/framer-motion/examples',
+
+  // Forms
+  FORMS: '/features/forms',
+  FORMS_BASIC: '/features/forms/basic',
+  FORMS_MULTI_STEP: '/features/forms/multi-step',
+  FORMS_DYNAMIC: '/features/forms/dynamic',
+  FORMS_SERVER_ACTION: '/features/forms/server-action',
+  FORMS_UPLOAD: '/features/forms/upload',
 } as const;

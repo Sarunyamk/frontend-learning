@@ -6,6 +6,7 @@ export const FEATURE_CATEGORY = {
   TAILWIND: 'tailwind',
   NEXT_AUTH: 'next-auth',
   FRAMER_MOTION: 'framer-motion',
+  FORMS: 'forms',
 } as const;
 
 export type FeatureCategory =
@@ -87,6 +88,20 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         label: 'Animation Examples',
         path: ROUTES.FRAMER_MOTION_EXAMPLES,
       },
+    ],
+  },
+  {
+    key: FEATURE_CATEGORY.FORMS,
+    label: 'Form Patterns',
+    description: 'react-hook-form + zod + shadcn — basic, multi-step, dynamic, server action, upload',
+    icon: 'ClipboardList',
+    path: ROUTES.FORMS,
+    items: [
+      { key: 'basic', label: 'Basic Form', path: ROUTES.FORMS_BASIC },
+      { key: 'multi-step', label: 'Multi-step Form', path: ROUTES.FORMS_MULTI_STEP },
+      { key: 'dynamic', label: 'Dynamic Fields', path: ROUTES.FORMS_DYNAMIC },
+      { key: 'server-action', label: 'Server Action Form', path: ROUTES.FORMS_SERVER_ACTION },
+      { key: 'upload', label: 'File Upload', path: ROUTES.FORMS_UPLOAD },
     ],
   },
 ] as const;
