@@ -5,6 +5,7 @@ import {
   FEATURE_CATEGORY,
   type FeatureCategory,
   type FeatureCategoryConfig,
+  type FeatureItem,
 } from '@/constants/feature.constant';
 
 // TODO: swap เป็น fetch(env.API_URL + '/features', { next: { tags: ['features'] } }) เมื่อมี backend
@@ -22,4 +23,4 @@ export async function getFeatureCategory(
 }
 
 export { FEATURE_CATEGORY };
-export type { FeatureCategory, FeatureCategoryConfig };
+export type { FeatureCategory, FeatureCategoryConfig, FeatureItem };
