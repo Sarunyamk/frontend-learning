@@ -1,0 +1,118 @@
+# Progress — Learning Fullstack
+
+## Current Sprint: Feature Placeholder Pages
+
+---
+
+### Done
+- [x] Project setup (Next.js 16, TypeScript strict, Tailwind v4, shadcn/ui)
+- [x] Auth.js v5 config (Credentials provider, JWT strategy, token refresh, mock data)
+- [x] Theme system (dark/light via next-themes + ThemeProvider + ThemeToggle)
+- [x] Layout — Header (Server/Client split), Footer, MobileNav
+- [x] Framer Motion animation presets (fadeUp, fadeIn, slideDown, slideLeft, slideRight, dropdown, slideInRight, stagger)
+- [x] ColumnFade component (scroll-triggered animation wrapper)
+- [x] Environment validation (Zod — server + client)
+- [x] SEO basics (robots.ts, sitemap.ts)
+- [x] Constants pattern (ROUTES, NAV_ITEMS, USER_ROLE)
+- [x] Utility — cn() (clsx + tailwind-merge)
+- [x] Custom hook — useScroll
+- [x] Type extension — next-auth.d.ts
+- [x] Documentation — claude.md, product.md
+
+### In Progress
+- [x] Documentation — progress.md, share.md, style.md, product.md updated
+- [x] Home page (hero section + feature cards)
+  - [x] HeroSection component (Server) — heading, description, CTA button
+  - [x] FeatureCard component (Client) — animation, icon map, link
+  - [x] feature.constant.ts — FEATURE_CATEGORIES data + types
+  - [x] FeatureSection component (Server) — grid wrapper, map categories → cards
+  - [x] page.tsx — compose HeroSection + FeatureSection
+  - [x] home-metadata.ts — SEO metadata แยกไฟล์ (lib/seo/)
+  - [x] FeatureCard ใช้ shared fadeUp preset แทน inline animation
+  - [x] Build + Lint pass
+  - [x] อัปเดต share.md + progress.md
+- [x] Sidebar navigation (collapsible, responsive)
+  - [x] shadcn/ui sidebar + collapsible installed
+  - [x] Sidebar data — ใช้ FEATURE_CATEGORIES (มีอยู่แล้ว)
+  - [x] AppSidebar component — shadcn Sidebar + SidebarContent + SidebarHeader
+  - [x] SidebarItem component (Client) — Collapsible + SidebarMenu + active state (usePathname)
+  - [x] app/features/layout.tsx — SidebarProvider + AppSidebar + SidebarInset + SidebarTrigger
+  - [x] Mobile drawer — shadcn Sidebar จัดการอัตโนมัติ (Sheet on mobile)
+  - [x] Responsive behavior — shadcn built-in (expanded desktop / drawer mobile)
+  - [x] Build + Lint pass
+- [ ] Features layout + placeholder pages
+  - [x] app/features/page.tsx — overview page (FeatureCard grid, reuse FEATURE_CATEGORIES)
+  - [x] **Data abstraction layer** — `lib/api/features.ts`
+    - `getFeatureCategories()` — returns FEATURE_CATEGORIES (swap to API fetch ทีหลัง)
+    - `getFeatureCategory(key)` — lookup single category
+    - ทุก page/component ดึงข้อมูลจาก layer นี้ ไม่ import constants โดยตรง
+    - `import 'server-only'` guard + TODO comment บอก swap pattern
+  - [x] **shadcn Breadcrumb** — install + สร้าง `FeatureBreadcrumb` (Server component)
+    - `components/features/feature-breadcrumb.tsx` — render: Home → Features → [Feature Label]
+  - [x] **Metadata factory** — `lib/seo/features-metadata.ts`
+    - `getFeatureMetadata(category)` — title/description/og มาจาก category ทั้งหมด
+  - [x] **Placeholder pages** (5 หน้า — pattern เดียวกันทุกหน้า)
+    - `app/features/payment/page.tsx`
+    - `app/features/socket/page.tsx`
+    - `app/features/tailwind/page.tsx`
+    - `app/features/next-auth/page.tsx`
+    - `app/features/framer-motion/page.tsx`
+    - `components/features/feature-sub-items.tsx` — sub-item cards + coming soon badge (reuse ทุกหน้า)
+  - [x] Build pass — ทุก feature page render เป็น Static (○)
+- [x] Constants — feature.constant.ts, route update
+
+### Backlog
+- [ ] Payment Simulation (Stripe/Omise)
+  - [ ] Product list page — แสดงสินค้าจำลอง
+  - [ ] Cart/Checkout page — สรุปรายการ + เลือก provider
+  - [ ] Stripe integration — Stripe Elements, Server Action, webhook
+  - [ ] Omise integration — Omise.js, Server Action, webhook
+  - [ ] Success/Failure pages — ผลลัพธ์การชำระเงิน
+  - [ ] Error states + loading UI
+- [ ] Socket.io Real-time (Chat, Stock)
+  - [ ] useSocket custom hook — connection management, reconnection
+  - [ ] Chat room page — real-time messaging UI
+  - [ ] Stock ticker page — real-time price updates
+  - [ ] NestJS WebSocket gateway (backend)
+  - [ ] Optimistic UI + connection status indicator
+- [ ] Tailwind Deep Dive (Tokens, Themes, Gallery)
+  - [ ] Token showcase page — แสดง semantic tokens + copy code
+  - [ ] Theme playground page — switch theme live, preview
+  - [ ] Component gallery page — shadcn/ui components ทั้งหมด
+  - [ ] CSS custom properties documentation
+- [ ] NextAuth Deep Dive (OAuth, Protected, RBAC)
+  - [ ] Auth setup guide page — config walkthrough
+  - [ ] Google OAuth page — OAuth flow demo
+  - [ ] Protected page — middleware guard demo
+  - [ ] Role-based page — RBAC demo (admin/user)
+  - [ ] Session info page — แสดง session data
+- [ ] Framer Motion Showcase (Gallery, Playground)
+  - [ ] Animation gallery page — fade, slide, scale, stagger, layout examples
+  - [ ] Scroll animations page — whileInView demos
+  - [ ] Page transitions — AnimatePresence demo
+  - [ ] Interactive playground — ปรับ parameter แล้วเห็นผลทันที
+- [ ] Data Fetching Patterns (SSR/SSG/ISR/Client/Streaming)
+  - [ ] SSR page — fetch ทุก request
+  - [ ] SSG page — fetch ตอน build
+  - [ ] ISR page — revalidate ตาม interval
+  - [ ] Client fetch page — React Query/SWR
+  - [ ] Streaming page — Suspense + skeleton
+  - [ ] Comparison table — สรุปข้อดี/ข้อเสียแต่ละแบบ
+- [ ] Form Patterns (Basic, Multi-step, Server Action, Upload)
+  - [ ] Basic form — react-hook-form + zod + shadcn
+  - [ ] Multi-step form — wizard pattern
+  - [ ] Dynamic fields — add/remove field
+  - [ ] Server Action form — submit via Server Action
+  - [ ] File upload — preview + progress
+- [ ] i18n (Path-based /th /en)
+  - [ ] Dictionary pattern — getDictionary() + type safety
+  - [ ] proxy.ts — locale redirect middleware
+  - [ ] [locale] layout — validate locale
+  - [ ] Language switcher component
+  - [ ] SEO per locale — generateMetadata with locale
+- [ ] Testing Playground (Vitest, RTL)
+  - [ ] Unit test examples — utility functions
+  - [ ] Component test examples — render + interaction
+  - [ ] Hook test examples — renderHook
+  - [ ] Integration test examples — form submit flow
+  - [ ] Mocking examples — MSW setup
