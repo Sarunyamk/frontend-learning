@@ -12,9 +12,10 @@ import type { FeatureCategoryConfig } from '@/lib/api/features';
 
 type FeatureBreadcrumbProps = {
   category: FeatureCategoryConfig;
+  subItem?: string;
 };
 
-export function FeatureBreadcrumb({ category }: FeatureBreadcrumbProps) {
+export function FeatureBreadcrumb({ category, subItem }: FeatureBreadcrumbProps) {
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -30,9 +31,23 @@ export function FeatureBreadcrumb({ category }: FeatureBreadcrumbProps) {
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>{category.label}</BreadcrumbPage>
-        </BreadcrumbItem>
+        {subItem ? (
+          <>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href={category.path}>{category.label}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{subItem}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </>
+        ) : (
+          <BreadcrumbItem>
+            <BreadcrumbPage>{category.label}</BreadcrumbPage>
+          </BreadcrumbItem>
+        )}
       </BreadcrumbList>
     </Breadcrumb>
   );
