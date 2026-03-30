@@ -7,6 +7,7 @@ import {
   Palette,
   Shield,
   Sparkles,
+  ClipboardList,
   ArrowRight,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -18,6 +19,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Palette,
   Shield,
   Sparkles,
+  ClipboardList,
 };
 
 type FeatureCardProps = {
