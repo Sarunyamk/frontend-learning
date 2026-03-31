@@ -128,3 +128,22 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Stock price flash animations */
+@keyframes flash-green {
+  0% { background-color: oklch(0.9 0.15 145 / 40%); }
+  100% { background-color: transparent; }
+}
+
+@keyframes flash-red {
+  0% { background-color: oklch(0.7 0.15 25 / 40%); }
+  100% { background-color: transparent; }
+}
+
+.animate-flash-green {
+  animation: flash-green 600ms ease-out;
+}
+
+.animate-flash-red {
+  animation: flash-red 600ms ease-out;
+}
