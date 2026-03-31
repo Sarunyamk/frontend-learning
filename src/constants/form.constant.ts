@@ -36,3 +36,10 @@ export const ACTIVITY_OPTIONS = [
   { value: 'cooking', label: 'Cooking' },
   { value: 'traveling', label: 'Traveling' },
 ] as const;
+
+export const MEMBER_ROLE_OPTIONS = [
+  { value: 'developer', label: 'Developer' },
+  { value: 'designer', label: 'Designer' },
+  { value: 'manager', label: 'Manager' },
+  { value: 'qa', label: 'QA' },
+] as const;
