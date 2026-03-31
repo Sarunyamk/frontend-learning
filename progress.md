@@ -92,12 +92,17 @@
   - [x] readyPaths + routes + feature.constant อัปเดต
   - [x] `constants/form-ready-to-use.constant.ts` + `app/features/forms/ready-to-use/page.tsx` — Form Ready to Use page
   - [x] อัปเดต .md files
-- [ ] 3. NextAuth Deep Dive (OAuth, Protected, RBAC)
-  - [ ] Auth setup guide page — config walkthrough
-  - [ ] Google OAuth page — OAuth flow demo
-  - [ ] Protected page — middleware guard demo
-  - [ ] Role-based page — RBAC demo (admin/user)
-  - [ ] Session info page — แสดง session data
+- [x] 3. NextAuth Deep Dive (OAuth, Protected, RBAC)
+  - [x] **Step 1**: Constants & Routes — route.constant.ts, feature.constant.ts, next-auth.constant.ts
+  - [x] **Step 2**: Update auth.ts — 2 mock users (ADMIN/SUPER_ADMIN) + pages.signIn + get-current-user.ts
+  - [x] **Step 3**: Login Page + Server Action — login.schema.ts, actions.ts, login page, login-form component
+  - [x] **Step 4**: Auth Demo Layout + Header — SessionProvider layout, auth-demo-header component
+  - [x] **Step 5**: Proxy Guard — proxy.ts cookie-check guard for /protected
+  - [x] **Step 6**: Auth Setup Page — tutorial walkthrough (Server component + constants)
+  - [x] **Step 7**: Google OAuth Page — tutorial guide (Server component + constants)
+  - [x] **Step 8**: Protected & RBAC Page — live demo (proxy guard + role check)
+  - [x] **Step 9**: Session Info Page — live demo (server vs client session)
+  - [x] **Step 10**: Update overview page + .md files
 
 **Sprint 3 — Backend Integration**
 
