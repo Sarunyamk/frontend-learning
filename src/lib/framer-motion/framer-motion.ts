@@ -5,6 +5,7 @@ export const fadeUp: Variants = {
   show: { opacity: 1, y: 0 },
 };
 
+
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1 },
@@ -45,4 +46,10 @@ export const staggerContainer: Variants = {
 export const staggerItem: Variants = {
   hidden: { opacity: 0, x: 20 },
   show: { opacity: 1, x: 0 },
+};
+
+export const fadeSlide: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  show: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -30 },
 };

@@ -156,6 +156,58 @@ export function StaggerItem({ children, className }: StaggerItemProps) {
   },
 ] as const;
 
+export const TRANSITION_READY_TO_USE_CODES: readonly ReadyToUseCode[] = [
+  {
+    name: 'fadeSlide Variant',
+    description: 'Slide เข้าจากขวา ออกทางซ้าย — เหมาะกับ step/tab transitions',
+    filePath: 'src/lib/framer-motion/framer-motion.ts',
+    code: `export const fadeSlide: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  show: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -30 },
+};`,
+  },
+  {
+    name: 'StepTransition Component',
+    description: 'AnimatePresence + fadeSlide wrapper — ส่ง stepKey เปลี่ยนทีไร animate ทีนั้น',
+    filePath: 'src/components/framer-motion/step-transition.tsx',
+    code: `'use client';
+
+import { fadeSlide } from '@/lib/framer-motion/framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
+type StepTransitionProps = {
+  stepKey: string | number;
+  children: React.ReactNode;
+  className?: string;
+  duration?: number;
+};
+
+export function StepTransition({
+  stepKey,
+  children,
+  className,
+  duration = 0.3,
+}: StepTransitionProps) {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={stepKey}
+        variants={fadeSlide}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+        transition={{ duration }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+}`,
+  },
+] as const;
+
 // ===== Animation Preset Examples =====
 
 export type AnimationPreset = {
