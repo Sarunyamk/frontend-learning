@@ -4,6 +4,7 @@ import { NAV_ITEMS } from '@/constants/navigation.constant';
 import { ROUTES } from '@/constants/route.constant';
 import { useScroll } from '@/hooks/useScroll';
 import { headerVariants } from '@/lib/framer-motion/header';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ThemeToggle } from '../theme/theme-toggle';
@@ -16,9 +17,12 @@ export default function HeaderClient() {
       variants={headerVariants}
       animate={scrolled ? 'scrolled' : 'top'}
       transition={{ duration: 0.25 }}
-      className="fixed top-0 z-50 w-full border-b"
+      className={cn(
+        'fixed top-0 z-50 w-full border-b transition-colors duration-300',
+        scrolled ? 'bg-background/85 backdrop-blur-sm' : 'bg-transparent',
+      )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 bg-background">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link href={ROUTES.HOME} className="text-xl font-bold">
           Brand
         </Link>
