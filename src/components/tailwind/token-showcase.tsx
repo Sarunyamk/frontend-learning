@@ -1,6 +1,5 @@
-'use client';
-
 import { CodeBlock } from '@/components/tailwind/code-block';
+import { CopyBadge } from '@/components/tailwind/copy-badge';
 import {
   Card,
   CardContent,
@@ -14,35 +13,6 @@ import {
   TOKEN_SETUP_STEPS,
   UTILITY_SETUP_STEP,
 } from '@/constants/tailwind.constant';
-import { Check, Copy } from 'lucide-react';
-import { useCallback, useState } from 'react';
-
-// ===== Copy Badge =====
-
-function CopyBadge({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback(async () => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }, [text]);
-
-  return (
-    <button
-      type="button"
-      onClick={handleCopy}
-      className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 font-mono text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-    >
-      {text}
-      {copied ? (
-        <Check className="h-3 w-3 text-green-500" />
-      ) : (
-        <Copy className="h-3 w-3 opacity-50" />
-      )}
-    </button>
-  );
-}
 
 // ===== Section: Setup Steps (Step 1-3) =====
 
@@ -54,7 +24,8 @@ function SetupStepsSection() {
           วิธี Setup Semantic Tokens
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          3 ขั้นตอน: กำหนด CSS Variable → Register ใน @theme inline → ใช้ใน Component
+          3 ขั้นตอน: กำหนด CSS Variable → Register ใน @theme inline → ใช้ใน
+          Component
         </p>
       </div>
 
@@ -85,7 +56,8 @@ function UtilitySection() {
           @utility — Custom Class ใน Tailwind v4
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          สร้าง class ใหม่ที่ทำงานเหมือน built-in — ใช้กับ gradient, component base, complex styles
+          สร้าง class ใหม่ที่ทำงานเหมือน built-in — ใช้กับ gradient, component
+          base, complex styles
         </p>
       </div>
 
@@ -199,7 +171,7 @@ function ColorFormatSection() {
   );
 }
 
-// ===== Main Component =====
+// ===== Main Component (Server) =====
 
 export function TokenShowcase() {
   return (
