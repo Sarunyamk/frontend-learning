@@ -213,17 +213,23 @@ export const THEME_SETUP_STEPS = [
   {
     step: 3,
     title: 'สร้าง ThemeProvider wrapper',
-    description: 'Client component ที่ครอบ next-themes provider — ใส่ attribute="class" เพื่อให้ toggle ด้วย class',
+    description: 'Client component ที่ครอบ next-themes — config ไว้ใน provider เลย ไม่ต้องส่ง props จาก layout',
     code: `// components/theme/theme-provider.tsx
 'use client';
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-export function ThemeProvider({
-  children,
-  ...props
-}: React.ComponentProps<typeof NextThemesProvider>) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <NextThemesProvider
+      attribute="class"       // ใช้ class บน <html> สำหรับ toggle
+      defaultTheme="dark"     // default เป็น dark
+      enableSystem={false}    // ไม่ตาม system preference
+      disableTransitionOnChange // ป้องกัน flash ตอน toggle
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }`,
   },
   {
@@ -237,45 +243,43 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           {children}
         </ThemeProvider>
       </body>
     </html>
   );
-}`,
+}
+
+// สังเกต: layout ไม่ต้องส่ง props ให้ ThemeProvider
+// เพราะ config ทั้งหมดอยู่ใน provider wrapper แล้ว
+// → layout เป็น Server Component ได้สะอาดๆ`,
   },
   {
     step: 5,
     title: 'สร้าง ThemeToggle button',
-    description: 'Client component ที่ใช้ useTheme() เพื่อ toggle dark/light — ใช้ mounted state ป้องกัน hydration mismatch',
+    description: 'ใช้ CSS dark: prefix สลับ icon — ไม่ต้อง mounted check เพราะ Tailwind จัดการผ่าน class ให้เอง',
     code: `// components/theme/theme-toggle.tsx
 'use client';
 
-import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="relative"
     >
-      {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {/* Light mode: แสดง Moon, Dark mode: ซ่อน */}
+      <Moon className="h-[1.2rem] w-[1.2rem] transition-all dark:scale-0 dark:-rotate-90" />
+      {/* Light mode: ซ่อน, Dark mode: แสดง Sun */}
+      <Sun className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
     </Button>
   );
 }`,
