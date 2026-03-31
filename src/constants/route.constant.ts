@@ -35,6 +35,12 @@ export const ROUTES = {
   FORMS_BASIC: '/features/forms/basic',
   FORMS_MULTI_STEP: '/features/forms/multi-step',
   FORMS_DYNAMIC: '/features/forms/dynamic',
-  FORMS_SERVER_ACTION: '/features/forms/server-action',
   FORMS_UPLOAD: '/features/forms/upload',
 } as const;
+
+export const READY_FORM_PATHS = [
+  ROUTES.FORMS_BASIC,
+  ROUTES.FORMS_MULTI_STEP,
+  ROUTES.FORMS_DYNAMIC,
+  ROUTES.FORMS_UPLOAD,
+] as const;

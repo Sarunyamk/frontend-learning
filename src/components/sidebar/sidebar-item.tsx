@@ -13,6 +13,7 @@ import {
   TooltipContent,
 } from '@/components/ui/tooltip';
 import {
+  ClipboardList,
   CreditCard,
   Radio,
   Palette,
@@ -24,6 +25,7 @@ import { cn } from '@/lib/utils';
 import type { FeatureCategoryConfig } from '@/constants/feature.constant';
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  ClipboardList,
   CreditCard,
   Radio,
   Palette,
