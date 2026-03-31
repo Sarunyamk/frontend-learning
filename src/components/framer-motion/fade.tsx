@@ -8,6 +8,8 @@ type ColumnFadeProps = {
   variant?: Variants;
   delay?: number;
   duration?: number;
+  once?: boolean;
+  amount?: number;
   className?: string;
 };
 
@@ -16,6 +18,8 @@ export function ColumnFade({
   variant = fadeUp,
   delay = 0,
   duration = 0.6,
+  once = true,
+  amount = 0.1,
   className,
 }: ColumnFadeProps) {
   return (
@@ -23,7 +27,7 @@ export function ColumnFade({
       variants={variant}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once, amount }}
       transition={{ delay, duration, ease: 'easeOut' }}
       className={className}
     >
