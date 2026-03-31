@@ -47,7 +47,8 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
     path: ROUTES.SOCKET,
     items: [
       { key: 'chat', label: 'Real-time Chat', path: ROUTES.SOCKET_CHAT },
-      { key: 'stock', label: 'Stock Updates', path: ROUTES.SOCKET_STOCK },
+      { key: 'stock', label: 'Stock Ticker', path: ROUTES.SOCKET_STOCK },
+      { key: 'quiz', label: 'Mini Kahoot Quiz', path: ROUTES.SOCKET_QUIZ },
     ],
   },
   {

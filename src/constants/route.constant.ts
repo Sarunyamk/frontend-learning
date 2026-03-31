@@ -15,6 +15,7 @@ export const ROUTES = {
   SOCKET: '/features/socket',
   SOCKET_CHAT: '/features/socket/chat',
   SOCKET_STOCK: '/features/socket/stock',
+  SOCKET_QUIZ: '/features/socket/quiz',
 
   // Tailwind
   TAILWIND: '/features/tailwind',
