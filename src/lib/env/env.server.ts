@@ -8,7 +8,7 @@ import { z } from 'zod';
  */
 const serverSchema = z.object({
   API_URL: z.url().min(1, 'API URL is required'),
-  // AUTH_SECRET: z.string().min(10, 'AUTH_SECRET ต้องมีอย่างน้อย 10 ตัวอักษร'),
+  AUTH_SECRET: z.string().min(10, 'AUTH_SECRET ต้องมีอย่างน้อย 10 ตัวอักษร'),
   NODE_ENV: z
     .enum(['development', 'production', 'test'])
     .default('development'),

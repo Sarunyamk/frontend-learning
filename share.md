@@ -34,6 +34,13 @@
 | `StepTransition` | `src/components/framer-motion/step-transition.tsx` | Client | AnimatePresence + fadeSlide wrapper — stepKey, duration, className |
 | `CodeBlock` | `src/components/tailwind/code-block.tsx` | Client | Reusable code snippet + copy button. Props: code, language, className |
 | `CopyBadge` | `src/components/tailwind/copy-badge.tsx` | Client | Reusable copy-to-clipboard badge. Props: text |
+| `AuthDemoHeader` | `src/components/features/next-auth/auth-demo-header.tsx` | Client | Auth demo header bar — session prop จาก server, login/logout button, role badge |
+| `LoginForm` | `src/components/features/next-auth/login-form.tsx` | Client | Login form — react-hook-form + zod, demo credentials buttons, error display |
+| `AuthSetupContent` | `src/components/features/next-auth/auth-setup-content.tsx` | Server | Auth setup tutorial — step-by-step code walkthrough |
+| `GoogleOAuthContent` | `src/components/features/next-auth/google-oauth-content.tsx` | Server | Google OAuth tutorial — step-by-step guide + demo button |
+| `GoogleOAuthDemo` | `src/components/features/next-auth/google-oauth-demo.tsx` | Client | Google Sign-in demo button — demo mode alert เมื่อยังไม่มี credentials |
+| `ProtectedContent` | `src/components/features/next-auth/protected-content.tsx` | Client | Protected & RBAC demo — user info, super admin gate, code examples |
+| `SessionContent` | `src/components/features/next-auth/session-content.tsx` | Client | Session info demo — server vs client session comparison |
 
 ---
 
@@ -89,6 +96,12 @@
 | `TRANSITION_READY_TO_USE_CODES` | `src/constants/framer-motion.constant.ts` | Ready-to-use code: fadeSlide, StepTransition |
 | `FORM_READY_TO_USE_CODES` | `src/constants/form-ready-to-use.constant.ts` | Ready-to-use form components (5 items) |
 | `READY_FRAMER_MOTION_PATHS` | `src/constants/route.constant.ts` | Ready paths for Framer Motion sub-pages |
+| `READY_NEXT_AUTH_PATHS` | `src/constants/route.constant.ts` | Ready paths for NextAuth sub-pages |
+| `MOCK_USERS` | `src/constants/next-auth.constant.ts` | 2 mock users (admin@test.com → ADMIN, super@test.com → SUPER_ADMIN) |
+| `AUTH_SETUP_SECTIONS` | `src/constants/next-auth.constant.ts` | 7 code sections for auth setup tutorial |
+| `GOOGLE_OAUTH_SECTIONS` | `src/constants/next-auth.constant.ts` | 4 code sections for Google OAuth tutorial |
+| `PROTECTED_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for proxy guard + RBAC examples |
+| `SESSION_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for server vs client session |
 | `UPLOAD_TIPS` | `src/constants/image-tips.constant.ts` | Next.js file upload config tips (body size, remote images, API route, cloud storage) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
