@@ -61,10 +61,10 @@ RULE และ Structure ทั้งหมดเป็นไปตาม `claud
 
 ### 6. Framer Motion Showcase
 - เรียนรู้ animation patterns สำหรับ production
-- **หน้าที่จะมี**: Animation gallery (fade, slide, scale, stagger, layout), Scroll animations, Page transitions, Interactive playground
-- **เรียนรู้**: Framer Motion variants, AnimatePresence, layout animations, performance, exit animations
+- **หน้าที่มี**: Animation Examples (8 presets + live demo), Scroll Animations (whileInView + stagger), Page Transitions (AnimatePresence + exit)
+- **เรียนรู้**: Framer Motion variants, AnimatePresence, whileInView, stagger, exit animations, reusable components (ColumnFade, StaggerContainer, StepTransition)
 - **Tech**: Framer Motion, motion presets จาก `lib/framer-motion/`
-- **Route**: `/features/framer-motion`, `/features/framer-motion/examples`
+- **Route**: `/features/framer-motion`, `/features/framer-motion/examples`, `/features/framer-motion/scroll`, `/features/framer-motion/transitions`
 
 ### 7. Data Fetching Patterns (เสนอเพิ่ม)
 - เปรียบเทียบ data fetching ทุกแบบของ Next.js
@@ -72,10 +72,10 @@ RULE และ Structure ทั้งหมดเป็นไปตาม `claud
 - **เรียนรู้**: เมื่อไหร่ใช้แบบไหน, caching strategy, revalidation, loading states
 - **Tech**: Next.js App Router, React Suspense, unstable_cache, revalidateTag
 
-### 8. Form Patterns (เสนอเพิ่ม)
+### 8. Form Patterns
 - เรียนรู้ form ที่ถูกวิธีกับ Next.js
-- **หน้าที่จะมี**: Basic form (react-hook-form + zod), Multi-step form, Dynamic fields, Server Action form, File upload
-- **เรียนรู้**: react-hook-form + zod, Server Actions, useTransition, error handling
+- **หน้าที่มี**: Basic form, Multi-step form (AnimatePresence), Dynamic fields, File upload (AnimatePresence), Ready to Use (reusable components)
+- **เรียนรู้**: react-hook-form + zod, Server Actions, useTransition, error handling, reusable form components
 - **Tech**: react-hook-form, zod, shadcn/ui form components, Server Actions
 
 ### 9. i18n — Internationalization (เสนอเพิ่ม)

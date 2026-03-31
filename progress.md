@@ -61,58 +61,63 @@
   - [x] Build pass — ทุก feature page render เป็น Static (○)
 - [x] Constants — feature.constant.ts, route update
 
-### Backlog
-- [ ] Payment Simulation (Stripe/Omise)
+### Backlog (Priority Order)
+
+**Sprint 2 — Frontend Features (ไม่ต้องพึ่ง Backend)**
+
+- [x] 1. Tailwind Deep Dive (Setup Tokens, Setup Themes)
+  - [x] `constants/tailwind.constant.ts` — token data, color formats, gradient @utility examples, theme setup steps
+  - [x] `components/tailwind/code-block.tsx` — reusable code snippet + copy button (Client)
+  - [x] `components/tailwind/copy-badge.tsx` — reusable copy-to-clipboard badge (Client)
+  - [x] `components/tailwind/token-showcase.tsx` — tutorial: CSS var → @theme inline → @utility (Server)
+  - [x] `app/features/tailwind/tokens/page.tsx` — Server page
+  - [x] `components/tailwind/theme-setup-guide.tsx` — tutorial: install → provider → toggle → CSS vars (Server)
+  - [x] `components/tailwind/theme-live-demo.tsx` — live toggle + preview card (Client)
+  - [x] `app/features/tailwind/themes/page.tsx` — Server page
+  - [x] อัปเดต tailwind page (readyPaths) + .md files
+- [x] 2. Framer Motion Showcase
+  - [x] `constants/framer-motion.constant.ts` — ANIMATION_PRESETS (8), SCROLL_EXAMPLES (3), TRANSITION_EXAMPLES (3), READY_TO_USE_CODES, TRANSITION_READY_TO_USE_CODES
+  - [x] `components/features/framer-motion/animation-examples.tsx` — Client, 8 preset cards + live demo + replay + Ready to Use (collapsible)
+  - [x] `app/features/framer-motion/examples/page.tsx` — Server page
+  - [x] `components/features/framer-motion/scroll-animations.tsx` — Client, whileInView demos (ColumnFade + StaggerContainer reuse) + Ready to Use
+  - [x] `app/features/framer-motion/scroll/page.tsx` — Server page
+  - [x] `components/features/framer-motion/page-transitions.tsx` — Client, 3 live demos (Tab/Step/Toggle) + Ready to Use + Used in Project links
+  - [x] `app/features/framer-motion/transitions/page.tsx` — Server page
+  - [x] `components/framer-motion/stagger.tsx` — StaggerContainer + StaggerItem reusable components
+  - [x] `components/framer-motion/step-transition.tsx` — StepTransition reusable component (AnimatePresence + fadeSlide)
+  - [x] ColumnFade เพิ่ม props: `once`, `amount`
+  - [x] fadeSlide variant เพิ่มใน `lib/framer-motion/framer-motion.ts`
+  - [x] multi-step-form.tsx — ใช้ StepTransition แทน instant swap
+  - [x] image-dropzone.tsx — เพิ่ม AnimatePresence ให้ preview fade + scale
+  - [x] readyPaths + routes + feature.constant อัปเดต
+  - [x] `constants/form-ready-to-use.constant.ts` + `app/features/forms/ready-to-use/page.tsx` — Form Ready to Use page
+  - [x] อัปเดต .md files
+- [ ] 3. NextAuth Deep Dive (OAuth, Protected, RBAC)
+  - [ ] Auth setup guide page — config walkthrough
+  - [ ] Google OAuth page — OAuth flow demo
+  - [ ] Protected page — middleware guard demo
+  - [ ] Role-based page — RBAC demo (admin/user)
+  - [ ] Session info page — แสดง session data
+
+**Sprint 3 — Backend Integration**
+
+- [ ] 4. Payment Simulation (Stripe/Omise)
   - [ ] Product list page — แสดงสินค้าจำลอง
   - [ ] Cart/Checkout page — สรุปรายการ + เลือก provider
   - [ ] Stripe integration — Stripe Elements, Server Action, webhook
   - [ ] Omise integration — Omise.js, Server Action, webhook
   - [ ] Success/Failure pages — ผลลัพธ์การชำระเงิน
   - [ ] Error states + loading UI
-- [ ] Socket.io Real-time (Chat, Stock)
+- [ ] 5. Socket.io Real-time (Chat, Stock)
   - [ ] useSocket custom hook — connection management, reconnection
   - [ ] Chat room page — real-time messaging UI
   - [ ] Stock ticker page — real-time price updates
   - [ ] NestJS WebSocket gateway (backend)
   - [ ] Optimistic UI + connection status indicator
-- [ ] Tailwind Deep Dive (Tokens, Themes, Gallery)
-  - [ ] Token showcase page — แสดง semantic tokens + copy code
-  - [ ] Theme playground page — switch theme live, preview
-  - [ ] Component gallery page — shadcn/ui components ทั้งหมด
-  - [ ] CSS custom properties documentation
-- [ ] NextAuth Deep Dive (OAuth, Protected, RBAC)
-  - [ ] Auth setup guide page — config walkthrough
-  - [ ] Google OAuth page — OAuth flow demo
-  - [ ] Protected page — middleware guard demo
-  - [ ] Role-based page — RBAC demo (admin/user)
-  - [ ] Session info page — แสดง session data
-- [ ] Framer Motion Showcase (Gallery, Playground)
-  - [ ] Animation gallery page — fade, slide, scale, stagger, layout examples
-  - [ ] Scroll animations page — whileInView demos
-  - [ ] Page transitions — AnimatePresence demo
-  - [ ] Interactive playground — ปรับ parameter แล้วเห็นผลทันที
-- [ ] Data Fetching Patterns (SSR/SSG/ISR/Client/Streaming)
-  - [ ] SSR page — fetch ทุก request
-  - [ ] SSG page — fetch ตอน build
-  - [ ] ISR page — revalidate ตาม interval
-  - [ ] Client fetch page — React Query/SWR
-  - [ ] Streaming page — Suspense + skeleton
-  - [ ] Comparison table — สรุปข้อดี/ข้อเสียแต่ละแบบ
-- [ ] Form Patterns (Basic, Multi-step, Server Action, Upload)
-  - [ ] Basic form — react-hook-form + zod + shadcn
-  - [ ] Multi-step form — wizard pattern
-  - [ ] Dynamic fields — add/remove field
-  - [ ] Server Action form — submit via Server Action
-  - [ ] File upload — preview + progress
+
+**Parked (ทำทีหลัง)**
+
+- [x] Form Patterns (Basic, Multi-step, Dynamic, Upload) — done
 - [ ] i18n (Path-based /th /en)
-  - [ ] Dictionary pattern — getDictionary() + type safety
-  - [ ] proxy.ts — locale redirect middleware
-  - [ ] [locale] layout — validate locale
-  - [ ] Language switcher component
-  - [ ] SEO per locale — generateMetadata with locale
 - [ ] Testing Playground (Vitest, RTL)
-  - [ ] Unit test examples — utility functions
-  - [ ] Component test examples — render + interaction
-  - [ ] Hook test examples — renderHook
-  - [ ] Integration test examples — form submit flow
-  - [ ] Mocking examples — MSW setup
+- [ ] Data Fetching Patterns (SSR/SSG/ISR/Client/Streaming)

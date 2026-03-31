@@ -24,6 +24,16 @@
 | `SidebarItem` | `src/components/sidebar/sidebar-item.tsx` | Client | Collapsible sidebar menu item — active state via usePathname |
 | `ThemeProvider` | `src/components/theme/theme-provider.tsx` | Client | next-themes provider wrapper |
 | `ThemeToggle` | `src/components/theme/theme-toggle.tsx` | Client | Dark/light mode toggle button |
+| `FormTextField` | `src/components/forms/form-text-field.tsx` | Client | Reusable text input field — control, name, label, placeholder, type |
+| `FormCheckboxGroup` | `src/components/forms/form-checkbox-group.tsx` | Client | Reusable checkbox group — control, name, label, options, columns |
+| `FormRadioGroup` | `src/components/forms/form-radio-group.tsx` | Client | Reusable radio group — control, name, label, options, className |
+| `FormSelect` | `src/components/forms/form-select.tsx` | Client | Reusable select dropdown — control, name, label, placeholder, options |
+| `ImageDropzone` | `src/components/forms/image-dropzone.tsx` | Client | Reusable image upload — drag & drop, preview, remove, validate type/size. Props: value, onChange, multiple, maxFiles |
+| `StaggerContainer` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation container — once, amount, className |
+| `StaggerItem` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation child item — className |
+| `StepTransition` | `src/components/framer-motion/step-transition.tsx` | Client | AnimatePresence + fadeSlide wrapper — stepKey, duration, className |
+| `CodeBlock` | `src/components/tailwind/code-block.tsx` | Client | Reusable code snippet + copy button. Props: code, language, className |
+| `CopyBadge` | `src/components/tailwind/copy-badge.tsx` | Client | Reusable copy-to-clipboard badge. Props: text |
 
 ---
 
@@ -57,6 +67,7 @@
 | `slideInRight` | `framer-motion.ts` | Full slide from right (x: 100%→0, สำหรับ mobile nav) |
 | `staggerContainer` | `framer-motion.ts` | Parent container สำหรับ stagger children (0.06s gap, 0.15s delay) |
 | `staggerItem` | `framer-motion.ts` | Child item สำหรับ stagger (fade + slide from right) |
+| `fadeSlide` | `framer-motion.ts` | Slide เข้าจากขวา ออกทางซ้าย (มี exit) — สำหรับ step/tab transitions |
 | Header variants | `header.ts` | Header-specific animations |
 
 ---
@@ -70,6 +81,15 @@
 | `USER_ROLE` | `src/constants/role.constant.ts` | User roles (ADMIN, SUPER_ADMIN) + `isSuperAdmin()` helper |
 | `FEATURE_CATEGORIES` | `src/constants/feature.constant.ts` | Feature category configs (key, label, description, icon, path, items) |
 | `BASE_URL`, `LOGO_URL` | `src/constants/important.constant.ts` | App-wide constants |
+| `MEMBER_ROLE_OPTIONS` | `src/constants/form.constant.ts` | Member role options for dynamic form (developer, designer, manager, qa) |
+| `ANIMATION_PRESETS` | `src/constants/framer-motion.constant.ts` | 8 animation preset examples (name, description, variantCode, usageCode) |
+| `SCROLL_EXAMPLES` | `src/constants/framer-motion.constant.ts` | 3 scroll animation examples (whileInView, viewport, stagger) |
+| `TRANSITION_EXAMPLES` | `src/constants/framer-motion.constant.ts` | 3 page transition examples (AnimatePresence, mode, variants) |
+| `READY_TO_USE_CODES` | `src/constants/framer-motion.constant.ts` | Ready-to-use code: Variant Presets, ColumnFade, Stagger |
+| `TRANSITION_READY_TO_USE_CODES` | `src/constants/framer-motion.constant.ts` | Ready-to-use code: fadeSlide, StepTransition |
+| `FORM_READY_TO_USE_CODES` | `src/constants/form-ready-to-use.constant.ts` | Ready-to-use form components (5 items) |
+| `READY_FRAMER_MOTION_PATHS` | `src/constants/route.constant.ts` | Ready paths for Framer Motion sub-pages |
+| `UPLOAD_TIPS` | `src/constants/image-tips.constant.ts` | Next.js file upload config tips (body size, remote images, API route, cloud storage) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
