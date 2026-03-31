@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { ThemeLiveDemo } from '@/components/tailwind/theme-live-demo';
-import { ThemeSetupGuide } from '@/components/tailwind/theme-setup-guide';
+import { ThemeLiveDemo } from '@/components/features/tailwind/theme-live-demo';
+import { ThemeSetupGuide } from '@/components/features/tailwind/theme-setup-guide';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.TAILWIND);

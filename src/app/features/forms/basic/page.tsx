@@ -1,8 +1,5 @@
-import { notFound } from 'next/navigation';
-import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
-import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { BasicForm } from '@/components/forms/basic-form';
+import { BasicForm } from '@/components/features/form/basic-form';
 import {
   Card,
   CardContent,
@@ -10,6 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
+import { getFeatureMetadata } from '@/lib/seo/features-metadata';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.FORMS);
@@ -29,7 +29,8 @@ export default async function BasicFormPage() {
           <CardHeader>
             <CardTitle>Basic Form</CardTitle>
             <CardDescription>
-              react-hook-form + zod + shadcn — validation, error messages, submit state
+              react-hook-form + zod + shadcn — validation, error messages,
+              submit state
             </CardDescription>
           </CardHeader>
           <CardContent>
