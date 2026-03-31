@@ -14,6 +14,7 @@ import {
   STEP_FIELDS,
   STEPS,
 } from '@/constants/form.constant';
+import { StepTransition } from '@/components/framer-motion/step-transition';
 import {
   multiStepFormSchema,
   type MultiStepFormInput,
@@ -82,81 +83,83 @@ export function MultiStepForm() {
           <Progress value={progressValue} />
         </div>
 
-        {/* Step 0: Personal Info */}
-        {currentStep === 0 && (
-          <div className="space-y-4">
-            <FormTextField
-              control={form.control}
-              name="firstName"
-              label="First Name"
-              placeholder="John"
-            />
-            <FormTextField
-              control={form.control}
-              name="lastName"
-              label="Last Name"
-              placeholder="Doe"
-            />
-            <FormTextField
-              control={form.control}
-              name="email"
-              type="email"
-              label="Email"
-              placeholder="john@example.com"
-            />
-          </div>
-        )}
+        <StepTransition stepKey={currentStep} className="space-y-4">
+          {/* Step 0: Personal Info */}
+          {currentStep === 0 && (
+            <>
+              <FormTextField
+                control={form.control}
+                name="firstName"
+                label="First Name"
+                placeholder="John"
+              />
+              <FormTextField
+                control={form.control}
+                name="lastName"
+                label="Last Name"
+                placeholder="Doe"
+              />
+              <FormTextField
+                control={form.control}
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="john@example.com"
+              />
+            </>
+          )}
 
-        {/* Step 1: Address */}
-        {currentStep === 1 && (
-          <div className="space-y-4">
-            <FormTextField
-              control={form.control}
-              name="address"
-              label="Address"
-              placeholder="123 Main St"
-            />
-            <FormTextField
-              control={form.control}
-              name="city"
-              label="City"
-              placeholder="New York"
-            />
-            <FormTextField
-              control={form.control}
-              name="zipCode"
-              label="Zip Code"
-              placeholder="10001"
-            />
-          </div>
-        )}
+          {/* Step 1: Address */}
+          {currentStep === 1 && (
+            <>
+              <FormTextField
+                control={form.control}
+                name="address"
+                label="Address"
+                placeholder="123 Main St"
+              />
+              <FormTextField
+                control={form.control}
+                name="city"
+                label="City"
+                placeholder="New York"
+              />
+              <FormTextField
+                control={form.control}
+                name="zipCode"
+                label="Zip Code"
+                placeholder="10001"
+              />
+            </>
+          )}
 
-        {/* Step 2: Preferences */}
-        {currentStep === 2 && (
-          <div className="space-y-4">
-            <FormSelect
-              control={form.control}
-              name="role"
-              label="Role"
-              placeholder="Select a role"
-              options={ROLE_OPTIONS}
-            />
+          {/* Step 2: Preferences */}
+          {currentStep === 2 && (
+            <>
+              <FormSelect
+                control={form.control}
+                name="role"
+                label="Role"
+                placeholder="Select a role"
+                options={ROLE_OPTIONS}
+              />
 
-            <FormRadioGroup
-              control={form.control}
-              name="gender"
-              label="Gender"
-              options={GENDER_OPTIONS}
-            />
+              <FormRadioGroup
+                control={form.control}
+                name="gender"
+                label="Gender"
+                options={GENDER_OPTIONS}
+              />
 
-            <FormCheckboxGroup
-              control={form.control}
-              name="activities"
-              label="Activities"
-              options={ACTIVITY_OPTIONS}
-            />
-          </div>
-        )}
+              <FormCheckboxGroup
+                control={form.control}
+                name="activities"
+                label="Activities"
+                options={ACTIVITY_OPTIONS}
+              />
+            </>
+          )}
+        </StepTransition>
 
         {/* Navigation */}
         <div className="flex justify-between">
