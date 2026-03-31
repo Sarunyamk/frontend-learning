@@ -1,213 +1,3 @@
-// ===== Token Data =====
-
-export type TokenItem = {
-  name: string;
-  cssVar: string;
-  tailwindClass: string;
-  description: string;
-};
-
-export type TokenGroup = {
-  title: string;
-  description: string;
-  tokens: readonly TokenItem[];
-};
-
-export const TOKEN_GROUPS: readonly TokenGroup[] = [
-  {
-    title: 'Base',
-    description: 'Background และ foreground หลักของ app',
-    tokens: [
-      {
-        name: 'Background',
-        cssVar: '--background',
-        tailwindClass: 'bg-background',
-        description: 'พื้นหลังหลักของ app',
-      },
-      {
-        name: 'Foreground',
-        cssVar: '--foreground',
-        tailwindClass: 'text-foreground',
-        description: 'สีตัวอักษรหลัก',
-      },
-    ],
-  },
-  {
-    title: 'Brand',
-    description: 'สีแบรนด์ที่กำหนดเอง',
-    tokens: [
-      {
-        name: 'Brand 100',
-        cssVar: '--brand-100',
-        tailwindClass: 'bg-brand-100',
-        description: 'สีแบรนด์หลัก (custom token)',
-      },
-    ],
-  },
-  {
-    title: 'Primary & Secondary',
-    description: 'สีหลักสำหรับ CTA, ปุ่ม, link',
-    tokens: [
-      {
-        name: 'Primary',
-        cssVar: '--primary',
-        tailwindClass: 'bg-primary',
-        description: 'สีหลักของปุ่ม, link, CTA',
-      },
-      {
-        name: 'Primary Foreground',
-        cssVar: '--primary-foreground',
-        tailwindClass: 'text-primary-foreground',
-        description: 'สีตัวอักษรบน primary',
-      },
-      {
-        name: 'Secondary',
-        cssVar: '--secondary',
-        tailwindClass: 'bg-secondary',
-        description: 'สีรอง',
-      },
-      {
-        name: 'Secondary Foreground',
-        cssVar: '--secondary-foreground',
-        tailwindClass: 'text-secondary-foreground',
-        description: 'สีตัวอักษรบน secondary',
-      },
-    ],
-  },
-  {
-    title: 'Muted & Accent',
-    description: 'สีสำหรับ subtle UI elements',
-    tokens: [
-      {
-        name: 'Muted',
-        cssVar: '--muted',
-        tailwindClass: 'bg-muted',
-        description: 'พื้นหลัง subtle (disabled, placeholder)',
-      },
-      {
-        name: 'Muted Foreground',
-        cssVar: '--muted-foreground',
-        tailwindClass: 'text-muted-foreground',
-        description: 'ตัวอักษร subtle',
-      },
-      {
-        name: 'Accent',
-        cssVar: '--accent',
-        tailwindClass: 'bg-accent',
-        description: 'สี hover, active state',
-      },
-      {
-        name: 'Accent Foreground',
-        cssVar: '--accent-foreground',
-        tailwindClass: 'text-accent-foreground',
-        description: 'ตัวอักษรบน accent',
-      },
-    ],
-  },
-  {
-    title: 'Card & Popover',
-    description: 'สีสำหรับ elevated surfaces',
-    tokens: [
-      {
-        name: 'Card',
-        cssVar: '--card',
-        tailwindClass: 'bg-card',
-        description: 'พื้นหลัง card',
-      },
-      {
-        name: 'Card Foreground',
-        cssVar: '--card-foreground',
-        tailwindClass: 'text-card-foreground',
-        description: 'ตัวอักษรใน card',
-      },
-      {
-        name: 'Popover',
-        cssVar: '--popover',
-        tailwindClass: 'bg-popover',
-        description: 'พื้นหลัง dropdown, tooltip',
-      },
-      {
-        name: 'Popover Foreground',
-        cssVar: '--popover-foreground',
-        tailwindClass: 'text-popover-foreground',
-        description: 'ตัวอักษรใน popover',
-      },
-    ],
-  },
-  {
-    title: 'Border & Input',
-    description: 'สีเส้นขอบ, input, ring focus',
-    tokens: [
-      {
-        name: 'Border',
-        cssVar: '--border',
-        tailwindClass: 'border-border',
-        description: 'สีเส้นขอบทั่วไป',
-      },
-      {
-        name: 'Input',
-        cssVar: '--input',
-        tailwindClass: 'border-input',
-        description: 'สีเส้นขอบ input field',
-      },
-      {
-        name: 'Ring',
-        cssVar: '--ring',
-        tailwindClass: 'ring-ring',
-        description: 'สี focus ring',
-      },
-    ],
-  },
-  {
-    title: 'Destructive',
-    description: 'สีสำหรับ error, delete, warning',
-    tokens: [
-      {
-        name: 'Destructive',
-        cssVar: '--destructive',
-        tailwindClass: 'bg-destructive',
-        description: 'สี error, delete action',
-      },
-    ],
-  },
-  {
-    title: 'Chart',
-    description: 'สีสำหรับ charts, data visualization',
-    tokens: [
-      {
-        name: 'Chart 1',
-        cssVar: '--chart-1',
-        tailwindClass: 'bg-chart-1',
-        description: 'สี chart series 1',
-      },
-      {
-        name: 'Chart 2',
-        cssVar: '--chart-2',
-        tailwindClass: 'bg-chart-2',
-        description: 'สี chart series 2',
-      },
-      {
-        name: 'Chart 3',
-        cssVar: '--chart-3',
-        tailwindClass: 'bg-chart-3',
-        description: 'สี chart series 3',
-      },
-      {
-        name: 'Chart 4',
-        cssVar: '--chart-4',
-        tailwindClass: 'bg-chart-4',
-        description: 'สี chart series 4',
-      },
-      {
-        name: 'Chart 5',
-        cssVar: '--chart-5',
-        tailwindClass: 'bg-chart-5',
-        description: 'สี chart series 5',
-      },
-    ],
-  },
-] as const;
-
 // ===== Color Format Comparison =====
 
 export type ColorFormatExample = {
@@ -244,46 +34,112 @@ export const COLOR_FORMAT_EXAMPLES: readonly ColorFormatExample[] = [
   },
 ] as const;
 
-// ===== Gradient Examples =====
+// ===== Gradient Examples (@utility pattern) =====
 
 export type GradientExample = {
   name: string;
-  className: string;
-  code: string;
+  description: string;
+  cssVar: string;
+  utilityCode: string;
+  usageClass: string;
 };
 
 export const GRADIENT_EXAMPLES: readonly GradientExample[] = [
   {
-    name: 'Linear (ซ้าย → ขวา)',
-    className: 'bg-gradient-to-r from-primary to-accent',
-    code: 'bg-gradient-to-r from-primary to-accent',
-  },
-  {
     name: 'Linear (บน → ล่าง)',
-    className: 'bg-gradient-to-b from-blue-500 to-purple-600',
-    code: 'bg-gradient-to-b from-blue-500 to-purple-600',
+    description: 'ไล่สีจากบนลงล่าง — ใช้กับ hero, card background',
+    cssVar: '--brandGD-100: linear-gradient(180deg, var(--brand-50, #e8f5e9), var(--brand-100));',
+    utilityCode: `@utility bg-brandGD-100 {
+  background: var(--brandGD-100);
+}`,
+    usageClass: 'bg-brandGD-100',
   },
   {
-    name: '3 สี (via)',
-    className: 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600',
-    code: 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600',
+    name: 'Linear (ซ้าย → ขวา)',
+    description: 'ไล่สีจากซ้ายไปขวา — ใช้กับ banner, divider',
+    cssVar: '--brandGD-200: linear-gradient(90deg, var(--primary), var(--accent));',
+    utilityCode: `@utility bg-brandGD-200 {
+  background: var(--brandGD-200);
+}`,
+    usageClass: 'bg-brandGD-200',
+  },
+  {
+    name: 'Diagonal',
+    description: 'ไล่สีแนวทแยง — ใช้กับ feature card, badge',
+    cssVar: '--brandGD-300: linear-gradient(135deg, var(--primary), var(--secondary));',
+    utilityCode: `@utility bg-brandGD-300 {
+  background: var(--brandGD-300);
+}`,
+    usageClass: 'bg-brandGD-300',
+  },
+  {
+    name: '3 สี (multi-stop)',
+    description: 'ไล่ 3 สี — ใช้กับ header gradient, progress bar',
+    cssVar: '--brandGD-400: linear-gradient(90deg, var(--chart-1), var(--chart-3), var(--chart-5));',
+    utilityCode: `@utility bg-brandGD-400 {
+  background: var(--brandGD-400);
+}`,
+    usageClass: 'bg-brandGD-400',
   },
   {
     name: 'Radial',
-    className: 'bg-[radial-gradient(circle,_theme(colors.primary)_0%,_transparent_70%)]',
-    code: 'bg-[radial-gradient(circle,_theme(colors.primary)_0%,_transparent_70%)]',
-  },
-  {
-    name: 'Conic',
-    className: 'bg-[conic-gradient(from_0deg,_theme(colors.primary),_theme(colors.accent),_theme(colors.primary))]',
-    code: 'bg-[conic-gradient(from_0deg,_theme(colors.primary),_theme(colors.accent),_theme(colors.primary))]',
+    description: 'ไล่สีจากจุดศูนย์กลาง — ใช้กับ spotlight, glow effect',
+    cssVar: '--brandGD-500: radial-gradient(circle, var(--primary), transparent 70%);',
+    utilityCode: `@utility bg-brandGD-500 {
+  background: var(--brandGD-500);
+}`,
+    usageClass: 'bg-brandGD-500',
   },
   {
     name: 'Glass effect',
-    className: 'bg-background/50 backdrop-blur-md border border-border/50',
-    code: 'bg-background/50 backdrop-blur-md border border-border/50',
+    description: 'พื้นหลังโปร่งแสง + blur — ใช้กับ navbar, modal overlay',
+    cssVar: '/* ไม่ต้องใช้ CSS variable */',
+    utilityCode: `@utility bg-glass {
+  background: oklch(from var(--background) l c h / 50%);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(from var(--border) l c h / 50%);
+}`,
+    usageClass: 'bg-glass',
   },
 ] as const;
+
+// ===== @utility Setup Step =====
+
+export const UTILITY_SETUP_STEP = {
+  step: 4,
+  title: 'สร้าง Custom Utility ด้วย @utility',
+  description: 'Tailwind v4 ใช้ @utility สำหรับสร้าง class ใหม่ที่ทำงานเหมือน built-in — ใช้กับ gradient, component base, complex styles',
+  code: `/* globals.css */
+
+/* Step 1: กำหนด gradient ใน :root / .dark */
+:root {
+  --brandGD-200: linear-gradient(180deg, var(--brand-50, #e8f5e9), var(--brand-100));
+}
+.dark {
+  --brandGD-200: linear-gradient(180deg, var(--brand-50, #1a3a1a), var(--brand-100));
+}
+
+/* Step 2: สร้าง @utility — ใช้เป็น class ได้เลย */
+@utility bg-brandGD-200 {
+  background: var(--brandGD-200);
+}
+
+/* ตัวอย่างอื่น */
+@utility text-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility bg-glass {
+  background: oklch(from var(--background) l c h / 50%);
+  backdrop-filter: blur(12px);
+}`,
+  usage: `{/* ใช้ใน JSX เหมือน class ปกติ */}
+<div className="bg-brandGD-200">Gradient Card</div>
+<h1 className="text-gradient">Gradient Text</h1>
+<nav className="bg-glass">Glass Navbar</nav>`,
+} as const;
 
 // ===== Setup Steps (for tutorial) =====
 
