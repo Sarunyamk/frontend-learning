@@ -74,6 +74,12 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         label: 'Google OAuth',
         path: ROUTES.NEXT_AUTH_GOOGLE,
       },
+      {
+        key: 'protected',
+        label: 'Protected & RBAC',
+        path: ROUTES.NEXT_AUTH_PROTECTED,
+      },
+      { key: 'session', label: 'Session Info', path: ROUTES.NEXT_AUTH_SESSION },
     ],
   },
   {
