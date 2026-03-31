@@ -6,6 +6,7 @@ import { z } from 'zod';
  */
 const clientSchema = z.object({
   NEXT_PUBLIC_BASE_URL: z.url().min(1, 'NEXT_PUBLIC_BASE_URL is required'),
+  NEXT_PUBLIC_SOCKET_URL: z.url().min(1, 'NEXT_PUBLIC_SOCKET_URL is required'),
   // NEXT_PUBLIC_GA_ID: z.string().optional().default(''),
   // NEXT_PUBLIC_BUILD_TIME: z.string().optional().default(''),
 });
