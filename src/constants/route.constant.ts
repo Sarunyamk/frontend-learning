@@ -38,6 +38,7 @@ export const ROUTES = {
   FORMS_MULTI_STEP: '/features/forms/multi-step',
   FORMS_DYNAMIC: '/features/forms/dynamic',
   FORMS_UPLOAD: '/features/forms/upload',
+  FORMS_READY_TO_USE: '/features/forms/ready-to-use',
 } as const;
 
 export const READY_FORM_PATHS = [
@@ -45,6 +46,7 @@ export const READY_FORM_PATHS = [
   ROUTES.FORMS_MULTI_STEP,
   ROUTES.FORMS_DYNAMIC,
   ROUTES.FORMS_UPLOAD,
+  ROUTES.FORMS_READY_TO_USE,
 ] as const;
 
 export const READY_TAILWIND_PATHS = [

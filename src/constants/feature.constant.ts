@@ -111,6 +111,7 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
       { key: 'multi-step', label: 'Multi-step Form', path: ROUTES.FORMS_MULTI_STEP },
       { key: 'dynamic', label: 'Dynamic Fields', path: ROUTES.FORMS_DYNAMIC },
       { key: 'upload', label: 'File Upload', path: ROUTES.FORMS_UPLOAD },
+      { key: 'ready-to-use', label: 'Ready to Use', path: ROUTES.FORMS_READY_TO_USE },
     ],
   },
 ] as const;
