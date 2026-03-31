@@ -1,6 +1,5 @@
 'use client';
 
-import { loginAction } from '@/app/features/next-auth/login/actions';
 import { FormTextField } from '@/components/forms/form-text-field';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -13,6 +12,7 @@ import {
 } from '@/components/ui/card';
 import { Form } from '@/components/ui/form';
 import { MOCK_USERS } from '@/constants/next-auth.constant';
+import { loginAction } from '@/lib/actions/login/actions';
 import { loginSchema, type LoginInput } from '@/lib/schemas/login.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AlertCircle } from 'lucide-react';

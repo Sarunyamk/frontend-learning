@@ -190,6 +190,71 @@ export function UserInfo() {
   return <p>{session.user.name}</p>;
 }`,
   },
+  {
+    title: '8. Login Server Action',
+    description: 'Server Action สำหรับ login — ใช้ signIn() + redirect() ฝั่ง server ทั้งหมด',
+    language: 'typescript',
+    code: `// lib/actions/login/actions.ts
+'use server';
+
+import { ROUTES } from '@/constants/route.constant';
+import { signIn } from '@/lib/auth/auth';
+import type { LoginInput } from '@/lib/schemas/login.schema';
+import { AuthError } from 'next-auth';
+import { redirect } from 'next/navigation';
+
+export async function loginAction(data: LoginInput) {
+  try {
+    await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      redirect: false, // ให้ Server Action จัดการ redirect เอง
+    });
+  } catch (error) {
+    if (error instanceof AuthError) {
+      return { success: false, error: 'Invalid email or password' };
+    }
+    throw error;
+  }
+  redirect(ROUTES.NEXT_AUTH);
+  // ✅ redirect() ฝั่ง server → layout re-render → await auth() ได้ session ใหม่
+  // ✅ ถ้า component รับ session เป็น prop จาก layout → UI update ทันที
+}`,
+  },
+  {
+    title: '9. ⚠️ Server/Client Session Sync',
+    description: 'คำเตือนสำคัญ — signIn/signOut ทำงานฝั่ง Server แต่ useSession (Client) ไม่รู้ทันที',
+    language: 'typescript',
+    code: `// ❌ ปัญหา: useSession ไม่ update หลัง login/logout
+// signIn/signOut เปลี่ยน session cookie ฝั่ง Server
+// แต่ SessionProvider ฝั่ง Client ยังถือ session เก่าอยู่
+// → ถ้า component ใช้ useSession() อย่างเดียว → UI ไม่เปลี่ยนจนกว่าจะ refresh
+
+// ✅ แนะนำ: ส่ง session จาก Server เป็น prop
+// Layout (Server) → await auth() → ส่ง prop ให้ Client Component
+// redirect() ใน Server Action → layout re-render → auth() ได้ session ใหม่ → prop update
+export default async function Layout({ children }) {
+  const session = await auth();
+  return (
+    <SessionProvider session={session}>
+      {children}
+      <AuthHeader session={session} /> {/* ✅ session จาก server เสมอ */}
+    </SessionProvider>
+  );
+}
+
+// Client Component รับ session เป็น prop — ไม่ต้องพึ่ง useSession
+function AuthHeader({ session }: { session: Session | null }) {
+  const user = session?.user;
+  // ✅ redirect() ใน Server Action → layout re-render → prop ใหม่อัตโนมัติ
+  return user ? <LogoutButton /> : <LoginButton />;
+}
+
+// ❌ ห้ามทำ
+// - ใช้ useSession() เป็นตัวตัดสินใจ UI หลังเปลี่ยนสถานะ login/logout
+//   → Server รู้ แต่ Client ไม่รู้ ต้อง refresh เอง
+// - เก็บ session ใน state เอง (ใช้ auth() หรือ prop จาก server เท่านั้น)`,
+  },
 ] as const;
 
 // --- Google OAuth Page ---
