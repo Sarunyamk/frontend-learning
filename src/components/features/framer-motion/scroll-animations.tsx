@@ -1,22 +1,13 @@
 'use client';
 
 import { SCROLL_EXAMPLES } from '@/constants/framer-motion.constant';
+import { ColumnFade } from '@/components/framer-motion/fade';
 import {
-  fadeUp,
-  slideLeft,
-  slideRight,
-  staggerContainer,
-  staggerItem,
-} from '@/lib/framer-motion/framer-motion';
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/framer-motion/stagger';
+import { slideLeft, slideRight } from '@/lib/framer-motion/framer-motion';
 import { CodeBlock } from '@/components/tailwind/code-block';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { motion } from 'framer-motion';
 
 const STAGGER_CARDS = [
   { id: 1, title: 'Card 1', color: 'bg-primary' },
@@ -40,38 +31,23 @@ export function ScrollAnimations() {
         </p>
 
         <div className="flex flex-col items-center gap-6">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="w-full max-w-md rounded-lg bg-primary p-6 text-center text-primary-foreground"
-          >
+          <ColumnFade className="w-full max-w-md rounded-lg bg-primary p-6 text-center text-primary-foreground">
             Fade Up on Scroll
-          </motion.div>
+          </ColumnFade>
 
           <div className="flex w-full gap-4">
-            <motion.div
-              variants={slideRight}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+            <ColumnFade
+              variant={slideRight}
               className="flex-1 rounded-lg bg-primary p-6 text-center text-primary-foreground"
             >
               Slide from Left
-            </motion.div>
-            <motion.div
-              variants={slideLeft}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+            </ColumnFade>
+            <ColumnFade
+              variant={slideLeft}
               className="flex-1 rounded-lg bg-primary p-6 text-center text-primary-foreground"
             >
               Slide from Right
-            </motion.div>
+            </ColumnFade>
           </div>
         </div>
 
@@ -88,24 +64,21 @@ export function ScrollAnimations() {
         </p>
 
         <div className="flex flex-col gap-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
+          <ColumnFade
+            amount={0.5}
+            duration={0.5}
             className="rounded-lg bg-primary p-6 text-center text-primary-foreground"
           >
             amount: 0.5 — ต้องเห็น 50% ถึง trigger
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+          </ColumnFade>
+          <ColumnFade
+            once={false}
+            amount={0.3}
+            duration={0.5}
             className="rounded-lg bg-muted p-6 text-center text-foreground"
           >
             once: false — animate ทุกครั้งที่เข้า viewport (ลอง scroll ขึ้น-ลง)
-          </motion.div>
+          </ColumnFade>
         </div>
 
         <CodeBlock code={SCROLL_EXAMPLES[1].code} language="tsx" />
@@ -121,23 +94,16 @@ export function ScrollAnimations() {
           staggerItem
         </p>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-2 gap-4 md:grid-cols-3"
-        >
+        <StaggerContainer className="grid grid-cols-2 gap-4 md:grid-cols-3">
           {STAGGER_CARDS.map((card) => (
-            <motion.div
+            <StaggerItem
               key={card.id}
-              variants={staggerItem}
               className={`${card.color} rounded-lg p-6 text-center text-sm font-medium text-primary-foreground`}
             >
               {card.title}
-            </motion.div>
+            </StaggerItem>
           ))}
-        </motion.div>
+        </StaggerContainer>
 
         <CodeBlock code={SCROLL_EXAMPLES[2].code} language="tsx" />
       </section>

@@ -29,6 +29,8 @@ export const ROUTES = {
   // Framer Motion
   FRAMER_MOTION: '/features/framer-motion',
   FRAMER_MOTION_EXAMPLES: '/features/framer-motion/examples',
+  FRAMER_MOTION_SCROLL: '/features/framer-motion/scroll',
+  FRAMER_MOTION_TRANSITIONS: '/features/framer-motion/transitions',
 
   // Forms
   FORMS: '/features/forms',

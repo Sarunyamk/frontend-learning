@@ -88,6 +88,16 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         label: 'Animation Examples',
         path: ROUTES.FRAMER_MOTION_EXAMPLES,
       },
+      {
+        key: 'scroll',
+        label: 'Scroll Animations',
+        path: ROUTES.FRAMER_MOTION_SCROLL,
+      },
+      {
+        key: 'transitions',
+        label: 'Page Transitions',
+        path: ROUTES.FRAMER_MOTION_TRANSITIONS,
+      },
     ],
   },
   {

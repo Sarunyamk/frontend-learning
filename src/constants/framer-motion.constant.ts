@@ -1,3 +1,161 @@
+// ===== Ready-to-Use Code =====
+
+export type ReadyToUseCode = {
+  name: string;
+  description: string;
+  filePath: string;
+  code: string;
+};
+
+export const READY_TO_USE_CODES: readonly ReadyToUseCode[] = [
+  {
+    name: 'Variant Presets',
+    description: 'Animation variants ทั้งหมด — import ไปใช้ได้เลย',
+    filePath: 'src/lib/framer-motion/framer-motion.ts',
+    code: `import { Variants } from 'framer-motion';
+
+export const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0 },
+};
+
+export const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
+
+export const slideDown: Variants = {
+  hidden: { opacity: 0, y: -50 },
+  show: { opacity: 1, y: 0 },
+};
+
+export const slideLeft: Variants = {
+  hidden: { opacity: 0, x: 50 },
+  show: { opacity: 1, x: 0 },
+};
+
+export const slideRight: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  show: { opacity: 1, x: 0 },
+};
+
+export const dropdown: Variants = {
+  hidden: { opacity: 0, y: -12 },
+  show: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -12 },
+};
+
+export const slideInRight: Variants = {
+  hidden: { x: '100%' },
+  show: { x: 0 },
+  exit: { x: '100%' },
+};
+
+export const staggerContainer: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
+};
+
+export const staggerItem: Variants = {
+  hidden: { opacity: 0, x: 20 },
+  show: { opacity: 1, x: 0 },
+};`,
+  },
+  {
+    name: 'ColumnFade Component',
+    description: 'Scroll-triggered fade wrapper — รับ variant, delay, duration, once, amount',
+    filePath: 'src/components/framer-motion/fade.tsx',
+    code: `'use client';
+
+import { fadeUp } from '@/lib/framer-motion/framer-motion';
+import { motion, Variants } from 'framer-motion';
+
+type ColumnFadeProps = {
+  children: React.ReactNode;
+  variant?: Variants;
+  delay?: number;
+  duration?: number;
+  once?: boolean;
+  amount?: number;
+  className?: string;
+};
+
+export function ColumnFade({
+  children,
+  variant = fadeUp,
+  delay = 0,
+  duration = 0.6,
+  once = true,
+  amount = 0.1,
+  className,
+}: ColumnFadeProps) {
+  return (
+    <motion.div
+      variants={variant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once, amount }}
+      transition={{ delay, duration, ease: 'easeOut' }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}`,
+  },
+  {
+    name: 'Stagger Components',
+    description: 'Container + Item สำหรับ stagger animation — ใช้กับ list, grid',
+    filePath: 'src/components/framer-motion/stagger.tsx',
+    code: `'use client';
+
+import {
+  staggerContainer,
+  staggerItem,
+} from '@/lib/framer-motion/framer-motion';
+import { motion } from 'framer-motion';
+
+type StaggerContainerProps = {
+  children: React.ReactNode;
+  once?: boolean;
+  amount?: number;
+  className?: string;
+};
+
+export function StaggerContainer({
+  children,
+  once = true,
+  amount = 0.1,
+  className,
+}: StaggerContainerProps) {
+  return (
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once, amount }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+type StaggerItemProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+export function StaggerItem({ children, className }: StaggerItemProps) {
+  return (
+    <motion.div variants={staggerItem} className={className}>
+      {children}
+    </motion.div>
+  );
+}`,
+  },
+] as const;
+
 // ===== Animation Preset Examples =====
 
 export type AnimationPreset = {
