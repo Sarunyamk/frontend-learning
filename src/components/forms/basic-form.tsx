@@ -25,6 +25,7 @@ export function BasicForm() {
   const form = useForm<BasicFormInput>({
     resolver: zodResolver(basicFormSchema),
     defaultValues: { name: '', email: '', message: '' },
+    mode:'all'
   });
 
   function onSubmit() {
