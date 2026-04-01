@@ -32,15 +32,19 @@
 | `StaggerContainer` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation container — once, amount, className |
 | `StaggerItem` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation child item — className |
 | `StepTransition` | `src/components/framer-motion/step-transition.tsx` | Client | AnimatePresence + fadeSlide wrapper — stepKey, duration, className |
-| `CodeBlock` | `src/components/tailwind/code-block.tsx` | Client | Reusable code snippet + copy button. Props: code, language, className |
-| `CopyBadge` | `src/components/tailwind/copy-badge.tsx` | Client | Reusable copy-to-clipboard badge. Props: text |
+| `CodeBlockShiki` | `src/components/tailwind/code-block-shiki.tsx` | Server (async) | Shiki syntax highlighted code block. Props: code, language, className — ใช้แทน CodeBlock ลบออกไปแล้ว ใน Server components |
+| `CopyButton` | `src/components/tailwind/copy-button.tsx` | Client | Copy-to-clipboard button (extracted from CodeBlock) — ใช้ใน CodeBlockShiki. Props: code |
 | `AuthDemoHeader` | `src/components/features/next-auth/auth-demo-header.tsx` | Client | Auth demo header bar — session prop จาก server, login/logout button, role badge |
 | `LoginForm` | `src/components/features/next-auth/login-form.tsx` | Client | Login form — react-hook-form + zod, demo credentials buttons, error display |
 | `AuthSetupContent` | `src/components/features/next-auth/auth-setup-content.tsx` | Server | Auth setup tutorial — step-by-step code walkthrough |
 | `GoogleOAuthContent` | `src/components/features/next-auth/google-oauth-content.tsx` | Server | Google OAuth tutorial — step-by-step guide + demo button |
 | `GoogleOAuthDemo` | `src/components/features/next-auth/google-oauth-demo.tsx` | Client | Google Sign-in demo button — demo mode alert เมื่อยังไม่มี credentials |
-| `ProtectedContent` | `src/components/features/next-auth/protected-content.tsx` | Client | Protected & RBAC demo — user info, super admin gate, code examples |
-| `SessionContent` | `src/components/features/next-auth/session-content.tsx` | Client | Session info demo — server vs client session comparison |
+| `ProtectedContent` | `src/components/features/next-auth/protected-content.tsx` | Server | Protected & RBAC demo — user info, super admin gate, code examples (CodeBlockShiki) |
+| `SessionContent` | `src/components/features/next-auth/session-content.tsx` | Server | Server session card + code examples (CodeBlockShiki) |
+| `ClientSessionCard` | `src/components/features/next-auth/client-session-card.tsx` | Client | Client session card — useSession() demo |
+| `AnimationReadyToUse` | `src/components/features/framer-motion/animation-ready-to-use.tsx` | Server | Ready-to-use code section (Variant Presets, ColumnFade, Stagger) — CodeBlockShiki |
+| `TransitionReadyToUse` | `src/components/features/framer-motion/transition-ready-to-use.tsx` | Server | Ready-to-use + Used in Project + Code Examples — CodeBlockShiki |
+| `PresetCard` | `src/components/features/framer-motion/preset-card.tsx` | Client | Animation preset live demo — รับ codeSlot (Server JSX) จาก parent |
 
 ---
 
@@ -58,6 +62,7 @@
 |----------|------|-------------|
 | `cn()` | `src/lib/utils.ts` | clsx + tailwind-merge สำหรับ conditional className |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
+| `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
 
 ---
 
