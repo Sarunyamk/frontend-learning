@@ -89,7 +89,9 @@ export const READY_SOCKET_PATHS = [
   ROUTES.SOCKET_QUIZ,
 ] as const;
 
-export const READY_CUSTOM_PATTERNS_PATHS: readonly string[] = [] as const;
+export const READY_CUSTOM_PATTERNS_PATHS = [
+  ROUTES.CUSTOM_PATTERNS_BUTTON,
+] as const;
 
 export const READY_NEXT_AUTH_PATHS = [
   ROUTES.NEXT_AUTH_SETUP,
