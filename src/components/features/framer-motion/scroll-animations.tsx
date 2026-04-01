@@ -1,5 +1,3 @@
-'use client';
-
 import { SCROLL_EXAMPLES } from '@/constants/framer-motion.constant';
 import { ColumnFade } from '@/components/framer-motion/fade';
 import {
@@ -7,7 +5,7 @@ import {
   StaggerItem,
 } from '@/components/framer-motion/stagger';
 import { slideLeft, slideRight } from '@/lib/framer-motion/framer-motion';
-import { CodeBlock } from '@/components/tailwind/code-block';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 
 const STAGGER_CARDS = [
   { id: 1, title: 'Card 1', color: 'bg-primary' },
@@ -51,7 +49,7 @@ export function ScrollAnimations() {
           </div>
         </div>
 
-        <CodeBlock code={SCROLL_EXAMPLES[0].code} language="tsx" />
+        <CodeBlockShiki code={SCROLL_EXAMPLES[0].code} language="tsx" />
       </section>
 
       {/* Section 2: viewport options */}
@@ -81,7 +79,7 @@ export function ScrollAnimations() {
           </ColumnFade>
         </div>
 
-        <CodeBlock code={SCROLL_EXAMPLES[1].code} language="tsx" />
+        <CodeBlockShiki code={SCROLL_EXAMPLES[1].code} language="tsx" />
       </section>
 
       {/* Section 3: Stagger on scroll */}
@@ -105,7 +103,7 @@ export function ScrollAnimations() {
           ))}
         </StaggerContainer>
 
-        <CodeBlock code={SCROLL_EXAMPLES[2].code} language="tsx" />
+        <CodeBlockShiki code={SCROLL_EXAMPLES[2].code} language="tsx" />
       </section>
     </div>
   );

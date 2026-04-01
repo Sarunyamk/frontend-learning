@@ -1,6 +1,4 @@
-'use client';
-
-import { CodeBlock } from '@/components/tailwind/code-block';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { Badge } from '@/components/ui/badge';
 import {
   Card,
@@ -124,7 +122,7 @@ export function ProtectedContent({ user }: ProtectedContentProps) {
               <CardDescription>{section.description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <CodeBlock code={section.code} language={section.language} />
+              <CodeBlockShiki code={section.code} language={section.language} />
             </CardContent>
           </Card>
         ))}

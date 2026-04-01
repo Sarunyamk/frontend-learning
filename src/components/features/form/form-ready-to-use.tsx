@@ -1,7 +1,5 @@
-'use client';
-
 import { FORM_READY_TO_USE_CODES } from '@/constants/form-ready-to-use.constant';
-import { CodeBlock } from '@/components/tailwind/code-block';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import {
   Card,
   CardContent,
@@ -44,13 +42,13 @@ export function FormReadyToUse() {
                   <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                     Component
                   </p>
-                  <CodeBlock code={item.code} language="typescript" />
+                  <CodeBlockShiki code={item.code} language="typescript" />
                 </div>
                 <div>
                   <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                     Usage
                   </p>
-                  <CodeBlock code={item.usageCode} language="tsx" />
+                  <CodeBlockShiki code={item.usageCode} language="tsx" />
                 </div>
               </CardContent>
             </CollapsibleContent>
