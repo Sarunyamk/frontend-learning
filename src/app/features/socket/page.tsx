@@ -3,6 +3,8 @@ import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
 import { FeatureSubItems } from '@/components/features/feature-sub-items';
+import { READY_SOCKET_PATHS } from '@/constants/route.constant';
+import { SocketTutorial } from '@/components/features/socket/socket-tutorial';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.SOCKET);
@@ -15,7 +17,7 @@ export default async function SocketPage() {
   if (!category) notFound();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <FeatureBreadcrumb category={category} />
       <div>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -23,7 +25,12 @@ export default async function SocketPage() {
         </h1>
         <p className="mt-2 text-muted-foreground">{category.description}</p>
       </div>
-      <FeatureSubItems items={category.items} />
+
+      {/* Demo pages */}
+      <FeatureSubItems items={category.items} readyPaths={READY_SOCKET_PATHS} />
+
+      {/* Tutorial section */}
+      <SocketTutorial />
     </div>
   );
 }

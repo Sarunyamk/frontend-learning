@@ -15,6 +15,7 @@ export const ROUTES = {
   SOCKET: '/features/socket',
   SOCKET_CHAT: '/features/socket/chat',
   SOCKET_STOCK: '/features/socket/stock',
+  SOCKET_QUIZ: '/features/socket/quiz',
 
   // Tailwind
   TAILWIND: '/features/tailwind',
@@ -61,6 +62,12 @@ export const READY_FRAMER_MOTION_PATHS = [
   ROUTES.FRAMER_MOTION_EXAMPLES,
   ROUTES.FRAMER_MOTION_SCROLL,
   ROUTES.FRAMER_MOTION_TRANSITIONS,
+] as const;
+
+export const READY_SOCKET_PATHS = [
+  ROUTES.SOCKET_CHAT,
+  ROUTES.SOCKET_STOCK,
+  ROUTES.SOCKET_QUIZ,
 ] as const;
 
 export const READY_NEXT_AUTH_PATHS = [
