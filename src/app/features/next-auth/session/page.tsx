@@ -3,6 +3,7 @@ import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { auth } from '@/lib/auth/auth';
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { ClientSessionCard } from '@/components/features/next-auth/client-session-card';
 import { SessionContent } from '@/components/features/next-auth/session-content';
 
 export async function generateMetadata() {
@@ -30,7 +31,8 @@ export default async function SessionPage() {
           — ลอง login/logout ดูผลลัพธ์
         </p>
       </div>
-      <SessionContent serverSession={session} />
+      <SessionContent session={session} />
+      <ClientSessionCard />
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { CodeBlock } from '@/components/tailwind/code-block';
-import { CopyBadge } from '@/components/tailwind/copy-badge';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
+import { CopyButton } from '@/components/tailwind/copy-button';
 import {
   Card,
   CardContent,
@@ -38,7 +38,7 @@ function SetupStepsSection() {
             <CardDescription>{step.description}</CardDescription>
           </CardHeader>
           <CardContent>
-            <CodeBlock code={step.code} language="css" />
+            <CodeBlockShiki code={step.code} language="css" />
           </CardContent>
         </Card>
       ))}
@@ -74,13 +74,13 @@ function UtilitySection() {
             <p className="mb-2 text-sm font-medium text-foreground">
               กำหนดใน globals.css:
             </p>
-            <CodeBlock code={UTILITY_SETUP_STEP.code} language="css" />
+            <CodeBlockShiki code={UTILITY_SETUP_STEP.code} language="css" />
           </div>
           <div>
             <p className="mb-2 text-sm font-medium text-foreground">
               ใช้ใน Component:
             </p>
-            <CodeBlock code={UTILITY_SETUP_STEP.usage} language="tsx" />
+            <CodeBlockShiki code={UTILITY_SETUP_STEP.usage} language="tsx" />
           </div>
         </CardContent>
       </Card>
@@ -106,7 +106,7 @@ function UtilitySection() {
                   <p className="mb-1 text-xs font-medium text-muted-foreground">
                     1. กำหนด CSS Variable:
                   </p>
-                  <CodeBlock code={gradient.cssVar} language="css" />
+                  <CodeBlockShiki code={gradient.cssVar} language="css" />
                 </div>
 
                 {/* @utility */}
@@ -114,13 +114,13 @@ function UtilitySection() {
                   <p className="mb-1 text-xs font-medium text-muted-foreground">
                     2. สร้าง @utility:
                   </p>
-                  <CodeBlock code={gradient.utilityCode} language="css" />
+                  <CodeBlockShiki code={gradient.utilityCode} language="css" />
                 </div>
 
                 {/* Usage class */}
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-muted-foreground">ใช้:</span>
-                  <CopyBadge text={gradient.usageClass} />
+                  <CopyButton code={gradient.usageClass} />
                 </div>
               </CardContent>
             </Card>
@@ -154,14 +154,12 @@ function ColorFormatSection() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <CodeBlock code={item.value} />
+              <CodeBlockShiki code={item.value} />
               <div className="space-y-1 text-xs">
                 <p className="text-green-600 dark:text-green-400">
                   + {item.pros}
                 </p>
-                <p className="text-red-500 dark:text-red-400">
-                  - {item.cons}
-                </p>
+                <p className="text-red-500 dark:text-red-400">- {item.cons}</p>
               </div>
             </CardContent>
           </Card>

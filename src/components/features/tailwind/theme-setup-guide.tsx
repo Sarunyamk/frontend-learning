@@ -1,4 +1,4 @@
-import { CodeBlock } from '@/components/tailwind/code-block';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import {
   Card,
   CardContent,
@@ -31,7 +31,7 @@ function SetupStepsSection() {
             <CardDescription>{step.description}</CardDescription>
           </CardHeader>
           <CardContent>
-            <CodeBlock
+            <CodeBlockShiki
               code={step.code}
               language={step.step === 1 ? 'bash' : 'tsx'}
             />
@@ -63,7 +63,7 @@ function HowItWorksSection() {
             <CardTitle className="text-sm">Light Mode (:root)</CardTitle>
           </CardHeader>
           <CardContent>
-            <CodeBlock
+            <CodeBlockShiki
               code={`:root {
   --background: oklch(1 0 0);        /* ขาว */
   --foreground: oklch(0.145 0 0);    /* ดำ */
@@ -81,7 +81,7 @@ function HowItWorksSection() {
             <CardTitle className="text-sm">Dark Mode (.dark)</CardTitle>
           </CardHeader>
           <CardContent>
-            <CodeBlock
+            <CodeBlockShiki
               code={`.dark {
   --background: oklch(0.145 0 0);    /* ดำ */
   --foreground: oklch(0.985 0 0);    /* ขาว */
@@ -97,7 +97,7 @@ function HowItWorksSection() {
 
       <Card className="border-primary/20">
         <CardContent className="pt-6">
-          <CodeBlock
+          <CodeBlockShiki
             code={`<!-- Light mode -->
 <html lang="en">  <!-- ไม่มี class dark -->
 

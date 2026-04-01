@@ -223,6 +223,24 @@
   - [x] Build + Lint pass
   - [x] Update .md files
 
+- [x] 6. Shiki Syntax Highlighting (replace CodeBlock)
+  - [x] Install `shiki` + `server-only`
+  - [x] `lib/shiki.ts` — server-only singleton, dual theme (github-light/dark), lazy langs
+  - [x] `components/tailwind/copy-button.tsx` — extracted copy logic (Client)
+  - [x] `components/tailwind/code-block-shiki.tsx` — async Server component, `dangerouslySetInnerHTML`
+  - [x] `globals.css` — Shiki dual-theme CSS (toggle `--shiki-light`/`--shiki-dark` via `.dark` class)
+  - [x] Migrated 8 Server component files → CodeBlockShiki
+    - token-showcase, theme-setup-guide, auth-setup-content, google-oauth-content, socket-tutorial
+    - protected-content (ลบ use client ที่ไม่จำเป็น), scroll-animations, form-ready-to-use
+  - [x] Refactored 3 files — แยก Server/Client boundary เพื่อใช้ CodeBlockShiki
+    - `animation-examples.tsx` → Server + `preset-card.tsx` (Client, codeSlot pattern)
+    - `page-transitions.tsx` → Client (Live Demos only) + `transition-ready-to-use.tsx` (Server)
+    - `session-content.tsx` → Server + `client-session-card.tsx` (Client, useSession only)
+  - [x] `animation-ready-to-use.tsx` — แยก Ready to Use section จาก animation-examples (Server)
+  - [x] CodeBlock ตัวเก่า (plain text) ไม่มีที่ใช้แล้ว — เก็บไว้เป็น fallback
+  - [x] Build + Lint pass
+  - [x] Update .md files
+
 **Parked (ทำทีหลัง)**
 
 - [x] Form Patterns (Basic, Multi-step, Dynamic, Upload) — done

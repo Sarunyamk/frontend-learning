@@ -1,5 +1,6 @@
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
 import { AnimationExamples } from '@/components/features/framer-motion/animation-examples';
+import { AnimationReadyToUse } from '@/components/features/framer-motion/animation-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -26,6 +27,7 @@ export default async function ExamplesPage() {
           พร้อมตัวอย่างโค้ดและ live demo
         </p>
       </div>
+      <AnimationReadyToUse />
       <AnimationExamples />
     </div>
   );
