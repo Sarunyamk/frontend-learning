@@ -45,6 +45,8 @@
 | `AnimationReadyToUse` | `src/components/features/framer-motion/animation-ready-to-use.tsx` | Server | Ready-to-use code section (Variant Presets, ColumnFade, Stagger) — CodeBlockShiki |
 | `TransitionReadyToUse` | `src/components/features/framer-motion/transition-ready-to-use.tsx` | Server | Ready-to-use + Used in Project + Code Examples — CodeBlockShiki |
 | `PresetCard` | `src/components/features/framer-motion/preset-card.tsx` | Client | Animation preset live demo — รับ codeSlot (Server JSX) จาก parent |
+| `CustomButton` | `src/components/shared/custom-button.tsx` | Server | Wrapper รอบ shadcn Button — รับ icon (LucideIcon), label, children, className, variant, size + ทุก button props. มี `gap-2` ในตัว |
+| `PatternCard` | `src/components/features/custom-patterns/button/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
 
 ---
 
@@ -108,6 +110,7 @@
 | `PROTECTED_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for proxy guard + RBAC examples |
 | `SESSION_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for server vs client session |
 | `UPLOAD_TIPS` | `src/constants/image-tips.constant.ts` | Next.js file upload config tips (body size, remote images, API route, cloud storage) |
+| `BUTTON_PATTERNS` | `src/constants/custom-patterns/button.constant.ts` | Button pattern data (key, title, description, code) — 15 patterns |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

@@ -18,7 +18,7 @@ export function PatternCard({ children, codeSlot }: PatternCardProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-lg border bg-card">
+    <div className="overflow-hidden rounded-lg border bg-card">
       <div className="flex items-center justify-center p-6">{children}</div>
       <Collapsible open={open} onOpenChange={setOpen}>
         <div className="border-t px-4 py-2">

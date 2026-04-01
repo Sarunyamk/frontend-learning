@@ -241,6 +241,146 @@
   - [x] Build + Lint pass
   - [x] Update .md files
 
+- [ ] 7. Custom Patterns (Reusable Component Showcase)
+  > Copy-paste ready component patterns — ทุก variant มี live demo + code (CodeBlockShiki)
+  > Three.js variants = coming soon (ข้ามไว้ก่อน)
+  > Sidebar จัดเป็น 5 groups: Pages / UI Components / Navigation / Data Display / Setup Guides
+
+  #### Phase 1 — Foundation + Quick wins (ไม่ต้องติดตั้ง lib เพิ่ม)
+
+  **Step 0: Setup**
+  - [x] `route.constant.ts` — เพิ่ม CUSTOM_PATTERNS routes ทั้งหมด (17 sub-pages)
+  - [x] `feature.constant.ts` — เพิ่ม CUSTOM_PATTERNS category + grouped sub-items
+  - [x] `app/features/custom-patterns/page.tsx` — Overview page (pattern grid + description)
+  - [x] Build + Lint pass
+
+  **Step 1: Button Patterns** (base: shadcn Button)
+  - [x] `constants/custom-patterns/button.constant.ts` — pattern data (15 patterns)
+  - [x] `components/features/custom-patterns/button/` — components (9 sections)
+  - [x] `components/shared/custom-button.tsx` — reusable `CustomButton` (wrapper รอบ shadcn Button, รับ icon/label/children)
+  - [x] `components/features/custom-patterns/button/pattern-card.tsx` — collapsible live demo + code card
+  - [x] Variants: 1. CustomButton (icon+label+children) 2. Gradient hover 3. Icon + text with hover animation 4. Loading button (spinner) 5. Shimmer effect (diagonal sweep) 6. Magnetic hover 7. Glow/neon button 8. Copy button 9. Social buttons
+  - [x] `app/features/custom-patterns/button/page.tsx` — Server page
+  - [x] Build + Lint pass
+
+  **Step 2: Loading Patterns** (base: CSS + Framer Motion)
+  - [ ] `constants/custom-patterns/loading.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/loading/` — components
+  - [ ] Variants: 1. Spinner ธรรมดา 2. Skeleton shimmer 3. Dots/pulse animation 4. Progress bar 5. Framer Motion fancy (orbit/wave) 6. Three.js 3D loader (coming soon)
+  - [ ] `app/features/custom-patterns/loading/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 3: Toast Patterns** (base: shadcn Sonner)
+  - [ ] `constants/custom-patterns/toast.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/toast/` — components
+  - [ ] Variants: 1. Basic toast (Sonner) 2. Toast variants (success/error/info) 3. Custom styled toast 4. Toast with action button 5. Promise toast (loading → success)
+  - [ ] `app/features/custom-patterns/toast/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 4: Nav Link Patterns** (base: Next.js Link + usePathname)
+  - [ ] `constants/custom-patterns/nav-link.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/nav-link/` — components
+  - [ ] Variants: 1. Basic Link 2. Link + icon 3. isActive with underline 4. isActive with bg highlight 5. Breadcrumb-style 6. Animated underline on hover
+  - [ ] `app/features/custom-patterns/nav-link/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 5: Env Setting** (base: Zod + server-only — โค้ดมีอยู่แล้ว)
+  - [ ] `constants/custom-patterns/env-setting.constant.ts` — tutorial data
+  - [ ] `components/features/custom-patterns/env-setting/` — components
+  - [ ] Variants: 1. Zod validation setup 2. Server env (server-only) 3. Client env (NEXT_PUBLIC) 4. .env file structure 5. Type-safe usage
+  - [ ] `app/features/custom-patterns/env-setting/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  #### Phase 2 — shadcn-heavy patterns
+
+  **Step 6: Modal Patterns** (base: shadcn Dialog + Sheet + AlertDialog)
+  - [ ] `constants/custom-patterns/modal.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/modal/` — components
+  - [ ] Variants: 1. Basic Dialog (confirm/alert) 2. Form Dialog 3. Full-screen Dialog 4. Sheet (side panel) 5. Alert Dialog (destructive) 6. Stacked/nested Dialog
+  - [ ] `app/features/custom-patterns/modal/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 7: Pagination Patterns** (base: shadcn Pagination + Select)
+  - [ ] `constants/custom-patterns/pagination.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/pagination/` — components
+  - [ ] Variants: 1. Basic pagination (shadcn) 2. With per-page selector 3. Cursor-based (load more) 4. Infinite scroll
+  - [ ] `app/features/custom-patterns/pagination/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 8: Calendar Patterns** (base: shadcn Calendar + date-fns)
+  - [ ] `constants/custom-patterns/calendar.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/calendar/` — components
+  - [ ] Variants: 1. Single date picker 2. Date range (เลือก start-end) 3. Two separate dates 4. Month/year picker 5. With time picker
+  - [ ] `app/features/custom-patterns/calendar/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 9: Table Action Patterns** (base: shadcn Table — manual)
+  - [ ] `constants/custom-patterns/table-action.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/table-action/` — components
+  - [ ] Variants: 1. Basic data table 2. Column search/filter 3. Row actions (edit/delete) 4. Sortable columns 5. Row selection + bulk actions 6. Expandable rows
+  - [ ] `app/features/custom-patterns/table-action/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 10: Error Patterns** (base: shadcn Card + Button)
+  - [ ] `constants/custom-patterns/error.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/error/` — components
+  - [ ] Variants: 1. Basic error card + retry 2. Error with illustration 3. Error with status code (401/403/500) 4. Animated error (Framer Motion)
+  - [ ] `app/features/custom-patterns/error/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 11: Not Found Patterns** (base: shadcn + Framer Motion)
+  - [ ] `constants/custom-patterns/not-found.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/not-found/` — components
+  - [ ] Variants: 1. Simple 404 card 2. 404 with search suggestion 3. Animated 404 (Framer Motion) 4. Three.js 3D scene (coming soon)
+  - [ ] `app/features/custom-patterns/not-found/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  #### Phase 3 — Layout patterns
+
+  **Step 12: Header Patterns** (base: shadcn NavigationMenu)
+  - [ ] `constants/custom-patterns/header.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/header/` — components
+  - [ ] Variants: 1. Simple header 2. Sticky + blur on scroll 3. Header with mega menu 4. Header with search bar 5. Transparent → solid on scroll 6. Centered logo + side nav
+  - [ ] `app/features/custom-patterns/header/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 13: Mobile Nav Patterns** (base: shadcn Sheet + Framer Motion)
+  - [ ] `constants/custom-patterns/mobile-nav.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/mobile-nav/` — components
+  - [ ] Variants: 1. Hamburger slide-in 2. Bottom tab bar 3. Drawer (shadcn Sheet) 4. Full-screen overlay 5. Floating action menu
+  - [ ] `app/features/custom-patterns/mobile-nav/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 14: Code Shiki** (document สิ่งที่มีอยู่แล้ว)
+  - [ ] `constants/custom-patterns/code-shiki.constant.ts` — tutorial data
+  - [ ] `components/features/custom-patterns/code-shiki/` — components
+  - [ ] Variants: 1. Shiki setup guide 2. Dual theme (light/dark) 3. CodeBlockShiki component 4. Copy button integration 5. Line highlighting
+  - [ ] `app/features/custom-patterns/code-shiki/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 15: Font Setting** (base: next/font — refactor โปรเจคก่อน แล้วค่อยทำ tutorial)
+  - [ ] Refactor: แยก font config ออกเป็นไฟล์แยก
+  - [ ] `constants/custom-patterns/font-setting.constant.ts` — tutorial data
+  - [ ] `components/features/custom-patterns/font-setting/` — components
+  - [ ] Variants: 1. next/font setup (separate file) 2. Google Fonts + local fonts 3. Font variable + Tailwind config 4. Multiple fonts (heading vs body)
+  - [ ] `app/features/custom-patterns/font-setting/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  #### Phase 4 — External libs
+
+  **Step 16: Swiper Patterns** (base: Swiper.js — ต้อง install)
+  - [ ] Install `swiper`
+  - [ ] `constants/custom-patterns/swiper.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/swiper/` — components
+  - [ ] Variants: 1. Basic carousel 2. Autoplay + pagination 3. Thumbnail gallery 4. Card carousel (peek sides) 5. Fade transition
+  - [ ] `app/features/custom-patterns/swiper/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 17: Update .md files + final review**
+  - [ ] Update share.md — document ทุก new component/constant
+  - [ ] Update progress.md — mark completed
+  - [ ] Build + Lint pass
+
 **Parked (ทำทีหลัง)**
 
 - [x] Form Patterns (Basic, Multi-step, Dynamic, Upload) — done
