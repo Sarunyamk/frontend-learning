@@ -38,12 +38,15 @@ RULE และ Structure ทั้งหมดเป็นไปตาม `claud
 - **Route**: `/features/payment`, `/features/payment/stripe`, `/features/payment/omise`
 
 ### 3. Socket.io Real-time
-- เรียนรู้ WebSocket กับ Next.js
-- **หน้าที่จะมี**: Chat room (real-time messaging), Stock ticker (real-time price updates)
-- **เรียนรู้**: socket.io-client setup, connection management, reconnection, event-based communication, optimistic UI
+- เรียนรู้ WebSocket กับ Next.js — 3 use cases
+- **หน้าที่จะมี**:
+  - Chat room (real-time messaging) — join/leave room, broadcast messages
+  - Stock ticker (real-time price updates) — subscribe/unsubscribe, mock price generator
+  - Mini Kahoot Quiz (multiplayer game) — create/join room, countdown timer, scoring with time bonus, scoreboard
+- **เรียนรู้**: socket.io-client setup, connection management, reconnection, event-based communication, namespaced gateways, room-based broadcasting, game state management
 - **Tech**: `socket.io-client`, custom hook `useSocket`, NestJS backend (Socket.io gateway)
-- **Note**: ต้อง setup NestJS backend ด้วย (WebSocket gateway)
-- **Route**: `/features/socket`, `/features/socket/chat`, `/features/socket/stock`
+- **Note**: ต้อง setup NestJS backend ด้วย (WebSocket gateway) — all state in-memory, no DB needed
+- **Route**: `/features/socket`, `/features/socket/chat`, `/features/socket/stock`, `/features/socket/quiz`
 
 ### 4. Tailwind Deep Dive
 - เรียนรู้ design system และ theming อย่างลึก

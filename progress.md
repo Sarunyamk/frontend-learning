@@ -113,12 +113,115 @@
   - [ ] Omise integration — Omise.js, Server Action, webhook
   - [ ] Success/Failure pages — ผลลัพธ์การชำระเงิน
   - [ ] Error states + loading UI
-- [ ] 5. Socket.io Real-time (Chat, Stock)
-  - [ ] useSocket custom hook — connection management, reconnection
-  - [ ] Chat room page — real-time messaging UI
-  - [ ] Stock ticker page — real-time price updates
-  - [ ] NestJS WebSocket gateway (backend)
-  - [ ] Optimistic UI + connection status indicator
+- [x] 5. Socket.io Real-time (Chat, Stock, Kahoot Quiz)
+  > **Backend เสร็จแล้ว** (Phase 0-5 done) — ดู `backend/progress.md`
+  > **Frontend เสร็จแล้ว** (Step 1-6 done)
+
+  #### Step 1: Setup & Shared Infrastructure
+  - [x] Install `socket.io-client`
+  - [x] `constants/socket.constant.ts` — event names + namespaces (match backend ทุกค่า)
+    - `SOCKET_NAMESPACE` — `/chat`, `/stock`, `/quiz`
+    - `CHAT_EVENT`, `STOCK_EVENT`, `QUIZ_EVENT` — copy ค่าจาก backend ให้ตรงกัน
+  - [x] `types/socket.type.ts` — shared types สำหรับ frontend (match backend types)
+    - Chat: `ChatUser`, `ChatMessage`, payloads
+    - Stock: `StockData`, payloads
+    - Quiz: `QuizPlayer`, `GameState`, `QuestionPayload`, `AnswerResultPayload`, `ScoreboardEntry`
+  - [x] `hooks/useSocket.ts` — reusable hook สำหรับ connect/disconnect
+    - params: `namespace`
+    - return: `{ getSocket, isConnected }`
+    - auto-connect เมื่อ mount, auto-disconnect เมื่อ unmount
+    - useCallback getter pattern (React 19 strict ref rules)
+  - [x] `components/features/socket/connection-status.tsx` — Client component
+    - แสดง dot สีเขียว/แดง + text (Connected/Disconnected)
+    - reuse ได้ทุก demo page
+  - [x] Update route.constant.ts — เพิ่ม `SOCKET_QUIZ` route
+  - [x] Update feature.constant.ts — เพิ่ม Quiz item ใน socket category
+  - [x] `.env` + `.env.example` + `env.client.ts` — เพิ่ม `NEXT_PUBLIC_SOCKET_URL`
+  - [x] Build + Lint pass
+
+  #### Step 2: Chat Demo Page
+  - [x] `app/features/socket/chat/page.tsx` — Server page (metadata + breadcrumb + compose)
+  - [x] `components/features/socket/chat/chat-room.tsx` — Client, main container
+    - State: nickname form → joined room → chat view
+    - จัดการ connect/disconnect + event listeners
+  - [x] `components/features/socket/chat/nickname-form.tsx` — Client
+    - Input nickname + room ID, default "test-room"
+    - Tip: เปิด 2 tabs เพื่อทดสอบ
+  - [x] `components/features/socket/chat/message-list.tsx` — Client
+    - แสดง messages (scroll to bottom อัตโนมัติ)
+    - แยกสี message ของตัวเอง (primary) vs คนอื่น (muted)
+    - System message (user joined/left) — center text
+  - [x] `components/features/socket/chat/message-input.tsx` — Client
+    - Input + Send button, Enter key = send
+  - [x] `components/features/socket/chat/user-list.tsx` — Client
+    - แสดงรายชื่อ users ในห้อง (sidebar) + (you) badge
+  - [x] Build + Lint pass
+
+  #### Step 3: Stock Demo Page
+  - [x] `app/features/socket/stock/page.tsx` — Server page (metadata + breadcrumb + compose)
+  - [x] `components/features/socket/stock/stock-dashboard.tsx` — Client, main container
+    - Connect `/stock`, subscribe all symbols on mount
+    - Listen `stock:snapshot` + `stock:update`
+  - [x] `components/features/socket/stock/stock-card.tsx` — Client
+    - แสดง symbol, name, price, change, changePercent, high, low
+    - สีเขียว/แดง ตาม change (+/-)
+    - CSS keyframe flash animation (ไม่ใช้ ref — React 19 strict)
+  - [x] `constants/stock.constant.ts` — STOCK_SYMBOLS array
+  - [x] `globals.css` — `animate-flash-green` / `animate-flash-red` keyframes
+  - [x] Grid layout responsive: 1 col → 2 col → 3 col
+  - [x] Build + Lint pass
+
+  #### Step 4: Quiz Demo Page (Lobby + Join)
+  - [x] `app/features/socket/quiz/page.tsx` — Server page (metadata + breadcrumb + compose)
+  - [x] `components/features/socket/quiz/quiz-container.tsx` — Client, main state machine
+    - State: `ENTRY` → `LOBBY` → `COUNTDOWN` → `QUESTION` → `ANSWER_REVEAL` → `SCOREBOARD` → `FINISHED`
+    - Single event listener hub, all game phases handled
+    - useRef for pending nickname (React 19 compliant)
+  - [x] `components/features/socket/quiz/quiz-entry.tsx` — Client
+    - 3 modes: select → create (nickname) / join (code + nickname)
+    - react-hook-form + zod validation
+  - [x] `components/features/socket/quiz/quiz-lobby.tsx` — Client
+    - Room Code ตัวใหญ่ (tracking-widest)
+    - Player list + Host badge
+    - Start button (≥2 players) / Waiting message
+  - [x] `lib/schemas/quiz-join.schema.ts` — quizCreateSchema + quizJoinSchema
+  - [x] Build + Lint pass
+
+  #### Step 5: Quiz Demo Page (Game Play)
+  - [x] `components/features/socket/quiz/quiz-countdown.tsx` — Client
+    - SVG circle countdown animation + ตัวเลขตรงกลาง
+    - stroke-dasharray progress ring
+  - [x] `components/features/socket/quiz/quiz-question.tsx` — Client
+    - คำถาม + 4 choices (grid 2x2, สี red/blue/yellow/green)
+    - Progress bar นับถอยหลัง (timeLimit)
+    - เลือกแล้ว disable + ring highlight + "Waiting for others..."
+    - key={question.index} pattern (React 19 — reset timer per question)
+  - [x] `components/features/socket/quiz/quiz-answer-result.tsx` — Client
+    - Correct answer highlight (เขียว)
+    - +scoreGained ตัวใหญ่ + total score
+    - All players results (✓/✗)
+  - [x] `components/features/socket/quiz/quiz-scoreboard.tsx` — Client
+    - rank 1-3 badges (gold/silver/bronze emoji)
+    - Highlight ตัวเอง (bg-primary/10 + "(you)")
+    - Reuse ทั้ง mid-game + final (title prop)
+  - [x] `components/features/socket/quiz/quiz-finished.tsx` — Client
+    - Trophy + winner announcement
+    - Final scoreboard (reuse QuizScoreboard)
+    - Play Again button
+  - [x] Updated quiz-container.tsx — replaced all placeholders with real components
+  - [x] Build + Lint pass
+
+  #### Step 6: Socket Overview Page + Polish
+  - [x] Updated `app/features/socket/page.tsx` — tutorial section + readyPaths
+  - [x] `components/features/socket/socket-tutorial.tsx` — Server component
+    - Intro: Socket.io คืออะไร
+    - Core Concepts: Namespace / Events / Rooms (3 cards)
+    - Architecture diagram (code block)
+    - Code snippets: useSocket hook, NestJS Gateway (copyable)
+  - [x] `constants/socket-tutorial.constant.ts` — tutorial content data
+  - [x] `route.constant.ts` — เพิ่ม `READY_SOCKET_PATHS`
+  - [x] Build + Lint pass
+  - [x] Update .md files
 
 **Parked (ทำทีหลัง)**
 
