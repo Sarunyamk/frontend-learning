@@ -1,5 +1,5 @@
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { FormReadyToUse } from '@/components/features/forms/form-ready-to-use';
+import { FormReadyToUse } from '@/components/features/form/form-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
