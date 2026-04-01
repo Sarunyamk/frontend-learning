@@ -34,7 +34,7 @@ export function TransitionReadyToUse() {
             <Collapsible key={item.name}>
               <Card>
                 <CollapsibleTrigger asChild>
-                  <CardHeader className="cursor-pointer select-none transition-colors hover:bg-muted/50">
+                  <CardHeader className="hover-scale">
                     <div className="flex items-center gap-2">
                       <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform [[data-state=open]>div>&]:rotate-90" />
                       <div className="min-w-0">
