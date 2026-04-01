@@ -1,5 +1,6 @@
 import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
 import { PageTransitions } from '@/components/features/framer-motion/page-transitions';
+import { TransitionReadyToUse } from '@/components/features/framer-motion/transition-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -27,6 +28,7 @@ export default async function TransitionsPage() {
         </p>
       </div>
       <PageTransitions />
+      <TransitionReadyToUse />
     </div>
   );
 }
