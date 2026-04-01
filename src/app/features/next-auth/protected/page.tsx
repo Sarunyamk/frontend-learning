@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { getCurrentUser } from '@/lib/auth/get-current-user';
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { ProtectedContent } from '@/components/features/next-auth/protected-content';
 import type { UserRole } from '@/constants/role.constant';
 

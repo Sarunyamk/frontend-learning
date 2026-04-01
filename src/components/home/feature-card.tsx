@@ -52,7 +52,7 @@ export function FeatureCard({
     >
       <Link
         href={path}
-        className="group flex h-full flex-col gap-4 rounded-xl border bg-card p-6 transition-colors hover:border-primary/50"
+        className="group flex h-full flex-col gap-4 rounded-xl border duration-400 hover:border-2 bg-card p-6 transition-colors hover:border-hover-blue shadow-hover-blue"
       >
         <div className="flex items-center gap-3">
           {Icon && (

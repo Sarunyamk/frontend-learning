@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { BasicForm } from '@/components/features/form/basic-form';
 import {
   Card,

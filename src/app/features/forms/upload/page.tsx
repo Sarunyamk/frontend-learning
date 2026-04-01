@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { MultiUploadForm } from '@/components/features/form/multi-upload-form';
 import { SingleUploadForm } from '@/components/features/form/single-upload-form';
 import {

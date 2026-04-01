@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { BasicButtons } from '@/components/features/custom-patterns/button/basic/basic-buttons';
 import { GradientButtons } from '@/components/features/custom-patterns/button/gradient/gradient-buttons';
 import { IconTextButtons } from '@/components/features/custom-patterns/button/icon/icon-text-buttons';

@@ -1,6 +1,5 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { FeatureSubItems } from '@/components/features/feature-sub-items';
-import { READY_CUSTOM_PATTERNS_PATHS } from '@/constants/route.constant';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureSubItems } from '@/components/shared/feature-sub-items';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -45,10 +44,7 @@ export default async function CustomPatternsPage() {
         return (
           <div key={group} className="space-y-3">
             <h2 className="text-lg font-semibold text-foreground">{group}</h2>
-            <FeatureSubItems
-              items={groupItems}
-              readyPaths={READY_CUSTOM_PATTERNS_PATHS}
-            />
+            <FeatureSubItems items={groupItems} />
           </div>
         );
       })}
