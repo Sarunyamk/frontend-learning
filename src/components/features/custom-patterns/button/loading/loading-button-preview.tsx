@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { CustomButton } from '@/components/shared/custom-button';
 import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 export function LoadingButtonPreview() {
   const [loading, setLoading] = useState(false);
@@ -14,9 +14,9 @@ export function LoadingButtonPreview() {
   }
 
   return (
-    <Button onClick={handleClick} disabled={loading}>
+    <CustomButton onClick={handleClick} disabled={loading}>
       {loading && <Loader2 className="mr-2 size-4 animate-spin" />}
       {loading ? 'Saving...' : 'Save Changes'}
-    </Button>
+    </CustomButton>
   );
 }
