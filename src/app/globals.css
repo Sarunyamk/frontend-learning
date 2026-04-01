@@ -48,10 +48,12 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   --color-brand-100: var(--brand-100);
+  --color-hover-blue: var(--hover-blue);
 }
 
 :root {
   --brand-100: oklch(84.678% 0.20046 128.108);
+  --hover-blue: oklch(67.766% 0.11932 252.688);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -89,6 +91,7 @@
 
 .dark {
   --brand-100: oklch(49.171% 0.12749 129.403);
+  --hover-blue: oklch(61.088% 0.15961 254.388);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -123,7 +126,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -142,13 +144,21 @@ body {
 
 /* Stock price flash animations */
 @keyframes flash-green {
-  0% { background-color: oklch(0.9 0.15 145 / 40%); }
-  100% { background-color: transparent; }
+  0% {
+    background-color: oklch(0.9 0.15 145 / 40%);
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 @keyframes flash-red {
-  0% { background-color: oklch(0.7 0.15 25 / 40%); }
-  100% { background-color: transparent; }
+  0% {
+    background-color: oklch(0.7 0.15 25 / 40%);
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 .animate-flash-green {
@@ -159,20 +169,14 @@ body {
   animation: flash-red 600ms ease-out;
 }
 
-/* Shiki dual-theme: toggle colors based on .dark class from next-themes */
-html:not(.dark) .shiki,
-html:not(.dark) .shiki span {
-  color: var(--shiki-light) !important;
-  background-color: var(--shiki-light-bg) !important;
-  font-style: var(--shiki-light-font-style) !important;
-  font-weight: var(--shiki-light-font-weight) !important;
-  text-decoration: var(--shiki-light-text-decoration) !important;
-}
-
-html.dark .shiki,
-html.dark .shiki span {
+/* Shiki: always use dark theme for code blocks (both light & dark mode) */
+.shiki {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
+}
+
+.shiki span {
+  color: var(--shiki-dark) !important;
   font-style: var(--shiki-dark-font-style) !important;
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;
