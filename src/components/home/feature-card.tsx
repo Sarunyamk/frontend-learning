@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import {
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,
@@ -15,6 +16,7 @@ import { fadeUp } from '@/lib/framer-motion/framer-motion';
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,

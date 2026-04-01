@@ -15,6 +15,7 @@ import {
 import {
   ClipboardList,
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,
@@ -27,6 +28,7 @@ import type { FeatureCategoryConfig } from '@/constants/feature.constant';
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   ClipboardList,
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,
