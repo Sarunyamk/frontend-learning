@@ -55,7 +55,13 @@ export function SidebarItem({
   onNavigate,
 }: SidebarItemProps) {
   const isActive = pathname.startsWith(category.path);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(isActive);
+  const [prevActive, setPrevActive] = useState(isActive);
+
+  if (isActive !== prevActive) {
+    setPrevActive(isActive);
+    if (isActive) setIsOpen(true);
+  }
   const Icon = ICON_MAP[category.icon];
 
   // Collapsed mode — icon only + tooltip
