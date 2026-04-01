@@ -2,7 +2,7 @@ import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 
 import { CustomButton } from '@/components/shared/custom-button';
-import { PatternCard } from '../pattern-card';
+import { PatternCard } from '../../../../shared/pattern-card';
 
 const pattern = BUTTON_PATTERNS.find((p) => p.key === 'shimmer')!;
 

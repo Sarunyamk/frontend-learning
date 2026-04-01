@@ -3,7 +3,7 @@ import { CustomButton } from '@/components/shared/custom-button';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 import { ArrowRight, Download, Plus } from 'lucide-react';
 
-import { PatternCard } from '../pattern-card';
+import { PatternCard } from '../../../../shared/pattern-card';
 
 const ICON_EXAMPLES = [
   {
