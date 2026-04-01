@@ -83,6 +83,23 @@ import { Save, Settings, Check, Copy } from 'lucide-react';
 </Button>`,
   },
   {
+    key: 'gradient-slide',
+    title: 'Gradient Slide-in',
+    description: 'gradient ไหลเข้าจากขวาเมื่อ hover — ใช้ before: pseudo-element + translate',
+    code: `<Button
+  variant="outline"
+  className="group relative overflow-hidden
+    border-2 border-foreground bg-transparent text-foreground
+    before:absolute before:inset-0 before:translate-x-full
+    before:bg-linear-to-r before:from-purple-500 before:to-pink-500
+    before:transition-transform before:duration-500 before:ease-out
+    hover:before:translate-x-0 hover:text-white
+    hover:border-transparent"
+>
+  <span className="relative z-10">GET IN TOUCH</span>
+</Button>`,
+  },
+  {
     key: 'icon-arrow',
     title: 'Arrow Slide',
     description: 'icon เลื่อนไปทางขวาเมื่อ hover',

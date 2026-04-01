@@ -46,6 +46,24 @@ const GRADIENT_EXAMPLES = [
   Sunset
 </Button>`,
   },
+  {
+    key: 'gradient-slide',
+    label: 'Gradient Slide-in',
+    className:
+      'group relative overflow-hidden border-2 border-foreground bg-transparent text-foreground before:absolute before:inset-0 before:translate-x-full before:bg-linear-to-r before:from-purple-500 before:to-pink-500 before:transition-transform before:duration-500 before:ease-out hover:before:translate-x-0 hover:text-white hover:border-transparent',
+    code: `<Button
+  variant="outline"
+  className="group relative overflow-hidden
+    border-2 border-foreground bg-transparent text-foreground
+    before:absolute before:inset-0 before:translate-x-full
+    before:bg-linear-to-r before:from-purple-500 before:to-pink-500
+    before:transition-transform before:duration-500 before:ease-out
+    hover:before:translate-x-0 hover:text-white
+    hover:border-transparent"
+>
+  <span className="relative z-10">GET IN TOUCH</span>
+</Button>`,
+  },
 ] as const;
 
 export function GradientButtons() {
@@ -65,7 +83,9 @@ export function GradientButtons() {
             key={example.key}
             codeSlot={<CodeBlockShiki code={example.code} language="tsx" />}
           >
-            <CustomButton className={example.className} label={example.label} />
+            <CustomButton className={example.className}>
+              <span className="relative z-10">{example.label}</span>
+            </CustomButton>
           </PatternCard>
         ))}
       </div>
