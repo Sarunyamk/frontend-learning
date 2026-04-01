@@ -6,7 +6,7 @@ import { LoadingButton } from '@/components/features/custom-patterns/button/load
 import { ShimmerButton } from '@/components/features/custom-patterns/button/shimmer/shimmer-button';
 import { MagneticButton } from '@/components/features/custom-patterns/button/magnetic/magnetic-button';
 import { GlowButtons } from '@/components/features/custom-patterns/button/shadow/glow-buttons';
-import { CopyButtonDemo } from '@/components/features/custom-patterns/button/copy-button-demo';
+import { CopyButtonDemo } from '@/components/features/custom-patterns/button/copy-button/copy-button-demo';
 import { SocialButtons } from '@/components/features/custom-patterns/button/social/social-buttons';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
