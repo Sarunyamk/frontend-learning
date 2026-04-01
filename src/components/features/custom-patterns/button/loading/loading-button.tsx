@@ -15,7 +15,7 @@ export function LoadingButton() {
         </h2>
         <p className="text-sm text-muted-foreground">{pattern.description}</p>
       </div>
-      <div className="mx-auto grid max-w-xl items-start gap-4">
+      <div className="mx-auto grid max-w-2xl items-start gap-4">
         <PatternCard
           codeSlot={<CodeBlockShiki code={pattern.code} language="tsx" />}
         >

@@ -43,7 +43,7 @@ export function IconTextButtons() {
           ปุ่มที่มี icon เลื่อนเมื่อ hover ด้วย group + translate
         </p>
       </div>
-      <div className="mx-auto grid max-w-xl items-start gap-4">
+      <div className="mx-auto grid max-w-2xl items-start gap-4">
         {ICON_EXAMPLES.map((example) => (
           <PatternCard
             key={example.pattern.key}

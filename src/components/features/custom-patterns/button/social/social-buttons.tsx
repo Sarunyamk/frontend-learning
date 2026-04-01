@@ -54,7 +54,7 @@ export function SocialButtons() {
           ปุ่ม social login — แต่ละปุ่มมีสีของ brand
         </p>
       </div>
-      <div className="mx-auto grid max-w-xl items-start gap-4">
+      <div className="mx-auto grid max-w-2xl items-start gap-4">
         {SOCIAL_EXAMPLES.map((example) => (
           <PatternCard
             key={example.pattern.key}

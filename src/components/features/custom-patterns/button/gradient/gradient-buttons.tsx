@@ -77,7 +77,7 @@ export function GradientButtons() {
           ปุ่ม gradient ที่เปลี่ยนทิศทางเมื่อ hover
         </p>
       </div>
-      <div className="mx-auto grid items-start gap-4 max-w-xl">
+      <div className="mx-auto grid items-start gap-4 max-w-2xl">
         {GRADIENT_EXAMPLES.map((example) => (
           <PatternCard
             key={example.key}

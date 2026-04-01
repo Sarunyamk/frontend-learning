@@ -18,7 +18,7 @@ export function BasicButtons() {
           {componentPattern.description}
         </p>
       </div>
-      <div className="mx-auto grid max-w-xl items-start gap-4">
+      <div className="mx-auto grid max-w-2xl items-start gap-4">
         {/* Component source */}
         <PatternCard
           codeSlot={

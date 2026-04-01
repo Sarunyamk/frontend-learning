@@ -39,7 +39,7 @@ export function GlowButtons() {
           ปุ่มเรืองแสง — ใช้ box-shadow หลายชั้น
         </p>
       </div>
-      <div className="mx-auto grid max-w-xl items-start gap-4">
+      <div className="mx-auto grid max-w-2xl items-start gap-4">
         {GLOW_EXAMPLES.map((example) => (
           <PatternCard
             key={example.pattern.key}
