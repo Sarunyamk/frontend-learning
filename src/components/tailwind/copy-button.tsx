@@ -2,6 +2,11 @@
 
 import { Check, Copy } from 'lucide-react';
 import { useCallback, useState } from 'react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 type CopyButtonProps = {
   code: string;
@@ -17,17 +22,24 @@ export function CopyButton({ code }: CopyButtonProps) {
   }, [code]);
 
   return (
-    <button
-      type="button"
-      onClick={handleCopy}
-      className="absolute right-2 top-2 z-10 rounded-md p-1.5 text-muted-foreground/60 opacity-0 transition-opacity hover:bg-muted hover:text-foreground group-hover:opacity-100"
-      aria-label="Copy code"
-    >
-      {copied ? (
-        <Check className="h-4 w-4 text-green-500" />
-      ) : (
-        <Copy className="h-4 w-4" />
-      )}
-    </button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="absolute right-2 top-2 z-10 cursor-pointer rounded-md p-1.5 text-muted-foreground/60 opacity-0 transition-opacity hover:bg-muted hover:text-foreground group-hover:opacity-100"
+          aria-label="Copy code"
+        >
+          {copied ? (
+            <Check className="h-4 w-4 text-green-500" />
+          ) : (
+            <Copy className="h-4 w-4" />
+          )}
+        </button>
+      </TooltipTrigger>
+      <TooltipContent side="left">
+        <p>{copied ? 'Copied!' : 'Copy'}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }
