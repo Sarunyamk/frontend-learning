@@ -81,6 +81,7 @@
 | `sortByField()` | `src/utils/sort-by-field.ts` | Pure sort helper — sortByField(items, config), SortConfig<T>, SortDirection |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
 | `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
+| `fontVariables` | `src/lib/fonts.ts` | Combined font CSS variable className — Geist Sans + Geist Mono + Prompt, ใช้ใน layout.tsx `<html>` |
 
 ---
 
@@ -138,6 +139,9 @@
 | `ERROR_PATTERNS` | `src/constants/custom-patterns/error.constant.ts` | Error pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (error-card, status-code, global-error) |
 | `NOT_FOUND_PATTERNS` | `src/constants/custom-patterns/not-found.constant.ts` | Not found pattern data (key, title, description, code) — 2 entries: 1 pattern × source+usage (not-found-card) |
 | `TABLE_ACTION_PATTERNS` | `src/constants/custom-patterns/table-action.constant.ts` | Table action pattern data (key, title, description, code) — 12 entries: 6 patterns × source+usage (basic-table, column-search, row-actions, sortable-columns, row-selection, expandable-rows) |
+| `FONT_SETTING_SETUP_STEPS` | `src/constants/custom-patterns/font-setting.constant.ts` | Font setup steps (step, title, description, code, language) — 5 steps: config → layout → globals.css → usage → local font |
+| `FONT_SETTING_HOW_IT_WORKS` | `src/constants/custom-patterns/font-setting.constant.ts` | How it works data — flow (data flow diagram), comparison (next/font vs @import), semanticTokens (token pattern) |
+| `FONT_SETTING_USAGE_EXAMPLES` | `src/constants/custom-patterns/font-setting.constant.ts` | Usage examples (key, title, description, code, language) — 4 examples: add Google Font, multiple fonts, weight/display, warnings |
 | `CODE_SHIKI_SETUP_STEPS` | `src/constants/custom-patterns/code-shiki.constant.ts` | Shiki setup steps (step, title, description, code, language) — 5 steps: install → highlighter → component → copy button → global CSS |
 | `CODE_SHIKI_HOW_IT_WORKS` | `src/constants/custom-patterns/code-shiki.constant.ts` | How it works data — flow (data flow diagram), responsive (alternative CSS), themes (recommended themes) |
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |

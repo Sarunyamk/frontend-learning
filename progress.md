@@ -377,13 +377,17 @@
   - [x] `app/features/custom-patterns/code-shiki/page.tsx` — Server page (○ Static)
   - [x] Build + Lint pass
 
-  **Step 15: Font Setting** (base: next/font — refactor โปรเจคก่อน แล้วค่อยทำ tutorial)
-  - [ ] Refactor: แยก font config ออกเป็นไฟล์แยก
-  - [ ] `constants/custom-patterns/font-setting.constant.ts` — tutorial data
-  - [ ] `components/features/custom-patterns/font-setting/` — components
-  - [ ] Variants: 1. next/font setup (separate file) 2. Google Fonts + local fonts 3. Font variable + Tailwind config 4. Multiple fonts (heading vs body)
-  - [ ] `app/features/custom-patterns/font-setting/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 15: Font Setting** (base: next/font — refactor โปรเจคก่อน แล้วค่อยทำ tutorial) ✅
+  - [x] Refactor: แยก font config → `lib/fonts.ts` (Geist Sans, Geist Mono, Prompt) + fontVariables export
+  - [x] Layout cleanup: import fontVariables แทน inline font config
+  - [x] globals.css: --font-sans = Prompt + Geist Sans fallback, --font-heading = เหมือนกัน
+  - [x] `constants/custom-patterns/font-setting.constant.ts` — 3 exports: SETUP_STEPS (5 steps), HOW_IT_WORKS (flow/comparison/semantic), USAGE_EXAMPLES (4 examples)
+  - [x] `components/features/custom-patterns/font-setting/` — 3 components (Card-based)
+    - `font-setup-steps.tsx` — Step 1-5: config → layout → globals.css → usage → local font
+    - `font-how-it-works.tsx` — Data flow + next/font vs @import + semantic token pattern
+    - `font-usage-guide.tsx` — เพิ่ม Google Font + หลาย font + weight/display + warnings
+  - [x] `app/features/custom-patterns/font-setting/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
 
   #### Phase 4 — External libs
 
