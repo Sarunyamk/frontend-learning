@@ -273,11 +273,13 @@
   - [x] Build + Lint pass
 
   **Step 3: Toast Patterns** (base: shadcn Sonner)
-  - [ ] `constants/custom-patterns/toast.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/toast/` — components
-  - [ ] Variants: 1. Basic toast (Sonner) 2. Toast variants (success/error/info) 3. Custom styled toast 4. Toast with action button 5. Promise toast (loading → success)
-  - [ ] `app/features/custom-patterns/toast/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] Install `sonner` via shadcn + เพิ่ม `<Toaster richColors />` ใน root layout
+  - [x] `components/shared/show-toast.tsx` — reusable function (showToast: success/error/warning/info)
+  - [x] `constants/custom-patterns/toast.constant.ts` — pattern data (5 patterns)
+  - [x] `components/features/custom-patterns/toast/` — 4 variant folders (toast-reuse, action, promise, custom)
+  - [x] Variants: 1. showToast reusable (4 types) 2. Toast with Action (Undo/Retry) 3. Promise toast (loading → success/error) 4. Custom JSX toast
+  - [x] `app/features/custom-patterns/toast/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
 
   **Step 4: Nav Link Patterns** (base: Next.js Link + usePathname)
   - [ ] `constants/custom-patterns/nav-link.constant.ts` — pattern data
