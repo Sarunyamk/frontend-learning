@@ -1,5 +1,6 @@
 import { NAV_ITEMS } from '@/constants/navigation.constant';
 import { ROUTES } from '@/constants/route.constant';
+import { NavLink } from '@/components/shared/nav-link';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -22,13 +23,9 @@ export default function Footer() {
             <h3 className="text-sm font-semibold">Navigation</h3>
             <nav className="flex flex-col gap-2">
               {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.key}
-                  href={item.path}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
+                <NavLink key={item.key} href={item.path}>
                   {item.key}
-                </Link>
+                </NavLink>
               ))}
             </nav>
           </div>

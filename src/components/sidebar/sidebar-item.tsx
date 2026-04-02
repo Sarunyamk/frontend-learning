@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { NavLink } from '@/components/shared/nav-link';
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -112,26 +113,18 @@ export function SidebarItem({
         </CollapsibleTrigger>
         <CollapsibleContent>
           <ul className="ml-5 mt-0.5 space-y-0.5 border-l border-border pl-3">
-            {category.items.map((item) => {
-              const isItemActive = pathname === item.path;
-
-              return (
-                <li key={item.key}>
-                  <Link
-                    href={item.path}
-                    onClick={onNavigate}
-                    className={cn(
-                      'block rounded-lg px-3 py-1.5 text-sm transition-colors',
-                      isItemActive
-                        ? 'font-medium text-foreground'
-                        : 'text-muted-foreground hover:text-foreground',
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {category.items.map((item) => (
+              <li key={item.key}>
+                <NavLink
+                  href={item.path}
+                  onClick={onNavigate}
+                  exact
+                  className="block rounded-lg px-3 py-1.5"
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </CollapsibleContent>
       </Collapsible>

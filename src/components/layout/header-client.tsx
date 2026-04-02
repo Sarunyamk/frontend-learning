@@ -7,6 +7,7 @@ import { headerVariants } from '@/lib/framer-motion/header';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { NavLink } from '@/components/shared/nav-link';
 import { ThemeToggle } from '../theme/theme-toggle';
 import { MobileNav } from './mobile-nav';
 
@@ -29,9 +30,9 @@ export default function HeaderClient() {
 
         <nav className="hidden md:flex gap-6 items-center">
           {NAV_ITEMS.map((item) => (
-            <Link key={item.key} href={item.path}>
+            <NavLink key={item.key} href={item.path}>
               {item.key}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
