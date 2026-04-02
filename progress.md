@@ -299,11 +299,12 @@
   #### Phase 2 — shadcn-heavy patterns
 
   **Step 6: Modal Patterns** (base: shadcn Dialog + Sheet + AlertDialog)
-  - [ ] `constants/custom-patterns/modal.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/modal/` — components
-  - [ ] Variants: 1. Basic Dialog (confirm/alert) 2. Form Dialog 3. Full-screen Dialog 4. Sheet (side panel) 5. Alert Dialog (destructive) 6. Stacked/nested Dialog
-  - [ ] `app/features/custom-patterns/modal/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] `constants/custom-patterns/modal.constant.ts` — pattern data (4 patterns)
+  - [x] `components/shared/` — reusable: ConfirmDialog, FormDialog, InfoSheet, AlertMessage
+  - [x] `components/features/custom-patterns/modal/` — 4 sections (server wrapper + client preview)
+  - [x] Variants: 1. ConfirmDialog (async loading + destructive) 2. FormDialog (children flexible) 3. InfoSheet (side panel) 4. AlertMessage (force acknowledge)
+  - [x] `app/features/custom-patterns/modal/page.tsx` — Server page
+  - [x] Build + Lint pass
 
   **Step 7: Pagination Patterns** (base: shadcn Pagination + Select)
   - [ ] `constants/custom-patterns/pagination.constant.ts` — pattern data

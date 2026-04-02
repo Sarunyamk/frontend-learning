@@ -50,6 +50,10 @@
 | `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | Full-page overlay + backdrop blur + Loader2 spinner + "Loading..." — ไม่มี props, import ไปใช้ใน loading.tsx ได้เลย |
 | `showToast` | `src/components/shared/show-toast.tsx` | Function | Reusable toast function — showToast({ type, title, description }). Types: success/error/warning/info. ใช้ sonner + richColors |
 | `NavLink` | `src/components/shared/nav-link.tsx` | Client | Reusable nav link — wrap Next.js Link + usePathname() auto-detect isActive. Props: variant (default/underline/highlight/animated), icon (LucideIcon), exact |
+| `ConfirmDialog` | `src/components/shared/confirm-dialog.tsx` | Client | Reusable confirm dialog — async loading, destructive variant. Props: open, onOpenChange, title, description, onConfirm, variant, confirmText, cancelText |
+| `FormDialog` | `src/components/shared/form-dialog.tsx` | Client | Dialog wrapper สำหรับ form — รับ children เป็น form content. Props: open, onOpenChange, title, description, children |
+| `InfoSheet` | `src/components/shared/info-sheet.tsx` | Client | Side panel — filter, settings, detail view. Props: open, onOpenChange, title, description, side (left/right/top/bottom), children |
+| `AlertMessage` | `src/components/shared/alert-message.tsx` | Client | Force-acknowledge dialog — ไม่มี Cancel. Props: open, onOpenChange, title, description, onConfirm, confirmText |
 
 ---
 
@@ -118,6 +122,7 @@
 | `TOAST_PATTERNS` | `src/constants/custom-patterns/toast.constant.ts` | Toast pattern data (key, title, description, code) — 5 patterns (showToast, usage, action, promise, custom) |
 | `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
 | `ENV_SETTING_PATTERNS` | `src/constants/custom-patterns/env-setting.constant.ts` | Env setting pattern data (key, title, description, code) — 5 patterns (overview, server-env, client-env, dotenv-structure, type-safe-usage) |
+| `MODAL_PATTERNS` | `src/constants/custom-patterns/modal.constant.ts` | Modal pattern data (key, title, description, code) — 4 patterns (confirm-dialog, form-dialog, info-sheet, alert-message) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
