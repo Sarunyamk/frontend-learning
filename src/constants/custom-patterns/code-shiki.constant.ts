@@ -27,12 +27,21 @@ import 'server-only';
 
 import { type Highlighter, createHighlighter } from 'shiki';
 
-// ─── Singleton: สร้างครั้งเดียว cache ไว้ ───
-let highlighterPromise: Promise<Highlighter> | null = null;
+// ─── globalThis: ป้องกัน HMR สร้าง instance ซ้ำใน dev mode ───
+// Next.js dev จะ re-execute module บ่อย → let ถูก reset เป็น null
+// เก็บไว้ใน globalThis → instance เดิมยังอยู่แม้ module reload
+// (Pattern เดียวกับ Prisma Client แนะนำ)
+const globalForShiki = globalThis as typeof globalThis & {
+  __shikiHighlighter?: Promise<Highlighter>;
+};
+
+let highlighterPromise: Promise<Highlighter> | null =
+  globalForShiki.__shikiHighlighter ?? null;
 
 function getHighlighter() {
   if (!highlighterPromise) {
-    highlighterPromise = createHighlighter({
+    // เก็บ Promise ไว้ทั้ง module scope + globalThis
+    highlighterPromise = globalForShiki.__shikiHighlighter = createHighlighter({
       // Dual theme → shiki สร้าง CSS variables ให้ทั้ง 2 themes
       themes: ['light-plus', 'dark-plus'],
 
