@@ -263,12 +263,14 @@
   - [x] `app/features/custom-patterns/button/page.tsx` — Server page
   - [x] Build + Lint pass
 
-  **Step 2: Loading Patterns** (base: CSS + Framer Motion)
-  - [ ] `constants/custom-patterns/loading.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/loading/` — components
-  - [ ] Variants: 1. Spinner ธรรมดา 2. Skeleton shimmer 3. Dots/pulse animation 4. Progress bar 5. Framer Motion fancy (orbit/wave) 6. Three.js 3D loader (coming soon)
-  - [ ] `app/features/custom-patterns/loading/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 2: Loading Patterns** (base: CSS + Framer Motion + Lottie)
+  - [x] `constants/custom-patterns/loading.constant.ts` — pattern data (6 variants)
+  - [x] `components/features/custom-patterns/loading/` — 6 variant folders (spinner, skeleton, dots, progress, fancy, lottie)
+  - [x] Variants: 1. Spinner (Lucide/SVG/Border) 2. Skeleton shimmer (card/list toggle) 3. Dots/pulse (bounce/pulse/wave) 4. Progress bar (auto-fill + reset) 5. Framer Motion fancy (orbit/wave/bounce) 6. Lottie loader (@lottiefiles/dotlottie-react)
+  - [x] `app/features/custom-patterns/loading/page.tsx` — Server page (Static)
+  - [x] `globals.css` — เพิ่ม @keyframes wave
+  - [x] Install `@lottiefiles/dotlottie-react`
+  - [x] Build + Lint pass
 
   **Step 3: Toast Patterns** (base: shadcn Sonner)
   - [ ] `constants/custom-patterns/toast.constant.ts` — pattern data

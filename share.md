@@ -18,8 +18,8 @@
 | `HeroSection` | `src/components/home/hero-section.tsx` | Server | Home hero — heading, description, CTA |
 | `FeatureSection` | `src/components/home/feature-section.tsx` | Server | Feature grid wrapper — map FEATURE_CATEGORIES → FeatureCard |
 | `FeatureCard` | `src/components/home/feature-card.tsx` | Client | Feature card — fadeUp animation, icon map, link |
-| `FeatureBreadcrumb` | `src/components/features/feature-breadcrumb.tsx` | Server | Breadcrumb สำหรับ feature pages — รับ `category: FeatureCategoryConfig`, render Home → Features → [Label] |
-| `FeatureSubItems` | `src/components/features/feature-sub-items.tsx` | Server | Sub-item cards + Coming soon badge — รับ `items: readonly FeatureItem[]` |
+| `FeatureBreadcrumb` | `src/components/shared/feature-breadcrumb.tsx` | Server | Breadcrumb สำหรับ feature pages — รับ `category: FeatureCategoryConfig`, render Home → Features → [Label] |
+| `FeatureSubItems` | `src/components/shared/feature-sub-items.tsx` | Server | Sub-item cards + Coming soon badge — รับ `items: readonly FeatureItem[]` |
 | `AppSidebar` | `src/components/sidebar/sidebar.tsx` | Server | shadcn Sidebar wrapper — map FEATURE_CATEGORIES → SidebarItem |
 | `SidebarItem` | `src/components/sidebar/sidebar-item.tsx` | Client | Collapsible sidebar menu item — active state via usePathname |
 | `ThemeProvider` | `src/components/theme/theme-provider.tsx` | Client | next-themes provider wrapper |
@@ -46,7 +46,8 @@
 | `TransitionReadyToUse` | `src/components/features/framer-motion/transition-ready-to-use.tsx` | Server | Ready-to-use + Used in Project + Code Examples — CodeBlockShiki |
 | `PresetCard` | `src/components/features/framer-motion/preset-card.tsx` | Client | Animation preset live demo — รับ codeSlot (Server JSX) จาก parent |
 | `CustomButton` | `src/components/shared/custom-button.tsx` | Server | Wrapper รอบ shadcn Button — รับ icon (LucideIcon), label, children, className, variant, size + ทุก button props. มี `gap-2` ในตัว |
-| `PatternCard` | `src/components/features/custom-patterns/button/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
+| `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
+| `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | Full-page overlay + backdrop blur + Loader2 spinner + "Loading..." — ไม่มี props, import ไปใช้ใน loading.tsx ได้เลย |
 
 ---
 
@@ -111,6 +112,7 @@
 | `SESSION_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for server vs client session |
 | `UPLOAD_TIPS` | `src/constants/image-tips.constant.ts` | Next.js file upload config tips (body size, remote images, API route, cloud storage) |
 | `BUTTON_PATTERNS` | `src/constants/custom-patterns/button.constant.ts` | Button pattern data (key, title, description, code) — 15 patterns |
+| `LOADING_PATTERNS` | `src/constants/custom-patterns/loading.constant.ts` | Loading pattern data (key, title, description, code) — 6 patterns (spinner, skeleton, dots, progress, fancy, lottie) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
