@@ -368,12 +368,14 @@
   - [ ] `app/features/custom-patterns/mobile-nav/page.tsx` — Server page
   - [ ] Build + Lint pass
 
-  **Step 14: Code Shiki** (document สิ่งที่มีอยู่แล้ว)
-  - [ ] `constants/custom-patterns/code-shiki.constant.ts` — tutorial data
-  - [ ] `components/features/custom-patterns/code-shiki/` — components
-  - [ ] Variants: 1. Shiki setup guide 2. Dual theme (light/dark) 3. CodeBlockShiki component 4. Copy button integration 5. Line highlighting
-  - [ ] `app/features/custom-patterns/code-shiki/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 14: Code Shiki** (document สิ่งที่มีอยู่แล้ว) ✅
+  - [x] `constants/custom-patterns/code-shiki.constant.ts` — 3 exports: SETUP_STEPS (5 steps), HOW_IT_WORKS (flow/responsive/themes), USAGE_EXAMPLES (5 examples)
+  - [x] `components/features/custom-patterns/code-shiki/` — 3 components (Card-based, เหมือน tailwind/themes pattern)
+    - `shiki-setup-steps.tsx` — Step 1-5: install → highlighter → component → copy button → global CSS
+    - `shiki-how-it-works.tsx` — Data flow diagram + responsive theme alternative + themes แนะนำ
+    - `shiki-usage-guide.tsx` — 5 ตัวอย่าง: basic, PatternCard, constant, languages, warnings
+  - [x] `app/features/custom-patterns/code-shiki/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
 
   **Step 15: Font Setting** (base: next/font — refactor โปรเจคก่อน แล้วค่อยทำ tutorial)
   - [ ] Refactor: แยก font config ออกเป็นไฟล์แยก
