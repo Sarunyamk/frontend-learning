@@ -1,6 +1,7 @@
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -40,6 +41,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <Toaster richColors position="top-right" />
           </TooltipProvider>
         </ThemeProvider>
       </body>
