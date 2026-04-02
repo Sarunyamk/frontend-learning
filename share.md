@@ -59,6 +59,8 @@
 | `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | Auto-load wrapper — IntersectionObserver. Props: onLoadMore, loading?, hasMore?, threshold?, children |
 | `DatePicker` | `src/components/shared/date-picker.tsx` | Client | Reusable date picker — Popover + Calendar + date-fns format. Props: value?, onChange, placeholder?, disabled?, className? |
 | `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | Reusable date range picker — Calendar mode="range" + 2 months. Props: value? (DateRange), onChange, placeholder?, disabled?, className? |
+| `ErrorCard` | `src/components/shared/error-card.tsx` | Client | Reusable error card — ColumnFade stagger + shake icon + title + description + Retry button + statusCode. Props: title?, description?, statusCode?, onRetry?, className? |
+| `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | Reusable 404 — ColumnFade stagger + bounce emoji + title + description + back link. Props: title?, description?, backHref?, backLabel?, className? |
 
 ---
 
@@ -94,6 +96,7 @@
 | `staggerContainer` | `framer-motion.ts` | Parent container สำหรับ stagger children (0.06s gap, 0.15s delay) |
 | `staggerItem` | `framer-motion.ts` | Child item สำหรับ stagger (fade + slide from right) |
 | `fadeSlide` | `framer-motion.ts` | Slide เข้าจากขวา ออกทางซ้าย (มี exit) — สำหรับ step/tab transitions |
+| `shake` | `framer-motion.ts` | Scale 0.8→1 + rotate shake (±10°) — สำหรับ error icon |
 | Header variants | `header.ts` | Header-specific animations |
 
 ---
@@ -130,6 +133,8 @@
 | `MODAL_PATTERNS` | `src/constants/custom-patterns/modal.constant.ts` | Modal pattern data (key, title, description, code) — 4 patterns (confirm-dialog, form-dialog, info-sheet, alert-message) |
 | `PAGINATION_PATTERNS` | `src/constants/custom-patterns/pagination.constant.ts` | Pagination pattern data (key, title, description, code) — 8 entries: 4 patterns × source+usage (basic-pagination, with-size, load-more, infinite-scroll) |
 | `CALENDAR_PATTERNS` | `src/constants/custom-patterns/calendar.constant.ts` | Calendar pattern data (key, title, description, code) — 10 entries: 5 patterns × source+usage (single, range, two-dates, month-year, with-time) |
+| `ERROR_PATTERNS` | `src/constants/custom-patterns/error.constant.ts` | Error pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (error-card, status-code, global-error) |
+| `NOT_FOUND_PATTERNS` | `src/constants/custom-patterns/not-found.constant.ts` | Not found pattern data (key, title, description, code) — 2 entries: 1 pattern × source+usage (not-found-card) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

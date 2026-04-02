@@ -331,19 +331,23 @@
   - [ ] `app/features/custom-patterns/table-action/page.tsx` — Server page
   - [ ] Build + Lint pass
 
-  **Step 10: Error Patterns** (base: shadcn Card + Button)
-  - [ ] `constants/custom-patterns/error.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/error/` — components
-  - [ ] Variants: 1. Basic error card + retry 2. Error with illustration 3. Error with status code (401/403/500) 4. Animated error (Framer Motion)
-  - [ ] `app/features/custom-patterns/error/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 10: Error Patterns** (base: shadcn Card + Button) ✅
+  - [x] `components/shared/error-card.tsx` — reusable ErrorCard (ColumnFade stagger + shake icon + title, description, statusCode, onRetry)
+  - [x] `lib/framer-motion/framer-motion.ts` — เพิ่ม `shake` variant (scale 0.8→1 + rotate ±10°)
+  - [x] `constants/custom-patterns/error.constant.ts` — 6 entries (3 patterns × source+usage)
+  - [x] `components/features/custom-patterns/error/` — 3 folders (error-card, status-code, global-error)
+  - [x] Variants: 1. ErrorCard source+usage (animated — ColumnFade + shake) 2. Error + Status Code (401/403/500) 3. Global Error (error boundary hierarchy)
+  - [x] Animated Error ถูกรวมเข้า ErrorCard แล้ว — ลบ animated folder ออก
+  - [x] `app/features/custom-patterns/error/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
 
-  **Step 11: Not Found Patterns** (base: shadcn + Framer Motion)
-  - [ ] `constants/custom-patterns/not-found.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/not-found/` — components
-  - [ ] Variants: 1. Simple 404 card 2. 404 with search suggestion 3. Animated 404 (Framer Motion) 4. Three.js 3D scene (coming soon)
-  - [ ] `app/features/custom-patterns/not-found/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 11: Not Found Patterns** (base: shadcn + Framer Motion) ✅
+  - [x] `components/shared/not-found-card.tsx` — reusable NotFoundCard (title, description, backHref, backLabel)
+  - [x] `constants/custom-patterns/not-found.constant.ts` — 4 entries (2 patterns × source+usage)
+  - [x] `components/features/custom-patterns/not-found/` — 2 folders (not-found-card, animated)
+  - [x] Variants: 1. NotFoundCard source+usage (ColumnFade stagger + bounce emoji) 2. Animated 404 (spring bounce number)
+  - [x] `app/features/custom-patterns/not-found/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
 
   #### Phase 3 — Layout patterns
 
