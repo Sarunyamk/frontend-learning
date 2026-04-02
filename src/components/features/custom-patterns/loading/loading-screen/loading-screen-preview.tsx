@@ -1,6 +1,6 @@
 'use client';
 
-import { Loader2 } from 'lucide-react';
+import { LoadingScreen } from '@/components/shared/loading-screen';
 
 export function LoadingScreenPreview() {
   return (
@@ -17,13 +17,8 @@ export function LoadingScreenPreview() {
           </div>
         </div>
 
-        {/* Loading overlay */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2 className="size-8 animate-spin text-primary" />
-            <p className="text-sm text-muted-foreground">Loading...</p>
-          </div>
-        </div>
+        {/* Loading overlay — reuse shared component */}
+        <LoadingScreen />
       </div>
     </div>
   );
