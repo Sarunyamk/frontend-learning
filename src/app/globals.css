@@ -169,6 +169,17 @@ body {
   animation: flash-red 600ms ease-out;
 }
 
+/* Loading pattern: Wave Dots — ใช้ใน dots-loading-preview.tsx */
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 /* Shiki: always use dark theme for code blocks (both light & dark mode) */
 .shiki {
   color: var(--shiki-dark) !important;

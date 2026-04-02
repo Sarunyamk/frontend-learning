@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
-import { FEATURE_CATEGORIES } from '@/constants/feature.constant';
 import { FeatureCard } from '@/components/home/feature-card';
+import { FEATURE_CATEGORIES } from '@/constants/feature.constant';
+import { testLoading } from '@/lib/utils/loading.helper';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Features — Learning Fullstack',
@@ -8,7 +9,9 @@ export const metadata: Metadata = {
     'เลือกหัวข้อที่สนใจ แต่ละ feature มีตัวอย่างและคำอธิบายให้เรียนรู้',
 };
 
-export default function FeaturesPage() {
+export default async function FeaturesPage() {
+  // TODO: ลบ delay นี้ — ใส่ชั่วคราวเพื่อทดสอบ loading.tsx
+  await testLoading(3000);
   return (
     <div>
       <h1 className="mb-2 text-2xl font-bold text-foreground sm:text-3xl">
