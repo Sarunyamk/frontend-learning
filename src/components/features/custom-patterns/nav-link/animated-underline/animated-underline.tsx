@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { NAV_LINK_PATTERNS } from '@/constants/custom-patterns/nav-link.constant';
 
-import { PatternCard } from '../../../../shared/pattern-card';
+import { PatternCard } from '@/components/shared/pattern-card';
 import { AnimatedUnderlinePreview } from './animated-underline-preview';
 
 const pattern = NAV_LINK_PATTERNS.find(

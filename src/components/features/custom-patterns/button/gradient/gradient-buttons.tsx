@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 
 import { CustomButton } from '@/components/shared/custom-button';
-import { PatternCard } from '../../../../shared/pattern-card';
+import { PatternCard } from '@/components/shared/pattern-card';
 
 const GRADIENT_EXAMPLES = [
   {

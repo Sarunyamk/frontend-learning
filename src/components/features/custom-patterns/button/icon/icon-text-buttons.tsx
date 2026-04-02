@@ -1,9 +1,8 @@
-import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { CustomButton } from '@/components/shared/custom-button';
+import { PatternCard } from '@/components/shared/pattern-card';
+import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 import { ArrowRight, Download, Plus } from 'lucide-react';
-
-import { PatternCard } from '../../../../shared/pattern-card';
 
 const ICON_EXAMPLES = [
   {
