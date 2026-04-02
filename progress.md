@@ -282,11 +282,12 @@
   - [x] Build + Lint pass
 
   **Step 4: Nav Link Patterns** (base: Next.js Link + usePathname)
-  - [ ] `constants/custom-patterns/nav-link.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/nav-link/` — components
-  - [ ] Variants: 1. Basic Link 2. Link + icon 3. isActive with underline 4. isActive with bg highlight 5. Breadcrumb-style 6. Animated underline on hover
-  - [ ] `app/features/custom-patterns/nav-link/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] `components/shared/nav-link.tsx` — reusable NavLink component (variant: default/underline/highlight/animated, icon, exact)
+  - [x] `constants/custom-patterns/nav-link.constant.ts` — pattern data (5 patterns)
+  - [x] `components/features/custom-patterns/nav-link/` — 5 variant folders (nav-link-source, basic-icon, active-underline, active-highlight, animated-underline)
+  - [x] Variants: 1. NavLink source 2. Basic + Icon 3. Active Underline 4. Active BG Highlight 5. Animated Underline (CSS scaleX)
+  - [x] `app/features/custom-patterns/nav-link/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
 
   **Step 5: Env Setting** (base: Zod + server-only — โค้ดมีอยู่แล้ว)
   - [ ] `constants/custom-patterns/env-setting.constant.ts` — tutorial data

@@ -49,6 +49,7 @@
 | `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
 | `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | Full-page overlay + backdrop blur + Loader2 spinner + "Loading..." — ไม่มี props, import ไปใช้ใน loading.tsx ได้เลย |
 | `showToast` | `src/components/shared/show-toast.tsx` | Function | Reusable toast function — showToast({ type, title, description }). Types: success/error/warning/info. ใช้ sonner + richColors |
+| `NavLink` | `src/components/shared/nav-link.tsx` | Client | Reusable nav link — wrap Next.js Link + usePathname() auto-detect isActive. Props: variant (default/underline/highlight/animated), icon (LucideIcon), exact |
 
 ---
 
@@ -115,6 +116,7 @@
 | `BUTTON_PATTERNS` | `src/constants/custom-patterns/button.constant.ts` | Button pattern data (key, title, description, code) — 15 patterns |
 | `LOADING_PATTERNS` | `src/constants/custom-patterns/loading.constant.ts` | Loading pattern data (key, title, description, code) — 6 patterns (spinner, skeleton, dots, progress, fancy, lottie) |
 | `TOAST_PATTERNS` | `src/constants/custom-patterns/toast.constant.ts` | Toast pattern data (key, title, description, code) — 5 patterns (showToast, usage, action, promise, custom) |
+| `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
