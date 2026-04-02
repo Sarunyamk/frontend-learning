@@ -54,6 +54,9 @@
 | `FormDialog` | `src/components/shared/form-dialog.tsx` | Client | Dialog wrapper สำหรับ form — รับ children เป็น form content. Props: open, onOpenChange, title, description, children |
 | `InfoSheet` | `src/components/shared/info-sheet.tsx` | Client | Side panel — filter, settings, detail view. Props: open, onOpenChange, title, description, side (left/right/top/bottom), children |
 | `AlertMessage` | `src/components/shared/alert-message.tsx` | Client | Force-acknowledge dialog — ไม่มี Cancel. Props: open, onOpenChange, title, description, onConfirm, confirmText |
+| `Pagination` | `src/components/shared/pagination.tsx` | Client | Reusable pagination — page numbers, ellipsis, prev/next. Props: currentPage, totalPages, onPageChange, siblings? |
+| `LoadMoreButton` | `src/components/shared/load-more-button.tsx` | Client | Load more button — auto spinner + hide เมื่อหมด. Props: onLoadMore, loading?, hasMore?, loadingText?, children? |
+| `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | Auto-load wrapper — IntersectionObserver. Props: onLoadMore, loading?, hasMore?, threshold?, children |
 
 ---
 
@@ -123,6 +126,7 @@
 | `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
 | `ENV_SETTING_PATTERNS` | `src/constants/custom-patterns/env-setting.constant.ts` | Env setting pattern data (key, title, description, code) — 5 patterns (overview, server-env, client-env, dotenv-structure, type-safe-usage) |
 | `MODAL_PATTERNS` | `src/constants/custom-patterns/modal.constant.ts` | Modal pattern data (key, title, description, code) — 4 patterns (confirm-dialog, form-dialog, info-sheet, alert-message) |
+| `PAGINATION_PATTERNS` | `src/constants/custom-patterns/pagination.constant.ts` | Pagination pattern data (key, title, description, code) — 4 patterns (basic-pagination, with-size, load-more, infinite-scroll) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

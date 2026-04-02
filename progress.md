@@ -307,11 +307,12 @@
   - [x] Build + Lint pass
 
   **Step 7: Pagination Patterns** (base: shadcn Pagination + Select)
-  - [ ] `constants/custom-patterns/pagination.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/pagination/` — components
-  - [ ] Variants: 1. Basic pagination (shadcn) 2. With per-page selector 3. Cursor-based (load more) 4. Infinite scroll
-  - [ ] `app/features/custom-patterns/pagination/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] `constants/custom-patterns/pagination.constant.ts` — pattern data (4 patterns)
+  - [x] `components/shared/` — reusable: Pagination, LoadMoreButton, InfiniteScroll
+  - [x] `components/features/custom-patterns/pagination/` — 4 sections (server wrapper + client preview)
+  - [x] Variants: 1. Basic pagination (ellipsis + prev/next) 2. With per-page selector 3. Load more button 4. Infinite scroll (IntersectionObserver)
+  - [x] `app/features/custom-patterns/pagination/page.tsx` — Server page
+  - [x] Build + Lint pass
 
   **Step 8: Calendar Patterns** (base: shadcn Calendar + date-fns)
   - [ ] `constants/custom-patterns/calendar.constant.ts` — pattern data
