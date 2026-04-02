@@ -57,6 +57,8 @@
 | `Pagination` | `src/components/shared/pagination.tsx` | Client | Reusable pagination — page numbers, ellipsis, prev/next. Props: currentPage, totalPages, onPageChange, siblings? |
 | `LoadMoreButton` | `src/components/shared/load-more-button.tsx` | Client | Load more button — auto spinner + hide เมื่อหมด. Props: onLoadMore, loading?, hasMore?, loadingText?, children? |
 | `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | Auto-load wrapper — IntersectionObserver. Props: onLoadMore, loading?, hasMore?, threshold?, children |
+| `DatePicker` | `src/components/shared/date-picker.tsx` | Client | Reusable date picker — Popover + Calendar + date-fns format. Props: value?, onChange, placeholder?, disabled?, className? |
+| `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | Reusable date range picker — Calendar mode="range" + 2 months. Props: value? (DateRange), onChange, placeholder?, disabled?, className? |
 
 ---
 
@@ -126,7 +128,8 @@
 | `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
 | `ENV_SETTING_PATTERNS` | `src/constants/custom-patterns/env-setting.constant.ts` | Env setting pattern data (key, title, description, code) — 5 patterns (overview, server-env, client-env, dotenv-structure, type-safe-usage) |
 | `MODAL_PATTERNS` | `src/constants/custom-patterns/modal.constant.ts` | Modal pattern data (key, title, description, code) — 4 patterns (confirm-dialog, form-dialog, info-sheet, alert-message) |
-| `PAGINATION_PATTERNS` | `src/constants/custom-patterns/pagination.constant.ts` | Pagination pattern data (key, title, description, code) — 4 patterns (basic-pagination, with-size, load-more, infinite-scroll) |
+| `PAGINATION_PATTERNS` | `src/constants/custom-patterns/pagination.constant.ts` | Pagination pattern data (key, title, description, code) — 8 entries: 4 patterns × source+usage (basic-pagination, with-size, load-more, infinite-scroll) |
+| `CALENDAR_PATTERNS` | `src/constants/custom-patterns/calendar.constant.ts` | Calendar pattern data (key, title, description, code) — 10 entries: 5 patterns × source+usage (single, range, two-dates, month-year, with-time) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

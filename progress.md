@@ -315,11 +315,14 @@
   - [x] Build + Lint pass
 
   **Step 8: Calendar Patterns** (base: shadcn Calendar + date-fns)
-  - [ ] `constants/custom-patterns/calendar.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/calendar/` — components
-  - [ ] Variants: 1. Single date picker 2. Date range (เลือก start-end) 3. Two separate dates 4. Month/year picker 5. With time picker
-  - [ ] `app/features/custom-patterns/calendar/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] Install shadcn `calendar` + `popover` (→ react-day-picker + date-fns)
+  - [x] `components/shared/date-picker.tsx` — reusable DatePicker (Popover + Calendar + date-fns format)
+  - [x] `components/shared/date-range-picker.tsx` — reusable DateRangePicker (Calendar mode="range" + 2 months)
+  - [x] `constants/custom-patterns/calendar.constant.ts` — pattern data (5 patterns × source+usage = 10 entries)
+  - [x] `components/features/custom-patterns/calendar/` — 5 variant folders (single, range, two-dates, month-year, with-time)
+  - [x] Variants: 1. Single date picker 2. Date range (เลือก start-end) 3. Two separate dates 4. Month/year picker (captionLayout="dropdown") 5. Date + time picker
+  - [x] `app/features/custom-patterns/calendar/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
 
   **Step 9: Table Action Patterns** (base: shadcn Table — manual)
   - [ ] `constants/custom-patterns/table-action.constant.ts` — pattern data
