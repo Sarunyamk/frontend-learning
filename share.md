@@ -61,6 +61,7 @@
 | `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | Reusable date range picker — Calendar mode="range" + 2 months. Props: value? (DateRange), onChange, placeholder?, disabled?, className? |
 | `ErrorCard` | `src/components/shared/error-card.tsx` | Client | Reusable error card — ColumnFade stagger + shake icon + title + description + Retry button + statusCode. Props: title?, description?, statusCode?, onRetry?, className? |
 | `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | Reusable 404 — ColumnFade stagger + bounce emoji + title + description + back link. Props: title?, description?, backHref?, backLabel?, className? |
+| `DataTable` | `src/components/shared/data-table.tsx` | Client | Generic data table — map Column<T>[] + data → shadcn Table. Props: columns, data, emptyMessage?, className?, renderRow? |
 
 ---
 
@@ -77,6 +78,7 @@
 | Function | Path | Description |
 |----------|------|-------------|
 | `cn()` | `src/lib/utils.ts` | clsx + tailwind-merge สำหรับ conditional className |
+| `sortByField()` | `src/utils/sort-by-field.ts` | Pure sort helper — sortByField(items, config), SortConfig<T>, SortDirection |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
 | `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
 
@@ -135,6 +137,7 @@
 | `CALENDAR_PATTERNS` | `src/constants/custom-patterns/calendar.constant.ts` | Calendar pattern data (key, title, description, code) — 10 entries: 5 patterns × source+usage (single, range, two-dates, month-year, with-time) |
 | `ERROR_PATTERNS` | `src/constants/custom-patterns/error.constant.ts` | Error pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (error-card, status-code, global-error) |
 | `NOT_FOUND_PATTERNS` | `src/constants/custom-patterns/not-found.constant.ts` | Not found pattern data (key, title, description, code) — 2 entries: 1 pattern × source+usage (not-found-card) |
+| `TABLE_ACTION_PATTERNS` | `src/constants/custom-patterns/table-action.constant.ts` | Table action pattern data (key, title, description, code) — 12 entries: 6 patterns × source+usage (basic-table, column-search, row-actions, sortable-columns, row-selection, expandable-rows) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

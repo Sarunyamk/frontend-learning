@@ -324,12 +324,15 @@
   - [x] `app/features/custom-patterns/calendar/page.tsx` — Server page (Static)
   - [x] Build + Lint pass
 
-  **Step 9: Table Action Patterns** (base: shadcn Table — manual)
-  - [ ] `constants/custom-patterns/table-action.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/table-action/` — components
-  - [ ] Variants: 1. Basic data table 2. Column search/filter 3. Row actions (edit/delete) 4. Sortable columns 5. Row selection + bulk actions 6. Expandable rows
-  - [ ] `app/features/custom-patterns/table-action/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 9: Table Action Patterns** (base: shadcn Table — manual) ✅
+  - [x] Install shadcn `table` + `dropdown-menu`
+  - [x] `components/shared/data-table.tsx` — reusable DataTable<T> (columns + data → shadcn Table, renderRow prop)
+  - [x] `utils/sort-by-field.ts` — pure sort utility (sortByField, SortConfig, SortDirection)
+  - [x] `constants/custom-patterns/table-action.constant.ts` — 12 entries (6 patterns × source+usage)
+  - [x] `components/features/custom-patterns/table-action/` — 6 folders + _data/mock-users.ts
+  - [x] Variants: 1. Basic DataTable + Pagination 2. Column search/filter (Input + Select) 3. Sortable columns (sortByField) 4. Expandable rows (renderRow + colSpan) 5. Row actions (DropdownMenu + ConfirmDialog + showToast) 6. Row selection + bulk actions (Checkbox + floating bar)
+  - [x] `app/features/custom-patterns/table-action/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
 
   **Step 10: Error Patterns** (base: shadcn Card + Button) ✅
   - [x] `components/shared/error-card.tsx` — reusable ErrorCard (ColumnFade stagger + shake icon + title, description, statusCode, onRetry)
