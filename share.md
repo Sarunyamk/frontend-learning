@@ -117,6 +117,7 @@
 | `LOADING_PATTERNS` | `src/constants/custom-patterns/loading.constant.ts` | Loading pattern data (key, title, description, code) — 6 patterns (spinner, skeleton, dots, progress, fancy, lottie) |
 | `TOAST_PATTERNS` | `src/constants/custom-patterns/toast.constant.ts` | Toast pattern data (key, title, description, code) — 5 patterns (showToast, usage, action, promise, custom) |
 | `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
+| `ENV_SETTING_PATTERNS` | `src/constants/custom-patterns/env-setting.constant.ts` | Env setting pattern data (key, title, description, code) — 5 patterns (overview, server-env, client-env, dotenv-structure, type-safe-usage) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

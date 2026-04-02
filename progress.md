@@ -290,11 +290,11 @@
   - [x] Build + Lint pass
 
   **Step 5: Env Setting** (base: Zod + server-only — โค้ดมีอยู่แล้ว)
-  - [ ] `constants/custom-patterns/env-setting.constant.ts` — tutorial data
-  - [ ] `components/features/custom-patterns/env-setting/` — components
-  - [ ] Variants: 1. Zod validation setup 2. Server env (server-only) 3. Client env (NEXT_PUBLIC) 4. .env file structure 5. Type-safe usage
-  - [ ] `app/features/custom-patterns/env-setting/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  - [x] `constants/custom-patterns/env-setting.constant.ts` — tutorial data (5 patterns)
+  - [x] `components/features/custom-patterns/env-setting/` — 5 section folders (env-overview, server-env, client-env, dotenv-structure, type-safe-usage)
+  - [x] Variants: 1. Env Overview (ทำไมต้อง validate) 2. Server env (server-only + zod) 3. Client env (NEXT_PUBLIC gotcha) 4. .env file structure (priority table) 5. Type-safe usage (3 use cases)
+  - [x] `app/features/custom-patterns/env-setting/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
 
   #### Phase 2 — shadcn-heavy patterns
 
