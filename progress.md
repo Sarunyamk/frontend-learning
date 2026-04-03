@@ -352,21 +352,7 @@
   - [x] `app/features/custom-patterns/not-found/page.tsx` — Server page (○ Static)
   - [x] Build + Lint pass
 
-  #### Phase 3 — Layout patterns
-
-  **Step 12: Header Patterns** (base: shadcn NavigationMenu)
-  - [ ] `constants/custom-patterns/header.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/header/` — components
-  - [ ] Variants: 1. Simple header 2. Sticky + blur on scroll 3. Header with mega menu 4. Header with search bar 5. Transparent → solid on scroll 6. Centered logo + side nav
-  - [ ] `app/features/custom-patterns/header/page.tsx` — Server page
-  - [ ] Build + Lint pass
-
-  **Step 13: Mobile Nav Patterns** (base: shadcn Sheet + Framer Motion)
-  - [ ] `constants/custom-patterns/mobile-nav.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/mobile-nav/` — components
-  - [ ] Variants: 1. Hamburger slide-in 2. Bottom tab bar 3. Drawer (shadcn Sheet) 4. Full-screen overlay 5. Floating action menu
-  - [ ] `app/features/custom-patterns/mobile-nav/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  #### Phase 3 — Setup Guides
 
   **Step 14: Code Shiki** (document สิ่งที่มีอยู่แล้ว) ✅
   - [x] `constants/custom-patterns/code-shiki.constant.ts` — 3 exports: SETUP_STEPS (5 steps), HOW_IT_WORKS (flow/responsive/themes), USAGE_EXAMPLES (5 examples)
