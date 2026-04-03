@@ -18,8 +18,8 @@
 | `HeroSection` | `src/components/home/hero-section.tsx` | Server | Home hero — heading, description, CTA |
 | `FeatureSection` | `src/components/home/feature-section.tsx` | Server | Feature grid wrapper — map FEATURE_CATEGORIES → FeatureCard |
 | `FeatureCard` | `src/components/home/feature-card.tsx` | Client | Feature card — fadeUp animation, icon map, link |
-| `FeatureBreadcrumb` | `src/components/features/feature-breadcrumb.tsx` | Server | Breadcrumb สำหรับ feature pages — รับ `category: FeatureCategoryConfig`, render Home → Features → [Label] |
-| `FeatureSubItems` | `src/components/features/feature-sub-items.tsx` | Server | Sub-item cards + Coming soon badge — รับ `items: readonly FeatureItem[]` |
+| `FeatureBreadcrumb` | `src/components/shared/feature-breadcrumb.tsx` | Server | Breadcrumb สำหรับ feature pages — รับ `category: FeatureCategoryConfig`, render Home → Features → [Label] |
+| `FeatureSubItems` | `src/components/shared/feature-sub-items.tsx` | Server | Sub-item cards + Coming soon badge — รับ `items: readonly FeatureItem[]` |
 | `AppSidebar` | `src/components/sidebar/sidebar.tsx` | Server | shadcn Sidebar wrapper — map FEATURE_CATEGORIES → SidebarItem |
 | `SidebarItem` | `src/components/sidebar/sidebar-item.tsx` | Client | Collapsible sidebar menu item — active state via usePathname |
 | `ThemeProvider` | `src/components/theme/theme-provider.tsx` | Client | next-themes provider wrapper |
@@ -45,6 +45,23 @@
 | `AnimationReadyToUse` | `src/components/features/framer-motion/animation-ready-to-use.tsx` | Server | Ready-to-use code section (Variant Presets, ColumnFade, Stagger) — CodeBlockShiki |
 | `TransitionReadyToUse` | `src/components/features/framer-motion/transition-ready-to-use.tsx` | Server | Ready-to-use + Used in Project + Code Examples — CodeBlockShiki |
 | `PresetCard` | `src/components/features/framer-motion/preset-card.tsx` | Client | Animation preset live demo — รับ codeSlot (Server JSX) จาก parent |
+| `CustomButton` | `src/components/shared/custom-button.tsx` | Server | Wrapper รอบ shadcn Button — รับ icon (LucideIcon), label, children, className, variant, size + ทุก button props. มี `gap-2` ในตัว |
+| `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
+| `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | Full-page overlay + backdrop blur + Loader2 spinner + "Loading..." — ไม่มี props, import ไปใช้ใน loading.tsx ได้เลย |
+| `showToast` | `src/components/shared/show-toast.tsx` | Function | Reusable toast function — showToast({ type, title, description }). Types: success/error/warning/info. ใช้ sonner + richColors |
+| `NavLink` | `src/components/shared/nav-link.tsx` | Client | Reusable nav link — wrap Next.js Link + usePathname() auto-detect isActive. Props: variant (default/underline/highlight/animated), icon (LucideIcon), exact |
+| `ConfirmDialog` | `src/components/shared/confirm-dialog.tsx` | Client | Reusable confirm dialog — async loading, destructive variant. Props: open, onOpenChange, title, description, onConfirm, variant, confirmText, cancelText |
+| `FormDialog` | `src/components/shared/form-dialog.tsx` | Client | Dialog wrapper สำหรับ form — รับ children เป็น form content. Props: open, onOpenChange, title, description, children |
+| `InfoSheet` | `src/components/shared/info-sheet.tsx` | Client | Side panel — filter, settings, detail view. Props: open, onOpenChange, title, description, side (left/right/top/bottom), children |
+| `AlertMessage` | `src/components/shared/alert-message.tsx` | Client | Force-acknowledge dialog — ไม่มี Cancel. Props: open, onOpenChange, title, description, onConfirm, confirmText |
+| `Pagination` | `src/components/shared/pagination.tsx` | Client | Reusable pagination — page numbers, ellipsis, prev/next. Props: currentPage, totalPages, onPageChange, siblings? |
+| `LoadMoreButton` | `src/components/shared/load-more-button.tsx` | Client | Load more button — auto spinner + hide เมื่อหมด. Props: onLoadMore, loading?, hasMore?, loadingText?, children? |
+| `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | Auto-load wrapper — IntersectionObserver. Props: onLoadMore, loading?, hasMore?, threshold?, children |
+| `DatePicker` | `src/components/shared/date-picker.tsx` | Client | Reusable date picker — Popover + Calendar + date-fns format. Props: value?, onChange, placeholder?, disabled?, className? |
+| `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | Reusable date range picker — Calendar mode="range" + 2 months. Props: value? (DateRange), onChange, placeholder?, disabled?, className? |
+| `ErrorCard` | `src/components/shared/error-card.tsx` | Client | Reusable error card — ColumnFade stagger + shake icon + title + description + Retry button + statusCode. Props: title?, description?, statusCode?, onRetry?, className? |
+| `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | Reusable 404 — ColumnFade stagger + bounce emoji + title + description + back link. Props: title?, description?, backHref?, backLabel?, className? |
+| `DataTable` | `src/components/shared/data-table.tsx` | Client | Generic data table — map Column<T>[] + data → shadcn Table. Props: columns, data, emptyMessage?, className?, renderRow? |
 
 ---
 
@@ -61,8 +78,10 @@
 | Function | Path | Description |
 |----------|------|-------------|
 | `cn()` | `src/lib/utils.ts` | clsx + tailwind-merge สำหรับ conditional className |
+| `sortByField()` | `src/utils/sort-by-field.ts` | Pure sort helper — sortByField(items, config), SortConfig<T>, SortDirection |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
 | `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
+| `fontVariables` | `src/lib/fonts.ts` | Combined font CSS variable className — Geist Sans + Geist Mono + Prompt, ใช้ใน layout.tsx `<html>` |
 
 ---
 
@@ -80,6 +99,7 @@
 | `staggerContainer` | `framer-motion.ts` | Parent container สำหรับ stagger children (0.06s gap, 0.15s delay) |
 | `staggerItem` | `framer-motion.ts` | Child item สำหรับ stagger (fade + slide from right) |
 | `fadeSlide` | `framer-motion.ts` | Slide เข้าจากขวา ออกทางซ้าย (มี exit) — สำหรับ step/tab transitions |
+| `shake` | `framer-motion.ts` | Scale 0.8→1 + rotate shake (±10°) — สำหรับ error icon |
 | Header variants | `header.ts` | Header-specific animations |
 
 ---
@@ -108,6 +128,23 @@
 | `PROTECTED_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for proxy guard + RBAC examples |
 | `SESSION_CODE_SECTIONS` | `src/constants/next-auth.constant.ts` | 3 code sections for server vs client session |
 | `UPLOAD_TIPS` | `src/constants/image-tips.constant.ts` | Next.js file upload config tips (body size, remote images, API route, cloud storage) |
+| `BUTTON_PATTERNS` | `src/constants/custom-patterns/button.constant.ts` | Button pattern data (key, title, description, code) — 15 patterns |
+| `LOADING_PATTERNS` | `src/constants/custom-patterns/loading.constant.ts` | Loading pattern data (key, title, description, code) — 6 patterns (spinner, skeleton, dots, progress, fancy, lottie) |
+| `TOAST_PATTERNS` | `src/constants/custom-patterns/toast.constant.ts` | Toast pattern data (key, title, description, code) — 5 patterns (showToast, usage, action, promise, custom) |
+| `NAV_LINK_PATTERNS` | `src/constants/custom-patterns/nav-link.constant.ts` | Nav link pattern data (key, title, description, code) — 5 patterns (source, basic-icon, underline, highlight, animated) |
+| `ENV_SETTING_PATTERNS` | `src/constants/custom-patterns/env-setting.constant.ts` | Env setting pattern data (key, title, description, code) — 5 patterns (overview, server-env, client-env, dotenv-structure, type-safe-usage) |
+| `MODAL_PATTERNS` | `src/constants/custom-patterns/modal.constant.ts` | Modal pattern data (key, title, description, code) — 4 patterns (confirm-dialog, form-dialog, info-sheet, alert-message) |
+| `PAGINATION_PATTERNS` | `src/constants/custom-patterns/pagination.constant.ts` | Pagination pattern data (key, title, description, code) — 8 entries: 4 patterns × source+usage (basic-pagination, with-size, load-more, infinite-scroll) |
+| `CALENDAR_PATTERNS` | `src/constants/custom-patterns/calendar.constant.ts` | Calendar pattern data (key, title, description, code) — 10 entries: 5 patterns × source+usage (single, range, two-dates, month-year, with-time) |
+| `ERROR_PATTERNS` | `src/constants/custom-patterns/error.constant.ts` | Error pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (error-card, status-code, global-error) |
+| `NOT_FOUND_PATTERNS` | `src/constants/custom-patterns/not-found.constant.ts` | Not found pattern data (key, title, description, code) — 2 entries: 1 pattern × source+usage (not-found-card) |
+| `TABLE_ACTION_PATTERNS` | `src/constants/custom-patterns/table-action.constant.ts` | Table action pattern data (key, title, description, code) — 12 entries: 6 patterns × source+usage (basic-table, column-search, row-actions, sortable-columns, row-selection, expandable-rows) |
+| `FONT_SETTING_SETUP_STEPS` | `src/constants/custom-patterns/font-setting.constant.ts` | Font setup steps (step, title, description, code, language) — 5 steps: config → layout → globals.css → usage → local font |
+| `FONT_SETTING_HOW_IT_WORKS` | `src/constants/custom-patterns/font-setting.constant.ts` | How it works data — flow (data flow diagram), comparison (next/font vs @import), semanticTokens (token pattern) |
+| `FONT_SETTING_USAGE_EXAMPLES` | `src/constants/custom-patterns/font-setting.constant.ts` | Usage examples (key, title, description, code, language) — 4 examples: add Google Font, multiple fonts, weight/display, warnings |
+| `CODE_SHIKI_SETUP_STEPS` | `src/constants/custom-patterns/code-shiki.constant.ts` | Shiki setup steps (step, title, description, code, language) — 5 steps: install → highlighter → component → copy button → global CSS |
+| `CODE_SHIKI_HOW_IT_WORKS` | `src/constants/custom-patterns/code-shiki.constant.ts` | How it works data — flow (data flow diagram), responsive (alternative CSS), themes (recommended themes) |
+| `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { MultiStepForm } from '@/components/features/form/multi-step-form';
 import {
   Card,

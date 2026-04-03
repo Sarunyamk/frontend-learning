@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { NavLink } from '@/components/shared/nav-link';
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -15,6 +16,7 @@ import {
 import {
   ClipboardList,
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,
@@ -27,6 +29,7 @@ import type { FeatureCategoryConfig } from '@/constants/feature.constant';
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   ClipboardList,
   CreditCard,
+  Puzzle,
   Radio,
   Palette,
   Shield,
@@ -53,7 +56,13 @@ export function SidebarItem({
   onNavigate,
 }: SidebarItemProps) {
   const isActive = pathname.startsWith(category.path);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(isActive);
+  const [prevActive, setPrevActive] = useState(isActive);
+
+  if (isActive !== prevActive) {
+    setPrevActive(isActive);
+    if (isActive) setIsOpen(true);
+  }
   const Icon = ICON_MAP[category.icon];
 
   // Collapsed mode — icon only + tooltip
@@ -104,26 +113,18 @@ export function SidebarItem({
         </CollapsibleTrigger>
         <CollapsibleContent>
           <ul className="ml-5 mt-0.5 space-y-0.5 border-l border-border pl-3">
-            {category.items.map((item) => {
-              const isItemActive = pathname === item.path;
-
-              return (
-                <li key={item.key}>
-                  <Link
-                    href={item.path}
-                    onClick={onNavigate}
-                    className={cn(
-                      'block rounded-lg px-3 py-1.5 text-sm transition-colors',
-                      isItemActive
-                        ? 'font-medium text-foreground'
-                        : 'text-muted-foreground hover:text-foreground',
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {category.items.map((item) => (
+              <li key={item.key}>
+                <NavLink
+                  href={item.path}
+                  onClick={onNavigate}
+                  exact
+                  className="block rounded-lg px-3 py-1.5"
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </CollapsibleContent>
       </Collapsible>

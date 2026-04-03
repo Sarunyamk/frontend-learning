@@ -1,9 +1,8 @@
-import { notFound } from 'next/navigation';
-import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureSubItems } from '@/components/shared/feature-sub-items';
+import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { FeatureSubItems } from '@/components/features/feature-sub-items';
-import { READY_NEXT_AUTH_PATHS } from '@/constants/route.constant';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.NEXT_AUTH);
@@ -24,10 +23,7 @@ export default async function NextAuthPage() {
         </h1>
         <p className="mt-2 text-muted-foreground">{category.description}</p>
       </div>
-      <FeatureSubItems
-        items={category.items}
-        readyPaths={READY_NEXT_AUTH_PATHS}
-      />
+      <FeatureSubItems items={category.items} />
     </div>
   );
 }

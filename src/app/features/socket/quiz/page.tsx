@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { QuizContainer } from '@/components/features/socket/quiz/quiz-container';
 
 import type { Metadata } from 'next';

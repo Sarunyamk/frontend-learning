@@ -53,3 +53,13 @@ export const fadeSlide: Variants = {
   show: { opacity: 1, x: 0 },
   exit: { opacity: 0, x: -30 },
 };
+
+export const shake: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    rotate: [0, -10, 10, -10, 10, 0],
+    transition: { rotate: { delay: 0.3, duration: 0.5, ease: 'easeInOut' } },
+  },
+};

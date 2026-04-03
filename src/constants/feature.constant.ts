@@ -7,6 +7,7 @@ export const FEATURE_CATEGORY = {
   NEXT_AUTH: 'next-auth',
   FRAMER_MOTION: 'framer-motion',
   FORMS: 'forms',
+  CUSTOM_PATTERNS: 'custom-patterns',
 } as const;
 
 export type FeatureCategory =
@@ -16,6 +17,7 @@ export type FeatureItem = {
   readonly key: string;
   readonly label: string;
   readonly path: string;
+  readonly group?: string;
 };
 
 export type FeatureCategoryConfig = {
@@ -110,15 +112,122 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
   {
     key: FEATURE_CATEGORY.FORMS,
     label: 'Form Patterns',
-    description: 'react-hook-form + zod + shadcn — basic, multi-step, dynamic, upload',
+    description:
+      'react-hook-form + zod + shadcn — basic, multi-step, dynamic, upload',
     icon: 'ClipboardList',
     path: ROUTES.FORMS,
     items: [
       { key: 'basic', label: 'Basic Form', path: ROUTES.FORMS_BASIC },
-      { key: 'multi-step', label: 'Multi-step Form', path: ROUTES.FORMS_MULTI_STEP },
+      {
+        key: 'multi-step',
+        label: 'Multi-step Form',
+        path: ROUTES.FORMS_MULTI_STEP,
+      },
       { key: 'dynamic', label: 'Dynamic Fields', path: ROUTES.FORMS_DYNAMIC },
       { key: 'upload', label: 'File Upload', path: ROUTES.FORMS_UPLOAD },
-      { key: 'ready-to-use', label: 'Ready to Use', path: ROUTES.FORMS_READY_TO_USE },
+      {
+        key: 'ready-to-use',
+        label: 'Ready to Use',
+        path: ROUTES.FORMS_READY_TO_USE,
+      },
+    ],
+  },
+  {
+    key: FEATURE_CATEGORY.CUSTOM_PATTERNS,
+    label: 'Custom Patterns',
+    description: 'Copy-paste ready component patterns with live demo + code',
+    icon: 'Puzzle',
+    path: ROUTES.CUSTOM_PATTERNS,
+    items: [
+      // UI Components
+      {
+        key: 'button',
+        label: 'Button',
+        path: ROUTES.CUSTOM_PATTERNS_BUTTON,
+        group: 'UI Components',
+      },
+      {
+        key: 'loading',
+        label: 'Loading',
+        path: ROUTES.CUSTOM_PATTERNS_LOADING,
+        group: 'UI Components',
+      },
+      {
+        key: 'toast',
+        label: 'Toast',
+        path: ROUTES.CUSTOM_PATTERNS_TOAST,
+        group: 'UI Components',
+      },
+      {
+        key: 'modal',
+        label: 'Modal',
+        path: ROUTES.CUSTOM_PATTERNS_MODAL,
+        group: 'UI Components',
+      },
+      {
+        key: 'calendar',
+        label: 'Calendar',
+        path: ROUTES.CUSTOM_PATTERNS_CALENDAR,
+        group: 'UI Components',
+      },
+      {
+        key: 'swiper',
+        label: 'Swiper',
+        path: ROUTES.CUSTOM_PATTERNS_SWIPER,
+        group: 'UI Components',
+      },
+      // Navigation
+      {
+        key: 'nav-link',
+        label: 'Nav Link',
+        path: ROUTES.CUSTOM_PATTERNS_NAV_LINK,
+        group: 'Navigation',
+      },
+      // Data Display
+      {
+        key: 'pagination',
+        label: 'Pagination',
+        path: ROUTES.CUSTOM_PATTERNS_PAGINATION,
+        group: 'Data Display',
+      },
+      {
+        key: 'table-action',
+        label: 'Table Action',
+        path: ROUTES.CUSTOM_PATTERNS_TABLE_ACTION,
+        group: 'Data Display',
+      },
+      // Pages
+      {
+        key: 'error',
+        label: 'Error',
+        path: ROUTES.CUSTOM_PATTERNS_ERROR,
+        group: 'Pages',
+      },
+      {
+        key: 'not-found',
+        label: 'Not Found',
+        path: ROUTES.CUSTOM_PATTERNS_NOT_FOUND,
+        group: 'Pages',
+      },
+      // Setup Guides
+      {
+        key: 'env-setting',
+        label: 'Env Setting',
+        path: ROUTES.CUSTOM_PATTERNS_ENV_SETTING,
+        group: 'Setup Guides',
+      },
+      {
+        key: 'code-shiki',
+        label: 'Code Shiki',
+        path: ROUTES.CUSTOM_PATTERNS_CODE_SHIKI,
+        group: 'Setup Guides',
+      },
+      {
+        key: 'font-setting',
+        label: 'Font Setting',
+        path: ROUTES.CUSTOM_PATTERNS_FONT_SETTING,
+        group: 'Setup Guides',
+      },
     ],
   },
 ] as const;

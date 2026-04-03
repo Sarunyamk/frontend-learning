@@ -241,6 +241,155 @@
   - [x] Build + Lint pass
   - [x] Update .md files
 
+- [ ] 7. Custom Patterns (Reusable Component Showcase)
+  > Copy-paste ready component patterns — ทุก variant มี live demo + code (CodeBlockShiki)
+  > Three.js variants = coming soon (ข้ามไว้ก่อน)
+  > Sidebar จัดเป็น 5 groups: Pages / UI Components / Navigation / Data Display / Setup Guides
+
+  #### Phase 1 — Foundation + Quick wins (ไม่ต้องติดตั้ง lib เพิ่ม)
+
+  **Step 0: Setup**
+  - [x] `route.constant.ts` — เพิ่ม CUSTOM_PATTERNS routes ทั้งหมด (17 sub-pages)
+  - [x] `feature.constant.ts` — เพิ่ม CUSTOM_PATTERNS category + grouped sub-items
+  - [x] `app/features/custom-patterns/page.tsx` — Overview page (pattern grid + description)
+  - [x] Build + Lint pass
+
+  **Step 1: Button Patterns** (base: shadcn Button)
+  - [x] `constants/custom-patterns/button.constant.ts` — pattern data (15 patterns)
+  - [x] `components/features/custom-patterns/button/` — components (9 sections)
+  - [x] `components/shared/custom-button.tsx` — reusable `CustomButton` (wrapper รอบ shadcn Button, รับ icon/label/children)
+  - [x] `components/features/custom-patterns/button/pattern-card.tsx` — collapsible live demo + code card
+  - [x] Variants: 1. CustomButton (icon+label+children) 2. Gradient hover 3. Icon + text with hover animation 4. Loading button (spinner) 5. Shimmer effect (diagonal sweep) 6. Magnetic hover 7. Glow/neon button 8. Copy button 9. Social buttons
+  - [x] `app/features/custom-patterns/button/page.tsx` — Server page
+  - [x] Build + Lint pass
+
+  **Step 2: Loading Patterns** (base: CSS + Framer Motion + Lottie)
+  - [x] `constants/custom-patterns/loading.constant.ts` — pattern data (6 variants)
+  - [x] `components/features/custom-patterns/loading/` — 6 variant folders (spinner, skeleton, dots, progress, fancy, lottie)
+  - [x] Variants: 1. Spinner (Lucide/SVG/Border) 2. Skeleton shimmer (card/list toggle) 3. Dots/pulse (bounce/pulse/wave) 4. Progress bar (auto-fill + reset) 5. Framer Motion fancy (orbit/wave/bounce) 6. Lottie loader (@lottiefiles/dotlottie-react)
+  - [x] `app/features/custom-patterns/loading/page.tsx` — Server page (Static)
+  - [x] `globals.css` — เพิ่ม @keyframes wave
+  - [x] Install `@lottiefiles/dotlottie-react`
+  - [x] Build + Lint pass
+
+  **Step 3: Toast Patterns** (base: shadcn Sonner)
+  - [x] Install `sonner` via shadcn + เพิ่ม `<Toaster richColors />` ใน root layout
+  - [x] `components/shared/show-toast.tsx` — reusable function (showToast: success/error/warning/info)
+  - [x] `constants/custom-patterns/toast.constant.ts` — pattern data (5 patterns)
+  - [x] `components/features/custom-patterns/toast/` — 4 variant folders (toast-reuse, action, promise, custom)
+  - [x] Variants: 1. showToast reusable (4 types) 2. Toast with Action (Undo/Retry) 3. Promise toast (loading → success/error) 4. Custom JSX toast
+  - [x] `app/features/custom-patterns/toast/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
+
+  **Step 4: Nav Link Patterns** (base: Next.js Link + usePathname)
+  - [x] `components/shared/nav-link.tsx` — reusable NavLink component (variant: default/underline/highlight/animated, icon, exact)
+  - [x] `constants/custom-patterns/nav-link.constant.ts` — pattern data (5 patterns)
+  - [x] `components/features/custom-patterns/nav-link/` — 5 variant folders (nav-link-source, basic-icon, active-underline, active-highlight, animated-underline)
+  - [x] Variants: 1. NavLink source 2. Basic + Icon 3. Active Underline 4. Active BG Highlight 5. Animated Underline (CSS scaleX)
+  - [x] `app/features/custom-patterns/nav-link/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
+
+  **Step 5: Env Setting** (base: Zod + server-only — โค้ดมีอยู่แล้ว)
+  - [x] `constants/custom-patterns/env-setting.constant.ts` — tutorial data (5 patterns)
+  - [x] `components/features/custom-patterns/env-setting/` — 5 section folders (env-overview, server-env, client-env, dotenv-structure, type-safe-usage)
+  - [x] Variants: 1. Env Overview (ทำไมต้อง validate) 2. Server env (server-only + zod) 3. Client env (NEXT_PUBLIC gotcha) 4. .env file structure (priority table) 5. Type-safe usage (3 use cases)
+  - [x] `app/features/custom-patterns/env-setting/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
+
+  #### Phase 2 — shadcn-heavy patterns
+
+  **Step 6: Modal Patterns** (base: shadcn Dialog + Sheet + AlertDialog)
+  - [x] `constants/custom-patterns/modal.constant.ts` — pattern data (4 patterns)
+  - [x] `components/shared/` — reusable: ConfirmDialog, FormDialog, InfoSheet, AlertMessage
+  - [x] `components/features/custom-patterns/modal/` — 4 sections (server wrapper + client preview)
+  - [x] Variants: 1. ConfirmDialog (async loading + destructive) 2. FormDialog (children flexible) 3. InfoSheet (side panel) 4. AlertMessage (force acknowledge)
+  - [x] `app/features/custom-patterns/modal/page.tsx` — Server page
+  - [x] Build + Lint pass
+
+  **Step 7: Pagination Patterns** (base: shadcn Pagination + Select)
+  - [x] `constants/custom-patterns/pagination.constant.ts` — pattern data (4 patterns)
+  - [x] `components/shared/` — reusable: Pagination, LoadMoreButton, InfiniteScroll
+  - [x] `components/features/custom-patterns/pagination/` — 4 sections (server wrapper + client preview)
+  - [x] Variants: 1. Basic pagination (ellipsis + prev/next) 2. With per-page selector 3. Load more button 4. Infinite scroll (IntersectionObserver)
+  - [x] `app/features/custom-patterns/pagination/page.tsx` — Server page
+  - [x] Build + Lint pass
+
+  **Step 8: Calendar Patterns** (base: shadcn Calendar + date-fns)
+  - [x] Install shadcn `calendar` + `popover` (→ react-day-picker + date-fns)
+  - [x] `components/shared/date-picker.tsx` — reusable DatePicker (Popover + Calendar + date-fns format)
+  - [x] `components/shared/date-range-picker.tsx` — reusable DateRangePicker (Calendar mode="range" + 2 months)
+  - [x] `constants/custom-patterns/calendar.constant.ts` — pattern data (5 patterns × source+usage = 10 entries)
+  - [x] `components/features/custom-patterns/calendar/` — 5 variant folders (single, range, two-dates, month-year, with-time)
+  - [x] Variants: 1. Single date picker 2. Date range (เลือก start-end) 3. Two separate dates 4. Month/year picker (captionLayout="dropdown") 5. Date + time picker
+  - [x] `app/features/custom-patterns/calendar/page.tsx` — Server page (Static)
+  - [x] Build + Lint pass
+
+  **Step 9: Table Action Patterns** (base: shadcn Table — manual) ✅
+  - [x] Install shadcn `table` + `dropdown-menu`
+  - [x] `components/shared/data-table.tsx` — reusable DataTable<T> (columns + data → shadcn Table, renderRow prop)
+  - [x] `utils/sort-by-field.ts` — pure sort utility (sortByField, SortConfig, SortDirection)
+  - [x] `constants/custom-patterns/table-action.constant.ts` — 12 entries (6 patterns × source+usage)
+  - [x] `components/features/custom-patterns/table-action/` — 6 folders + _data/mock-users.ts
+  - [x] Variants: 1. Basic DataTable + Pagination 2. Column search/filter (Input + Select) 3. Sortable columns (sortByField) 4. Expandable rows (renderRow + colSpan) 5. Row actions (DropdownMenu + ConfirmDialog + showToast) 6. Row selection + bulk actions (Checkbox + floating bar)
+  - [x] `app/features/custom-patterns/table-action/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+
+  **Step 10: Error Patterns** (base: shadcn Card + Button) ✅
+  - [x] `components/shared/error-card.tsx` — reusable ErrorCard (ColumnFade stagger + shake icon + title, description, statusCode, onRetry)
+  - [x] `lib/framer-motion/framer-motion.ts` — เพิ่ม `shake` variant (scale 0.8→1 + rotate ±10°)
+  - [x] `constants/custom-patterns/error.constant.ts` — 6 entries (3 patterns × source+usage)
+  - [x] `components/features/custom-patterns/error/` — 3 folders (error-card, status-code, global-error)
+  - [x] Variants: 1. ErrorCard source+usage (animated — ColumnFade + shake) 2. Error + Status Code (401/403/500) 3. Global Error (error boundary hierarchy)
+  - [x] Animated Error ถูกรวมเข้า ErrorCard แล้ว — ลบ animated folder ออก
+  - [x] `app/features/custom-patterns/error/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+
+  **Step 11: Not Found Patterns** (base: shadcn + Framer Motion) ✅
+  - [x] `components/shared/not-found-card.tsx` — reusable NotFoundCard (title, description, backHref, backLabel)
+  - [x] `constants/custom-patterns/not-found.constant.ts` — 4 entries (2 patterns × source+usage)
+  - [x] `components/features/custom-patterns/not-found/` — 2 folders (not-found-card, animated)
+  - [x] Variants: 1. NotFoundCard source+usage (ColumnFade stagger + bounce emoji) 2. Animated 404 (spring bounce number)
+  - [x] `app/features/custom-patterns/not-found/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+
+  #### Phase 3 — Setup Guides
+
+  **Step 14: Code Shiki** (document สิ่งที่มีอยู่แล้ว) ✅
+  - [x] `constants/custom-patterns/code-shiki.constant.ts` — 3 exports: SETUP_STEPS (5 steps), HOW_IT_WORKS (flow/responsive/themes), USAGE_EXAMPLES (5 examples)
+  - [x] `components/features/custom-patterns/code-shiki/` — 3 components (Card-based, เหมือน tailwind/themes pattern)
+    - `shiki-setup-steps.tsx` — Step 1-5: install → highlighter → component → copy button → global CSS
+    - `shiki-how-it-works.tsx` — Data flow diagram + responsive theme alternative + themes แนะนำ
+    - `shiki-usage-guide.tsx` — 5 ตัวอย่าง: basic, PatternCard, constant, languages, warnings
+  - [x] `app/features/custom-patterns/code-shiki/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+
+  **Step 15: Font Setting** (base: next/font — refactor โปรเจคก่อน แล้วค่อยทำ tutorial) ✅
+  - [x] Refactor: แยก font config → `lib/fonts.ts` (Geist Sans, Geist Mono, Prompt) + fontVariables export
+  - [x] Layout cleanup: import fontVariables แทน inline font config
+  - [x] globals.css: --font-sans = Prompt + Geist Sans fallback, --font-heading = เหมือนกัน
+  - [x] `constants/custom-patterns/font-setting.constant.ts` — 3 exports: SETUP_STEPS (5 steps), HOW_IT_WORKS (flow/comparison/semantic), USAGE_EXAMPLES (4 examples)
+  - [x] `components/features/custom-patterns/font-setting/` — 3 components (Card-based)
+    - `font-setup-steps.tsx` — Step 1-5: config → layout → globals.css → usage → local font
+    - `font-how-it-works.tsx` — Data flow + next/font vs @import + semantic token pattern
+    - `font-usage-guide.tsx` — เพิ่ม Google Font + หลาย font + weight/display + warnings
+  - [x] `app/features/custom-patterns/font-setting/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+
+  #### Phase 4 — External libs
+
+  **Step 16: Swiper Patterns** (base: Swiper.js — ต้อง install)
+  - [ ] Install `swiper`
+  - [ ] `constants/custom-patterns/swiper.constant.ts` — pattern data
+  - [ ] `components/features/custom-patterns/swiper/` — components
+  - [ ] Variants: 1. Basic carousel 2. Autoplay + pagination 3. Thumbnail gallery 4. Card carousel (peek sides) 5. Fade transition
+  - [ ] `app/features/custom-patterns/swiper/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 17: Update .md files + final review**
+  - [ ] Update share.md — document ทุก new component/constant
+  - [ ] Update progress.md — mark completed
+  - [ ] Build + Lint pass
+
 **Parked (ทำทีหลัง)**
 
 - [x] Form Patterns (Basic, Multi-step, Dynamic, Upload) — done

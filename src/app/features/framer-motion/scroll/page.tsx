@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
 import { ScrollAnimations } from '@/components/features/framer-motion/scroll-animations';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { FeatureSubItems } from '@/components/features/feature-sub-items';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureSubItems } from '@/components/shared/feature-sub-items';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.PAYMENT);

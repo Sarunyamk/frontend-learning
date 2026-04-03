@@ -2,12 +2,18 @@ import 'server-only';
 
 import { type Highlighter, createHighlighter } from 'shiki';
 
-let highlighterPromise: Promise<Highlighter> | null = null;
+// globalThis ป้องกัน HMR สร้าง instance ซ้ำใน dev mode
+const globalForShiki = globalThis as typeof globalThis & {
+  __shikiHighlighter?: Promise<Highlighter>;
+};
+
+let highlighterPromise: Promise<Highlighter> | null =
+  globalForShiki.__shikiHighlighter ?? null;
 
 function getHighlighter() {
   if (!highlighterPromise) {
-    highlighterPromise = createHighlighter({
-      themes: ['github-light', 'github-dark'],
+    highlighterPromise = globalForShiki.__shikiHighlighter = createHighlighter({
+      themes: ['light-plus', 'dark-plus'],
       langs: ['css', 'tsx', 'typescript', 'bash', 'html', 'json', 'javascript'],
     });
   }
@@ -25,6 +31,6 @@ export async function highlightCode(
 
   return highlighter.codeToHtml(code, {
     lang,
-    themes: { light: 'github-light', dark: 'github-dark' },
+    themes: { light: 'light-plus', dark: 'dark-plus' },
   });
 }

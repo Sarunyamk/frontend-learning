@@ -36,6 +36,25 @@ export const ROUTES = {
   FRAMER_MOTION_SCROLL: '/features/framer-motion/scroll',
   FRAMER_MOTION_TRANSITIONS: '/features/framer-motion/transitions',
 
+  // Custom Patterns
+  CUSTOM_PATTERNS: '/features/custom-patterns',
+  CUSTOM_PATTERNS_BUTTON: '/features/custom-patterns/button',
+  CUSTOM_PATTERNS_LOADING: '/features/custom-patterns/loading',
+  CUSTOM_PATTERNS_TOAST: '/features/custom-patterns/toast',
+  CUSTOM_PATTERNS_NAV_LINK: '/features/custom-patterns/nav-link',
+  CUSTOM_PATTERNS_ENV_SETTING: '/features/custom-patterns/env-setting',
+  CUSTOM_PATTERNS_MODAL: '/features/custom-patterns/modal',
+  CUSTOM_PATTERNS_PAGINATION: '/features/custom-patterns/pagination',
+  CUSTOM_PATTERNS_CALENDAR: '/features/custom-patterns/calendar',
+  CUSTOM_PATTERNS_TABLE_ACTION: '/features/custom-patterns/table-action',
+  CUSTOM_PATTERNS_ERROR: '/features/custom-patterns/error',
+  CUSTOM_PATTERNS_NOT_FOUND: '/features/custom-patterns/not-found',
+  CUSTOM_PATTERNS_HEADER: '/features/custom-patterns/header',
+  CUSTOM_PATTERNS_MOBILE_NAV: '/features/custom-patterns/mobile-nav',
+  CUSTOM_PATTERNS_CODE_SHIKI: '/features/custom-patterns/code-shiki',
+  CUSTOM_PATTERNS_FONT_SETTING: '/features/custom-patterns/font-setting',
+  CUSTOM_PATTERNS_SWIPER: '/features/custom-patterns/swiper',
+
   // Forms
   FORMS: '/features/forms',
   FORMS_BASIC: '/features/forms/basic',
@@ -44,35 +63,3 @@ export const ROUTES = {
   FORMS_UPLOAD: '/features/forms/upload',
   FORMS_READY_TO_USE: '/features/forms/ready-to-use',
 } as const;
-
-export const READY_FORM_PATHS = [
-  ROUTES.FORMS_BASIC,
-  ROUTES.FORMS_MULTI_STEP,
-  ROUTES.FORMS_DYNAMIC,
-  ROUTES.FORMS_UPLOAD,
-  ROUTES.FORMS_READY_TO_USE,
-] as const;
-
-export const READY_TAILWIND_PATHS = [
-  ROUTES.TAILWIND_TOKENS,
-  ROUTES.TAILWIND_THEMES,
-] as const;
-
-export const READY_FRAMER_MOTION_PATHS = [
-  ROUTES.FRAMER_MOTION_EXAMPLES,
-  ROUTES.FRAMER_MOTION_SCROLL,
-  ROUTES.FRAMER_MOTION_TRANSITIONS,
-] as const;
-
-export const READY_SOCKET_PATHS = [
-  ROUTES.SOCKET_CHAT,
-  ROUTES.SOCKET_STOCK,
-  ROUTES.SOCKET_QUIZ,
-] as const;
-
-export const READY_NEXT_AUTH_PATHS = [
-  ROUTES.NEXT_AUTH_SETUP,
-  ROUTES.NEXT_AUTH_GOOGLE,
-  ROUTES.NEXT_AUTH_PROTECTED,
-  ROUTES.NEXT_AUTH_SESSION,
-] as const;

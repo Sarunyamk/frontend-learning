@@ -1,6 +1,5 @@
-import { FeatureBreadcrumb } from '@/components/features/feature-breadcrumb';
-import { FeatureSubItems } from '@/components/features/feature-sub-items';
-import { READY_FRAMER_MOTION_PATHS } from '@/constants/route.constant';
+import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureSubItems } from '@/components/shared/feature-sub-items';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -24,10 +23,7 @@ export default async function FramerMotionPage() {
         </h1>
         <p className="mt-2 text-muted-foreground">{category.description}</p>
       </div>
-      <FeatureSubItems
-        items={category.items}
-        readyPaths={READY_FRAMER_MOTION_PATHS}
-      />
+      <FeatureSubItems items={category.items} />
     </div>
   );
 }
