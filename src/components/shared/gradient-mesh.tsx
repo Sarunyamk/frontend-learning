@@ -22,10 +22,10 @@ type GradientMeshProps = {
    */
   blur?: number;
   /**
-   * สีของแต่ละ blob — ใช้ CSS color value (oklch/rgb/hex)
+   * สีของแต่ละ blob — ใช้ CSS color value (oklch/rgb/hex/var)
    * ⚠️ ต่างจาก FloatingParticles — ที่นี่รับ CSS color string ไม่ใช่ Tailwind class
    * blob ที่ i จะใช้ colors[i % colors.length] (วนถ้า blob > สี)
-   * @default 5 สี oklch (blue, purple, teal, orange, green)
+   * @default ใช้ CSS variable --gradient-1 ถึง --gradient-5 (auto dark/light จาก globals.css)
    */
   colors?: string[];
   /**
@@ -41,11 +41,11 @@ type GradientMeshProps = {
 const SPEED_MAP = { slow: '20s', medium: '12s', fast: '6s' } as const;
 
 const DEFAULT_COLORS = [
-  'oklch(70% 0.15 250)',
-  'oklch(70% 0.15 310)',
-  'oklch(75% 0.12 160)',
-  'oklch(70% 0.18 30)',
-  'oklch(70% 0.15 130)',
+  'var(--gradient-1)',
+  'var(--gradient-2)',
+  'var(--gradient-3)',
+  'var(--gradient-4)',
+  'var(--gradient-5)',
 ];
 
 export function GradientMesh({

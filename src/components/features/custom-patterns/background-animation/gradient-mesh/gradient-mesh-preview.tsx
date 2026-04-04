@@ -64,7 +64,7 @@ export function GradientMeshPreview() {
           key={`${blobCount}-${speed}`}
           blobCount={blobCount}
           speed={speed}
-          opacity={0.4}
+          opacity={0.8}
         />
         <div className="relative z-10 flex h-full items-center justify-center">
           <p className="text-sm font-medium text-foreground/70">

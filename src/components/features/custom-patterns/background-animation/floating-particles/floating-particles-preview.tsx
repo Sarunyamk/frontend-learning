@@ -63,13 +63,14 @@ export function FloatingParticlesPreview() {
         ))}
       </div>
 
-      <div className="relative h-60 w-full overflow-hidden rounded-lg border bg-background/50">
+      <div className="relative h-60 w-full overflow-hidden rounded-lg border bg-floating-foreground/20">
         <FloatingParticles
           key={preset}
           count={config.count}
           sizeRange={config.sizeRange}
           speedRange={config.speedRange}
           floatDistance={config.floatDistance}
+          particleClass={'bg-gradient-1/40'}
         />
         <div className="relative z-10 flex h-full items-center justify-center">
           <p className="text-sm font-medium text-foreground/70">

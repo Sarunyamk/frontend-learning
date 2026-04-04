@@ -117,6 +117,13 @@ export function GradientMesh({
      → ไม่งั้น gradient จะทับ content
   3. globals.css ต้องมี @keyframes gradient-float-0/1/2
      → ถ้าไม่มี blob จะไม่เคลื่อนไหว
+
+  ⚠️ เรื่องสี:
+  - สี blob → เปลี่ยนผ่าน prop \`colors\` (CSS color: oklch/rgb/hex/var)
+  - Default ใช้ CSS variable \`var(--gradient-1)\` ถึง \`var(--gradient-5)\`
+    → auto dark/light จาก globals.css เปลี่ยนสีที่ :root / .dark ที่เดียว
+  - สีพื้นหลัง → GradientMesh ไม่มี background ในตัว (เป็น layer โปร่งใส)
+    → สี background มาจาก class ของ Parent ที่ครอบ เช่น bg-card, bg-muted
 ===== */
 
 
@@ -155,14 +162,14 @@ export default function Home() {
 }
 
 
-// ─── Custom Colors ───
+// ─── เปลี่ยนสี blob — ผ่าน prop colors (CSS color) ───
 
-function BrandBackground() {
+function CustomColorBlobs() {
   return (
     <section className="relative overflow-hidden">
       <GradientMesh
         colors={[
-          'oklch(65% 0.2 270)',   // brand blue
+          'oklch(65% 0.2 270)',   // brand blue — CSS color (ไม่ใช่ Tailwind class)
           'oklch(70% 0.18 300)',  // brand purple
           'oklch(75% 0.15 200)',  // brand teal
         ]}
@@ -175,11 +182,26 @@ function BrandBackground() {
 }
 
 
+// ─── เปลี่ยนสีพื้นหลัง — ที่ Parent ไม่ใช่ที่ GradientMesh ───
+
+// GradientMesh = layer โปร่งใส (blob ลอยอย่างเดียว)
+// สีพื้นหลังมาจาก Parent ที่ครอบ
+
+function DarkBgMesh() {
+  return (
+    <section className="relative overflow-hidden bg-card">       {/* ← สีพื้นหลัง */}
+      <GradientMesh opacity={0.3} />                              {/* ← blob สี auto จาก token */}
+      <div className="relative z-10 p-8">Dark bg + gradient</div>
+    </section>
+  );
+}
+
+
 // ─── Card / Small Container ───
 
 function CardBackground() {
   return (
-    <div className="relative overflow-hidden rounded-xl p-8">
+    <div className="relative overflow-hidden rounded-xl p-8 bg-muted">
       <GradientMesh speed="fast" blobCount={5} blur={60} opacity={0.4} />
       <div className="relative z-10">Card content</div>
     </div>
@@ -315,6 +337,11 @@ export function FloatingParticles({
   2. Content ต้องมี \`relative z-10\`
      → ไม่งั้น particles จะทับ content
   3. ไม่ต้องเพิ่ม CSS — ใช้ Framer Motion ล้วน
+
+  ⚠️ เรื่องสี:
+  - สีจุด → เปลี่ยนผ่าน prop \`particleClass\` (Tailwind bg class)
+  - สีพื้นหลัง → FloatingParticles ไม่มี background ในตัว (เป็น layer โปร่งใส)
+    → สี background มาจาก class ของ Parent ที่ครอบ เช่น bg-card, bg-muted
 ===== */
 
 
@@ -351,18 +378,42 @@ export default function Home() {
 }
 
 
-// ─── Custom Color — brand particles ───
+// ─── เปลี่ยนสีจุด — ผ่าน particleClass ───
 
 function BrandParticles() {
   return (
     <section className="relative overflow-hidden">
       <FloatingParticles
         count={20}
-        particleClass="bg-brand-100/30"
+        particleClass="bg-brand-100/30"   // ← สีจุด (Tailwind bg class)
         sizeRange={[6, 16]}
         speedRange={[10, 20]}
       />
       <div className="relative z-10">Branded section</div>
+    </section>
+  );
+}
+
+
+// ─── เปลี่ยนสีพื้นหลัง — ที่ Parent ไม่ใช่ที่ FloatingParticles ───
+
+// FloatingParticles = layer โปร่งใส (จุดลอยอย่างเดียว)
+// สีพื้นหลังมาจาก Parent ที่ครอบ
+
+function DarkBgWithLightDots() {
+  return (
+    <section className="relative overflow-hidden bg-card">   {/* ← สีพื้นหลัง */}
+      <FloatingParticles particleClass="bg-white/15" />       {/* ← สีจุด */}
+      <div className="relative z-10 p-8">Dark bg + light dots</div>
+    </section>
+  );
+}
+
+function LightBgWithColorDots() {
+  return (
+    <section className="relative overflow-hidden bg-background">
+      <FloatingParticles particleClass="bg-gradient-2/30" />
+      <div className="relative z-10 p-8">Light bg + colored dots</div>
     </section>
   );
 }
