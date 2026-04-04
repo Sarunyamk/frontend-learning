@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-prompt), var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-prompt), var(--font-geist-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,13 +48,60 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   --color-brand-100: var(--brand-100);
+  --color-hover-blue: var(--hover-blue);
+
+  /* section scroll-bar (custom-pattern) */
+  --color-scroll: var(--scroll);
+
+  /* section cursor (custom-pattern) */
+  --color-cursor-1: var(--cursor-1);
+  --color-cursor-2: var(--cursor-2);
+  --color-cursor-3: var(--cursor-3);
+  --color-cursor-4: var(--cursor-4);
+  --color-cursor-5: var(--cursor-5);
+  --color-cursor-orbit-1: var(--cursor-orbit-1);
+  --color-cursor-orbit-2: var(--cursor-orbit-2);
+  --color-cursor-orbit-3: var(--cursor-orbit-3);
+
+  /* section background (custom-pattern) */
+  --color-gradient-1: var(--gradient-1);
+  --color-gradient-2: var(--gradient-2);
+  --color-gradient-3: var(--gradient-3);
+  --color-gradient-4: var(--gradient-4);
+  --color-gradient-5: var(--gradient-5);
+  --color-floating-foreground: var(--floating-foreground);
+
+  --color-floating-animation: var(--floating-animation);
 }
 
 :root {
   --brand-100: oklch(84.678% 0.20046 128.108);
+  --hover-blue: oklch(67.766% 0.11932 252.688);
+
+  /* section scroll-bar (custom-pattern) */
+  --scroll: oklch(66.478% 0.18202 301.762);
+
+  /* section cursor (custom-pattern) */
+  --cursor-1: oklch(55% 0.2 270);
+  --cursor-2: oklch(65% 0.18 300);
+  --cursor-3: oklch(70% 0.15 30);
+  --cursor-4: oklch(60% 0.22 330);
+  --cursor-5: oklch(50% 0.2 250);
+  --cursor-orbit-1: oklch(55% 0.18 290);
+  --cursor-orbit-2: oklch(65% 0.15 200);
+  --cursor-orbit-3: oklch(60% 0.2 340);
+
+  /* section background (custom-pattern) */
+  --gradient-1: oklch(56.312% 0.16295 252.611);
+  --gradient-2: oklch(52.485% 0.25351 304.379);
+  --gradient-3: oklch(77.517% 0.19362 153.758);
+  --gradient-4: oklch(62.041% 0.22139 31.004);
+  --gradient-5: oklch(61.727% 0.25602 340.005);
+  --floating-foreground: oklch(0.145 0 0);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --floating-animation: oklch(67.766% 0.11932 252.688);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -89,9 +136,32 @@
 
 .dark {
   --brand-100: oklch(49.171% 0.12749 129.403);
+  --hover-blue: oklch(61.088% 0.15961 254.388);
+
+  /* section scroll-bar (custom-pattern) */
+  --scroll: oklch(75% 0.18 300);
+
+  /* section cursor (custom-pattern) */
+  --cursor-1: oklch(70% 0.22 270);
+  --cursor-2: oklch(75% 0.18 300);
+  --cursor-3: oklch(78% 0.15 30);
+  --cursor-4: oklch(72% 0.2 330);
+  --cursor-5: oklch(85% 0 0);
+  --cursor-orbit-1: oklch(65% 0.2 290);
+  --cursor-orbit-2: oklch(72% 0.15 200);
+  --cursor-orbit-3: oklch(70% 0.22 340);
+
+  /* section background (custom-pattern) */
+  --gradient-1: oklch(66.501% 0.14213 248.259);
+  --gradient-2: oklch(66.616% 0.16401 310.957);
+  --gradient-3: oklch(78.366% 0.13815 164.262);
+  --gradient-4: oklch(68.076% 0.14486 26.621);
+  --gradient-5: oklch(73.201% 0.1167 342.662);
+  --floating-foreground: oklch(0.145 0 0);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  --floating-animation: oklch(61.088% 0.15961 254.388);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -122,9 +192,114 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
-
+html,
+body {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Reusable hover scale for interactive cards */
+@utility hover-scale {
+  cursor: pointer;
+  user-select: none;
+  will-change: transform;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.015);
+  }
+}
+
+/* Stock price flash animations */
+@keyframes flash-green {
+  0% {
+    background-color: oklch(0.9 0.15 145 / 40%);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-red {
+  0% {
+    background-color: oklch(0.7 0.15 25 / 40%);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.animate-flash-green {
+  animation: flash-green 600ms ease-out;
+}
+
+.animate-flash-red {
+  animation: flash-red 600ms ease-out;
+}
+
+/* Loading pattern: Wave Dots — ใช้ใน dots-loading-preview.tsx */
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Shiki: always use dark theme for code blocks (both light & dark mode) */
+.shiki {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.shiki span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* Background Animation: Gradient Mesh floating blobs */
+@keyframes gradient-float-0 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(30px, -50px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(-20px, 20px);
+  }
+}
+
+@keyframes gradient-float-1 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(-40px, 30px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(20px, -40px);
+  }
+}
+
+@keyframes gradient-float-2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(50px, 20px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(-30px, -30px);
+  }
 }

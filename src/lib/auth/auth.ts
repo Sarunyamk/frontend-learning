@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { MOCK_USERS } from '@/constants/next-auth.constant';
+import { ROUTES } from '@/constants/route.constant';
 
 /** คำนวณ expiry timestamp จาก expiresIn (seconds) โดยหัก buffer 3 วิ */
 function calcExpiresAt(expiresIn: number): number {
@@ -11,21 +13,25 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Credentials({
       async authorize(credentials) {
         try {
-          //? ใส่ logic login service
-          // const { accessToken, refreshToken, expiresIn, user } =
-          //   await authService.login(credentials);
+          //? เมื่อมี backend: swap เป็น authService.login(credentials)
+          const email = credentials?.email as string;
+          const password = credentials?.password as string;
 
-          console.log('credentials', credentials)
+          const user = MOCK_USERS.find(
+            (u) => u.email === email && u.password === password,
+          );
+
+          if (!user) return null;
+
           return {
-            id: 'id',
-            email: 'test@gmail.com',
-            name: 'mink',
-            role: 'ADMIN',
-            accessToken : 'accessTokennn',
-            refreshToken:'refreshTpkennn',
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+            accessToken: `mock-access-token-${user.id}`,
+            refreshToken: `mock-refresh-token-${user.id}`,
             accessTokenExpiresAt: calcExpiresAt(90000),
           };
-
         } catch {
           return null;
         }
@@ -36,7 +42,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: { strategy: 'jwt', maxAge: 7 * 24 * 60 * 60 }, // 7 days (match refresh token)
 
   pages: {
-    signIn: '/admin/login',
+    signIn: ROUTES.NEXT_AUTH_LOGIN,
   },
 
   callbacks: {

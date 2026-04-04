@@ -4,8 +4,8 @@ import { NAV_ITEMS } from '@/constants/navigation.constant';
 import { slideInRight, staggerContainer, staggerItem } from '@/lib/framer-motion/framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
 import { useCallback, useState } from 'react';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import { Button } from '../ui/button';
 
 export function MobileNav() {
@@ -49,13 +49,14 @@ export function MobileNav() {
               >
                 {NAV_ITEMS.map((item) => (
                   <motion.li key={item.key} variants={staggerItem}>
-                    <Link
+                    <NavLink
                       href={item.path}
                       onClick={close}
-                      className="block rounded-md px-3 py-2 text-lg font-medium transition-colors hover:bg-accent"
+                      variant="highlight"
+                      className="block rounded-md text-lg"
                     >
                       {item.key}
-                    </Link>
+                    </NavLink>
                   </motion.li>
                 ))}
               </motion.ul>

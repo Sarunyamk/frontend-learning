@@ -6,6 +6,8 @@ export const FEATURE_CATEGORY = {
   TAILWIND: 'tailwind',
   NEXT_AUTH: 'next-auth',
   FRAMER_MOTION: 'framer-motion',
+  FORMS: 'forms',
+  CUSTOM_PATTERNS: 'custom-patterns',
 } as const;
 
 export type FeatureCategory =
@@ -15,6 +17,7 @@ export type FeatureItem = {
   readonly key: string;
   readonly label: string;
   readonly path: string;
+  readonly group?: string;
 };
 
 export type FeatureCategoryConfig = {
@@ -46,7 +49,8 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
     path: ROUTES.SOCKET,
     items: [
       { key: 'chat', label: 'Real-time Chat', path: ROUTES.SOCKET_CHAT },
-      { key: 'stock', label: 'Stock Updates', path: ROUTES.SOCKET_STOCK },
+      { key: 'stock', label: 'Stock Ticker', path: ROUTES.SOCKET_STOCK },
+      { key: 'quiz', label: 'Mini Kahoot Quiz', path: ROUTES.SOCKET_QUIZ },
     ],
   },
   {
@@ -73,6 +77,12 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         label: 'Google OAuth',
         path: ROUTES.NEXT_AUTH_GOOGLE,
       },
+      {
+        key: 'protected',
+        label: 'Protected & RBAC',
+        path: ROUTES.NEXT_AUTH_PROTECTED,
+      },
+      { key: 'session', label: 'Session Info', path: ROUTES.NEXT_AUTH_SESSION },
     ],
   },
   {
@@ -86,6 +96,162 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         key: 'examples',
         label: 'Animation Examples',
         path: ROUTES.FRAMER_MOTION_EXAMPLES,
+      },
+      {
+        key: 'scroll',
+        label: 'Scroll Animations',
+        path: ROUTES.FRAMER_MOTION_SCROLL,
+      },
+      {
+        key: 'transitions',
+        label: 'Page Transitions',
+        path: ROUTES.FRAMER_MOTION_TRANSITIONS,
+      },
+    ],
+  },
+  {
+    key: FEATURE_CATEGORY.FORMS,
+    label: 'Form Patterns',
+    description:
+      'react-hook-form + zod + shadcn — basic, multi-step, dynamic, upload',
+    icon: 'ClipboardList',
+    path: ROUTES.FORMS,
+    items: [
+      { key: 'basic', label: 'Basic Form', path: ROUTES.FORMS_BASIC },
+      {
+        key: 'multi-step',
+        label: 'Multi-step Form',
+        path: ROUTES.FORMS_MULTI_STEP,
+      },
+      { key: 'dynamic', label: 'Dynamic Fields', path: ROUTES.FORMS_DYNAMIC },
+      { key: 'upload', label: 'File Upload', path: ROUTES.FORMS_UPLOAD },
+      {
+        key: 'ready-to-use',
+        label: 'Ready to Use',
+        path: ROUTES.FORMS_READY_TO_USE,
+      },
+    ],
+  },
+  {
+    key: FEATURE_CATEGORY.CUSTOM_PATTERNS,
+    label: 'Custom Patterns',
+    description: 'Copy-paste ready component patterns with live demo + code',
+    icon: 'Puzzle',
+    path: ROUTES.CUSTOM_PATTERNS,
+    items: [
+      // UI Components
+      {
+        key: 'button',
+        label: 'Button',
+        path: ROUTES.CUSTOM_PATTERNS_BUTTON,
+        group: 'UI Components',
+      },
+      {
+        key: 'loading',
+        label: 'Loading',
+        path: ROUTES.CUSTOM_PATTERNS_LOADING,
+        group: 'UI Components',
+      },
+      {
+        key: 'toast',
+        label: 'Toast',
+        path: ROUTES.CUSTOM_PATTERNS_TOAST,
+        group: 'UI Components',
+      },
+      {
+        key: 'modal',
+        label: 'Modal',
+        path: ROUTES.CUSTOM_PATTERNS_MODAL,
+        group: 'UI Components',
+      },
+      {
+        key: 'calendar',
+        label: 'Calendar',
+        path: ROUTES.CUSTOM_PATTERNS_CALENDAR,
+        group: 'UI Components',
+      },
+      {
+        key: 'swiper',
+        label: 'Swiper',
+        path: ROUTES.CUSTOM_PATTERNS_SWIPER,
+        group: 'UI Components',
+      },
+      // Animation
+      {
+        key: 'scroll-bar',
+        label: 'Scroll Bar',
+        path: ROUTES.CUSTOM_PATTERNS_SCROLL_BAR,
+        group: 'Animation',
+      },
+      {
+        key: 'cursor-animation',
+        label: 'Cursor',
+        path: ROUTES.CUSTOM_PATTERNS_CURSOR_ANIMATION,
+        group: 'Animation',
+      },
+      {
+        key: 'background-animation',
+        label: 'Background',
+        path: ROUTES.CUSTOM_PATTERNS_BACKGROUND_ANIMATION,
+        group: 'Animation',
+      },
+      {
+        key: 'text',
+        label: 'Text',
+        path: ROUTES.CUSTOM_PATTERNS_TEXT,
+        group: 'Animation',
+      },
+      // Navigation
+      {
+        key: 'nav-link',
+        label: 'Nav Link',
+        path: ROUTES.CUSTOM_PATTERNS_NAV_LINK,
+        group: 'Navigation',
+      },
+      // Data Display
+      {
+        key: 'pagination',
+        label: 'Pagination',
+        path: ROUTES.CUSTOM_PATTERNS_PAGINATION,
+        group: 'Data Display',
+      },
+      {
+        key: 'table-action',
+        label: 'Table Action',
+        path: ROUTES.CUSTOM_PATTERNS_TABLE_ACTION,
+        group: 'Data Display',
+      },
+      // Pages
+      {
+        key: 'error',
+        label: 'Error',
+        path: ROUTES.CUSTOM_PATTERNS_ERROR,
+        group: 'Pages',
+      },
+      {
+        key: 'not-found',
+        label: 'Not Found',
+        path: ROUTES.CUSTOM_PATTERNS_NOT_FOUND,
+        group: 'Pages',
+      },
+      // Setup Guides
+      {
+        key: 'env-setting',
+        label: 'Env Setting',
+        path: ROUTES.CUSTOM_PATTERNS_ENV_SETTING,
+        group: 'Setup Guides',
+      },
+      {
+        key: 'code-shiki',
+        label: 'Code Shiki',
+        path: ROUTES.CUSTOM_PATTERNS_CODE_SHIKI,
+        group: 'Setup Guides',
+      },
+      {
+        key: 'font-setting',
+        label: 'Font Setting',
+        path: ROUTES.CUSTOM_PATTERNS_FONT_SETTING,
+        group: 'Setup Guides',
       },
     ],
   },
