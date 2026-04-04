@@ -1,12 +1,12 @@
 import { ROUTES } from './route.constant';
 
 export const FEATURE_CATEGORY = {
-  // PAYMENT: 'payment',
   SOCKET: 'socket',
   TAILWIND: 'tailwind',
   NEXT_AUTH: 'next-auth',
   FRAMER_MOTION: 'framer-motion',
   FORMS: 'forms',
+  PAYMENT: 'payment',
   CUSTOM_PATTERNS: 'custom-patterns',
 } as const;
 
@@ -30,17 +30,6 @@ export type FeatureCategoryConfig = {
 };
 
 export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
-  // {
-  //   key: FEATURE_CATEGORY.PAYMENT,
-  //   label: 'Payment',
-  //   description: 'Stripe & Omise payment integration comparison',
-  //   icon: 'CreditCard',
-  //   path: ROUTES.PAYMENT,
-  //   items: [
-  //     { key: 'stripe', label: 'Stripe', path: ROUTES.PAYMENT_STRIPE },
-  //     { key: 'omise', label: 'Omise', path: ROUTES.PAYMENT_OMISE },
-  //   ],
-  // },
   {
     key: FEATURE_CATEGORY.SOCKET,
     label: 'Socket.io',
@@ -130,6 +119,17 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         label: 'Ready to Use',
         path: ROUTES.FORMS_READY_TO_USE,
       },
+    ],
+  },
+  {
+    key: FEATURE_CATEGORY.PAYMENT,
+    label: 'Payment',
+    description: 'Stripe & Omise payment integration comparison',
+    icon: 'CreditCard',
+    path: ROUTES.PAYMENT,
+    items: [
+      { key: 'stripe', label: 'Stripe', path: ROUTES.HOME },
+      { key: 'omise', label: 'Omise', path: ROUTES.HOME },
     ],
   },
   {
