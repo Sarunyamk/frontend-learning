@@ -50,12 +50,30 @@
   --color-brand-100: var(--brand-100);
   --color-hover-blue: var(--hover-blue);
   --color-scroll: var(--scroll);
+
+  --color-cursor-1: var(--cursor-1);
+  --color-cursor-2: var(--cursor-2);
+  --color-cursor-3: var(--cursor-3);
+  --color-cursor-4: var(--cursor-4);
+  --color-cursor-5: var(--cursor-5);
+  --color-cursor-orbit-1: var(--cursor-orbit-1);
+  --color-cursor-orbit-2: var(--cursor-orbit-2);
+  --color-cursor-orbit-3: var(--cursor-orbit-3);
 }
 
 :root {
   --brand-100: oklch(84.678% 0.20046 128.108);
   --hover-blue: oklch(67.766% 0.11932 252.688);
   --scroll: oklch(67.766% 0.11932 252.688);
+
+  --cursor-1: oklch(55% 0.2 270);
+  --cursor-2: oklch(65% 0.18 300);
+  --cursor-3: oklch(70% 0.15 30);
+  --cursor-4: oklch(60% 0.22 330);
+  --cursor-5: oklch(50% 0.2 250);
+  --cursor-orbit-1: oklch(55% 0.18 290);
+  --cursor-orbit-2: oklch(65% 0.15 200);
+  --cursor-orbit-3: oklch(60% 0.2 340);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -95,6 +113,15 @@
   --brand-100: oklch(49.171% 0.12749 129.403);
   --hover-blue: oklch(61.088% 0.15961 254.388);
   --scroll: oklch(61.088% 0.15961 254.388);
+
+  --cursor-1: oklch(70% 0.22 270);
+  --cursor-2: oklch(75% 0.18 300);
+  --cursor-3: oklch(78% 0.15 30);
+  --cursor-4: oklch(72% 0.2 330);
+  --cursor-5: oklch(85% 0 0);
+  --cursor-orbit-1: oklch(65% 0.2 290);
+  --cursor-orbit-2: oklch(72% 0.15 200);
+  --cursor-orbit-3: oklch(70% 0.22 340);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
