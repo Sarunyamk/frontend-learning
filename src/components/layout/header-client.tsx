@@ -34,11 +34,11 @@ export default function HeaderClient() {
         </Link>
 
         <nav className="hidden md:flex gap-6 items-center">
-          {NAV_ITEMS.map((item) => (
+          {/* {NAV_ITEMS.map((item) => (
             <NavLink key={item.key} href={item.path}>
               {item.key}
             </NavLink>
-          ))}
+          ))} */}
         </nav>
 
         <div className="flex items-center gap-3 justify-self-end">
