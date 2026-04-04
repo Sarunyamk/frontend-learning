@@ -271,25 +271,44 @@ src/
 │   │   └── auth/
 │   │       └── [...nextauth]/
 │   │           └── route.ts          # Auth.js route handler [เพิ่มถ้ามี auth]
-│   ├── [locale]/
-│   │   ├── layout.tsx          # Server — Header + Footer + locale validation
-│   │   ├── page.tsx            # Server — Home page
-│   │   ├── error.tsx           # Client — Error boundary
-│   │   ├── not-found.tsx       # Server — 404 page
-│   │   ├── loading.tsx         # Server — Loading UI (Suspense)
-│   │   ├── about/page.tsx
-│   │   ├── [feature]/page.tsx
-│   │   └── [feature]/[slug]/page.tsx
-│   ├── layout.tsx              # Root layout — ThemeProvider + SessionProvider
+│   ├── features/
+│   │   ├── layout.tsx          # Features layout — Sidebar wrapper
+│   │   ├── loading.tsx         # Features loading UI
+│   │   ├── page.tsx            # Features index page
+│   │   ├── custom-patterns/    # Custom patterns feature + sub-pages
+│   │   ├── forms/              # Form patterns feature + sub-pages
+│   │   ├── framer-motion/      # Framer Motion feature + sub-pages
+│   │   ├── next-auth/          # NextAuth feature + sub-pages (has own layout.tsx)
+│   │   ├── payment/            # Payment simulation feature
+│   │   ├── socket/             # Socket.io feature + sub-pages
+│   │   └── tailwind/           # Tailwind feature + sub-pages
+│   ├── error.tsx               # Client — Error boundary
 │   ├── global-error.tsx        # Client — Root error boundary
+│   ├── layout.tsx              # Root layout — ThemeProvider + SessionProvider
+│   ├── loading.tsx             # Root loading UI
+│   ├── not-found.tsx           # 404 page
+│   ├── page.tsx                # Home page
 │   ├── sitemap.ts              # Auto-generated SEO
 │   └── robots.ts               # Auto-generated SEO
 ├── components/
-│   ├── [feature]/
-│   │   ├── FeatureSection.tsx  # Server wrapper
-│   │   └── FeatureClient.tsx   # Client interaction
-│   ├── ui/                     # shadcn/ui + custom UI
-│   └── framer-motion/          # Reusable motion wrappers
+│   ├── features/               # Feature-specific components
+│   │   ├── [feature]/          # แต่ละ feature มี folder ของตัวเอง
+│   │   └── custom-patterns/    # Custom patterns sub-features
+│   ├── home/                   # Home page components (hero, feature-card, carousel)
+│   ├── layout/                 # Header, Footer, MobileNav
+│   ├── sidebar/                # Sidebar navigation components
+│   ├── shared/
+│   │   ├── ui-primitives/      # CustomButton, NavLink, showToast, LoadingScreen, PatternCard, FeatureBreadcrumb, FeatureSubItems
+│   │   ├── framer-motion/      # Reusable motion wrappers (ColumnFade, Stagger, StepTransition, Dropdown)
+│   │   ├── forms/              # Form components + DataTable, Pagination, DatePicker
+│   │   ├── dialog-overlay/     # ConfirmDialog, AlertMessage, FormDialog, InfoSheet
+│   │   ├── animation/          # GradientMesh, FloatingParticles, InfiniteScroll, UnifiedScrollBar
+│   │   ├── swiper/             # SwiperCarousel, ThumbnailGallery, AtmosphereCarousel
+│   │   ├── cursor/             # PageNeonCursor, CursorCustom
+│   │   └── base-page/          # ErrorCard, NotFoundCard
+│   ├── tailwind/               # CodeBlockShiki, CopyButton
+│   ├── theme/                  # ThemeProvider, ThemeToggle
+│   └── ui/                     # shadcn/ui primitives
 ├── constants/                  # Routes, nav, config — no logic, no mock
 ├── data/                       # Real static data — no logic
 ├── hooks/                      # Client-only hooks (ต้องมี 'use client')
