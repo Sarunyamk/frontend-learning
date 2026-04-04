@@ -395,12 +395,31 @@
   - [x] Build + Lint pass
   - [x] **layout.tsx** — เปลี่ยนจาก `BubbleScrollIndicator` → `UnifiedScrollBar` (performance fix: throttle, cleanup, Set filter, counter id)
 
-  **Step 18: Cursor Animation** (base: Framer Motion + CSS)
-  - [ ] `constants/custom-patterns/cursor-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
-  - [ ] `components/features/custom-patterns/cursor-animation/` — 3 variant folders (follower, spotlight, trail)
-  - [ ] Variants: 1. Smooth Cursor Follower (useSpring) 2. Spotlight Effect (radial-gradient mask) 3. Cursor Trail (fading dots)
-  - [ ] `app/features/custom-patterns/cursor-animation/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 18: Cursor Animation** (base: Framer Motion + CSS) ✅
+  - [x] `constants/custom-patterns/cursor-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [x] `components/features/custom-patterns/cursor-animation/` — 3 variant folders (follower, spotlight, trail)
+  - [x] Variants: 1. Cursor Follower (useSpring + custom icon) 2. Spotlight Effect (radial-gradient mask) 3. Cursor Trail (fading dots + renderDot) 4. Neon Cursor (multi-layer springs + orbits + click/hover states — rewrite จาก CustomCursor เดิม, performance fix: useMotionValue, event delegation, CSS orbit)
+  - [x] `app/features/custom-patterns/cursor-animation/page.tsx` — Server page (○ Static)
+  - [x] `NeonCursor` — page-level neon cursor ทำงานทั้งหน้า cursor-animation (composition pattern, children ยังเป็น Server)
+  - [x] `data-cursor-zone` — ซ่อน neon cursor ใน preview boxes เพื่อไม่ซ้อนทับ effect อื่น
+  - [x] Cursor semantic tokens — `--cursor-1` ถึง `--cursor-5`, `--cursor-orbit-1/2/3` (globals.css, auto dark/light)
+  - [x] `CursorCustom` (lite) — global cursor สำหรับใช้ทั้งโปรเจค (layout.tsx)
+  - [x] Build + Lint pass
+
+  **Cursor Components — เปรียบเทียบ:**
+  | | `CursorCustom` (lite) | `PageNeonCursor` (full) |
+  |---|---|---|
+  | **ใช้ที่** | `layout.tsx` — ทั้งโปรเจค | เฉพาะบางหน้า (composition pattern) |
+  | **Path** | `shared/cursor-custom.tsx` | `shared/page-neon-cursor.tsx` |
+  | **Elements** | 2 (dot + glow) | 8+ (center + inner orbits + outer orbits) |
+  | **blur** | 1 ตัว (4px glow) | หลายตัว (inner orbit blur) |
+  | **GPU layers** | 2 | 8+ |
+  | **Mobile guard** | ✅ `(hover: hover)` — ไม่ render บน touch | ❌ ไม่ได้เช็ค |
+  | **Reduced motion** | ✅ `prefers-reduced-motion` — ไม่ render | ❌ ไม่ได้เช็ค |
+  | **Re-renders** | 0 (useMotionValue) | 0 (useMotionValue) |
+  | **Listener scope** | `document` (global) | container ref (scoped) |
+  | **Preview zone** | ไม่มี | `data-cursor-zone` ซ่อน cursor ใน preview |
+  | **Theme** | cursor semantic tokens (auto dark/light) | cursor semantic tokens (auto dark/light) |
 
   **Step 19: Background Animation** (base: CSS + Framer Motion + Three.js)
   - [ ] Install `three @react-three/fiber @react-three/drei` + `@types/three`
