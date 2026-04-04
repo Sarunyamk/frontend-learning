@@ -231,7 +231,7 @@ function PropsTable({
 }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-left text-sm">
+      <table className="w-full min-w-150 text-left text-sm">
         <thead>
           <tr className="border-b text-muted-foreground">
             <th className="pb-2 pr-4 font-medium">Prop</th>

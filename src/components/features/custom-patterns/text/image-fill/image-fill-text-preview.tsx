@@ -9,7 +9,7 @@ export function ImageFillTextPreview() {
       <TextImageFill
         text="ADVENTURE"
         imageSrc={TEXT_IMAGE.textImageFill}
-        className="text-6xl font-black tracking-wider md:text-8xl"
+        className="text-5xl font-black tracking-wider md:text-8xl"
       />
     </div>
   );
