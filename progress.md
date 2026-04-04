@@ -377,13 +377,20 @@
 
   #### Phase 4 — External libs
 
-  **Step 16: Swiper Patterns** (base: Swiper.js — ต้อง install)
-  - [ ] Install `swiper`
-  - [ ] `constants/custom-patterns/swiper.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/swiper/` — components
-  - [ ] Variants: 1. Basic carousel 2. Autoplay + pagination 3. Thumbnail gallery 4. Card carousel (peek sides) 5. Fade transition
-  - [ ] `app/features/custom-patterns/swiper/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 16: Swiper Patterns** (base: Swiper.js) ✅
+  - [x] Install `swiper` (v12.1.3)
+  - [x] `types/swiper.type.ts` — CarouselSlide, SwiperCarouselProps<T>, SwiperThumbnailGalleryProps
+  - [x] `components/shared/swiper-carousel.tsx` — reusable: 3 mode (slides/renderSlide/children), auto-resolve modules, generic <T>
+  - [x] `components/shared/swiper-thumbnail-gallery.tsx` — reusable: 2 Swiper sync (main + thumbs)
+  - [x] `components/shared/atmosphere-carousel.tsx` — reusable: Coverflow 3D gallery สำเร็จรูป (images prop, auto loop >= 5 slides)
+  - [x] `components/home/feature-carousel.tsx` — FeatureCard ใน coverflow effect (ใช้ใน FeatureSection)
+  - [x] `components/home/feature-section.tsx` — เปลี่ยนจาก grid → FeatureCarousel (เก็บ grid เป็น comment template)
+  - [x] `constants/custom-patterns/swiper.constant.ts` — 9 entries (4 source + 5 usage) + DEMO_GRADIENT_CLASSES
+  - [x] `components/features/custom-patterns/swiper/` — 5 demo components + 3 section wrappers (Source, Props, Demos)
+  - [x] Variants: 1. Basic (navigation+pagination+autoplay) 2. AtmosphereCarousel (coverflow 3D) 3. Card carousel (renderSlide) 4. Thumbnail gallery 5. Children mode (free-form)
+  - [x] `app/features/custom-patterns/swiper/page.tsx` — Server page (○ Static)
+  - [x] Props Reference section — อธิบาย props ทุกตัว + Sizing Tips
+  - [x] Build + Lint pass
 
   #### Phase 5 — Animation patterns
 

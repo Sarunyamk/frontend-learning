@@ -1,5 +1,5 @@
 import { FEATURE_CATEGORIES } from '@/constants/feature.constant';
-import { FeatureCarousel } from './feature-carousel';
+import { FeatureCard } from './feature-card';
 
 export function FeatureSection() {
   return (
@@ -12,7 +12,7 @@ export function FeatureSection() {
           เลือกหัวข้อที่สนใจ แต่ละ feature มีตัวอย่างและคำอธิบายให้เรียนรู้
         </p>
         {/* //? template for feature card animation */}
-        {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {FEATURE_CATEGORIES.map((category, index) => (
             <FeatureCard
               key={category.key}
@@ -23,10 +23,10 @@ export function FeatureSection() {
               index={index}
             />
           ))}
-        </div> */}
+        </div>
 
         {/* //? template for feature swiper animation */}
-        <FeatureCarousel categories={FEATURE_CATEGORIES} />
+        {/* <FeatureCarousel categories={FEATURE_CATEGORIES} /> */}
       </div>
     </section>
   );

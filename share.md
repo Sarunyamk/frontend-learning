@@ -83,6 +83,14 @@
 | `GradientMesh` | `src/components/shared/gradient-mesh.tsx` | Client | **Animated gradient blobs** — CSS keyframes, 0 KB extra JS. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: blobCount, speed, blur, colors (CSS color), opacity |
 | `FloatingParticles` | `src/components/shared/floating-particles.tsx` | Client | **Floating dots** — Framer Motion infinite animation. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: count, sizeRange, speedRange (ตัวเลขสูง=ช้า), particleClass (Tailwind bg class), opacity, floatDistance |
 
+### Carousel — Swiper-based slider/gallery
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `SwiperCarousel` | `src/components/shared/swiper-carousel.tsx` | Client | **Reusable carousel** — 3 mode: `slides` (image), `renderSlide` (custom content), `children` (free-form). Auto-resolve modules จาก props (navigation, pagination, autoplay, effect). Props: effect (slide/fade/coverflow), autoplay, loop, slidesPerView, spaceBetween, breakpoints |
+| `SwiperThumbnailGallery` | `src/components/shared/swiper-thumbnail-gallery.tsx` | Client | **Thumbnail gallery** — 2 Swiper sync กัน (main + thumbs). Props: slides (CarouselSlide[]), thumbsPerView, loop |
+| `AtmosphereCarousel` | `src/components/shared/atmosphere-carousel.tsx` | Client | **Coverflow 3D gallery สำเร็จรูป** — ส่งแค่ images (CarouselSlide[]), auto loop เมื่อ >= 5 slides. Props: images, delay (default 1800), className |
+| `FeatureCarousel` | `src/components/home/feature-carousel.tsx` | Client | **Feature cards ใน coverflow** — ใช้ใน FeatureSection หน้า home. Props: categories (FeatureCategoryConfig[]) |
+
 ### Scroll & Cursor — effect ระดับ page/layout
 | Component | Path | Type | เหมาะกับ |
 |-----------|------|------|---------|
@@ -176,6 +184,8 @@
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
 | `SCROLL_BAR_PATTERNS` | `src/constants/custom-patterns/scroll-bar.constant.ts` | Scroll bar animation pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (scroll-progress, scroll-bubble, scroll-gradient) |
 | `BACKGROUND_ANIMATION_PATTERNS` | `src/constants/custom-patterns/background-animation.constant.ts` | Background animation pattern data (key, title, description, code) — 4 entries: 2 patterns × source+usage (gradient-mesh, floating-particles) |
+| `SWIPER_PATTERNS` | `src/constants/custom-patterns/swiper.constant.ts` | Swiper pattern data (key, title, description, code) — 9 entries: 4 source (Type, SwiperCarousel, ThumbnailGallery, AtmosphereCarousel) + 5 usage (basic, atmosphere, card, thumbnail, custom) |
+| `DEMO_GRADIENT_CLASSES` | `src/constants/custom-patterns/swiper.constant.ts` | Gradient class strings สำหรับ demo placeholder slides (6 colors) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
