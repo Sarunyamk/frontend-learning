@@ -62,6 +62,8 @@
 | `ErrorCard` | `src/components/shared/error-card.tsx` | Client | Reusable error card — ColumnFade stagger + shake icon + title + description + Retry button + statusCode. Props: title?, description?, statusCode?, onRetry?, className? |
 | `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | Reusable 404 — ColumnFade stagger + bounce emoji + title + description + back link. Props: title?, description?, backHref?, backLabel?, className? |
 | `DataTable` | `src/components/shared/data-table.tsx` | Client | Generic data table — map Column<T>[] + data → shadcn Table. Props: columns, data, emptyMessage?, className?, renderRow? |
+| `BubbleScrollIndicator` | `src/components/shared/bubble-scroll-indicator.tsx` | Client | (Legacy — ใช้เป็น demo/reference เท่านั้น) scroll indicator ตัวเดิม ไม่มี throttle/cleanup |
+| `UnifiedScrollBar` | `src/components/shared/unified-scroll-bar.tsx` | Client | **ใช้ตัวนี้แทน BubbleScrollIndicator ใน layout** — configurable scroll bar (orientation, bubbles, gradient, containerRef). มี throttle 50ms, setTimeout cleanup, Set-based filter, counter id. Props: orientation?, features? ({ bubbles, gradient }), containerRef?, springConfig?, hueRange?, className? |
 
 ---
 
@@ -145,6 +147,7 @@
 | `CODE_SHIKI_SETUP_STEPS` | `src/constants/custom-patterns/code-shiki.constant.ts` | Shiki setup steps (step, title, description, code, language) — 5 steps: install → highlighter → component → copy button → global CSS |
 | `CODE_SHIKI_HOW_IT_WORKS` | `src/constants/custom-patterns/code-shiki.constant.ts` | How it works data — flow (data flow diagram), responsive (alternative CSS), themes (recommended themes) |
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
+| `SCROLL_BAR_PATTERNS` | `src/constants/custom-patterns/scroll-bar.constant.ts` | Scroll bar animation pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (scroll-progress, scroll-bubble, scroll-gradient) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

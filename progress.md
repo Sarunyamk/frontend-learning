@@ -385,7 +385,32 @@
   - [ ] `app/features/custom-patterns/swiper/page.tsx` — Server page
   - [ ] Build + Lint pass
 
-  **Step 17: Update .md files + final review**
+  #### Phase 5 — Animation patterns
+
+  **Step 17: Scroll Bar Animation** (base: Framer Motion useScroll) ✅
+  - [x] `constants/custom-patterns/scroll-bar.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [x] `components/features/custom-patterns/scroll-bar/` — 3 variant folders (progress, bubble, gradient)
+  - [x] Variants: 1. Scroll Progress Bar (useScroll + scaleY) 2. Bubble Scroll Bar (progress + particles) 3. Gradient Progress Bar (horizontal + gradient shift)
+  - [x] `app/features/custom-patterns/scroll-bar/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+  - [x] **layout.tsx** — เปลี่ยนจาก `BubbleScrollIndicator` → `UnifiedScrollBar` (performance fix: throttle, cleanup, Set filter, counter id)
+
+  **Step 18: Cursor Animation** (base: Framer Motion + CSS)
+  - [ ] `constants/custom-patterns/cursor-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [ ] `components/features/custom-patterns/cursor-animation/` — 3 variant folders (follower, spotlight, trail)
+  - [ ] Variants: 1. Smooth Cursor Follower (useSpring) 2. Spotlight Effect (radial-gradient mask) 3. Cursor Trail (fading dots)
+  - [ ] `app/features/custom-patterns/cursor-animation/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 19: Background Animation** (base: CSS + Framer Motion + Three.js)
+  - [ ] Install `three @react-three/fiber @react-three/drei` + `@types/three`
+  - [ ] `constants/custom-patterns/background-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [ ] `components/features/custom-patterns/background-animation/` — 3 variant folders (gradient-mesh, floating-particles, threejs-waves)
+  - [ ] Variants: 1. Animated Gradient Mesh (CSS keyframes only) 2. Floating Particles (Framer Motion) 3. 3D Wave Mesh (Three.js — Advanced badge, next/dynamic ssr:false)
+  - [ ] `app/features/custom-patterns/background-animation/page.tsx` — Server page
+  - [ ] Build + Lint pass
+
+  **Step 20: Update .md files + final review**
   - [ ] Update share.md — document ทุก new component/constant
   - [ ] Update progress.md — mark completed
   - [ ] Build + Lint pass
