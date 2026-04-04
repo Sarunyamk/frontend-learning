@@ -1,7 +1,7 @@
 import { ROUTES } from './route.constant';
 
 export const FEATURE_CATEGORY = {
-  PAYMENT: 'payment',
+  // PAYMENT: 'payment',
   SOCKET: 'socket',
   TAILWIND: 'tailwind',
   NEXT_AUTH: 'next-auth',
@@ -30,17 +30,17 @@ export type FeatureCategoryConfig = {
 };
 
 export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
-  {
-    key: FEATURE_CATEGORY.PAYMENT,
-    label: 'Payment',
-    description: 'Stripe & Omise payment integration comparison',
-    icon: 'CreditCard',
-    path: ROUTES.PAYMENT,
-    items: [
-      { key: 'stripe', label: 'Stripe', path: ROUTES.PAYMENT_STRIPE },
-      { key: 'omise', label: 'Omise', path: ROUTES.PAYMENT_OMISE },
-    ],
-  },
+  // {
+  //   key: FEATURE_CATEGORY.PAYMENT,
+  //   label: 'Payment',
+  //   description: 'Stripe & Omise payment integration comparison',
+  //   icon: 'CreditCard',
+  //   path: ROUTES.PAYMENT,
+  //   items: [
+  //     { key: 'stripe', label: 'Stripe', path: ROUTES.PAYMENT_STRIPE },
+  //     { key: 'omise', label: 'Omise', path: ROUTES.PAYMENT_OMISE },
+  //   ],
+  // },
   {
     key: FEATURE_CATEGORY.SOCKET,
     label: 'Socket.io',

@@ -1,15 +1,15 @@
 export const ROUTES = {
   HOME: '/',
-  ABOUT: '/about',
-  CONTACT: '/contact',
+  // ABOUT: '/about',
+  // CONTACT: '/contact',
 
   // Features
   FEATURES: '/features',
 
   // Payment
-  PAYMENT: '/features/payment',
-  PAYMENT_STRIPE: '/features/payment/stripe',
-  PAYMENT_OMISE: '/features/payment/omise',
+  // PAYMENT: '/features/payment',
+  // PAYMENT_STRIPE: '/features/payment/stripe',
+  // PAYMENT_OMISE: '/features/payment/omise',
 
   // Socket.io
   SOCKET: '/features/socket',
