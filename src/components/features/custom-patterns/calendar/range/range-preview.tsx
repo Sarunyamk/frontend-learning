@@ -1,8 +1,8 @@
 'use client';
 
+import { DateRangePicker } from '@/components/shared/forms/date-range-picker';
 import { useState } from 'react';
 import type { DateRange } from 'react-day-picker';
-import { DateRangePicker } from '@/components/shared/date-range-picker';
 
 export function DateRangePreview() {
   const [range, setRange] = useState<DateRange>();

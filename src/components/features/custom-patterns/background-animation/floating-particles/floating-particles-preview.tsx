@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { FloatingParticles } from '@/components/shared/floating-particles';
+import { FloatingParticles } from '@/components/shared/animation/floating-particles';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 

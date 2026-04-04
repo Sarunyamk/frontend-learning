@@ -1,9 +1,9 @@
 import { CursorFollower } from '@/components/features/custom-patterns/cursor-animation/follower/cursor-follower';
 import { NeonCursor } from '@/components/features/custom-patterns/cursor-animation/neon/neon-cursor';
-import { PageNeonCursor } from '@/components/shared/page-neon-cursor';
 import { CursorSpotlight } from '@/components/features/custom-patterns/cursor-animation/spotlight/cursor-spotlight';
 import { CursorTrail } from '@/components/features/custom-patterns/cursor-animation/trail/cursor-trail';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { PageNeonCursor } from '@/components/shared/cursor/page-neon-cursor';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

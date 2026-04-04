@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { BasicPaginationSection } from '@/components/features/custom-patterns/pagination/basic/basic-section';
 import { WithSizeSection } from '@/components/features/custom-patterns/pagination/with-size/with-size-section';
 import { LoadMoreSection } from '@/components/features/custom-patterns/pagination/load-more/load-more-section';

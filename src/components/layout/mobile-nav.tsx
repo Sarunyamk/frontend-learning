@@ -5,7 +5,7 @@ import { slideInRight, staggerContainer, staggerItem } from '@/lib/framer-motion
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useCallback, useState } from 'react';
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import { Button } from '../ui/button';
 
 export function MobileNav() {

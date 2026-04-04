@@ -1,7 +1,7 @@
 'use client';
 
+import { LoadMoreButton } from '@/components/shared/forms/load-more-button';
 import { useCallback, useState } from 'react';
-import { LoadMoreButton } from '@/components/shared/load-more-button';
 
 const ALL_ITEMS = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,

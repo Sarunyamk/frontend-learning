@@ -1,7 +1,7 @@
 import { SwiperDemosSection } from '@/components/features/custom-patterns/swiper/swiper-demos-section';
 import { SwiperPropsSection } from '@/components/features/custom-patterns/swiper/swiper-props-section';
 import { SwiperSourceSection } from '@/components/features/custom-patterns/swiper/swiper-source-section';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

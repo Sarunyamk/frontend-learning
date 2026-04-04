@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { PageTransitions } from '@/components/features/framer-motion/page-transitions';
 import { TransitionReadyToUse } from '@/components/features/framer-motion/transition-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';

@@ -1,7 +1,7 @@
 import { ErrorCardSection } from '@/components/features/custom-patterns/error/error-card/error-card-section';
 import { StatusCodeSection } from '@/components/features/custom-patterns/error/status-code/status-code-section';
 import { GlobalErrorSection } from '@/components/features/custom-patterns/error/global-error/global-error-section';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { BasicButtonsPreview } from './basic-buttons-preview';
 
 const componentPattern = BUTTON_PATTERNS.find((p) => p.key === 'basic')!;

@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { NavLinkSourceDemo } from '@/components/features/custom-patterns/nav-link/nav-link-source/nav-link-source-demo';
 import { BasicIcon } from '@/components/features/custom-patterns/nav-link/basic-icon/basic-icon';
 import { ActiveUnderline } from '@/components/features/custom-patterns/nav-link/active-underline/active-underline';

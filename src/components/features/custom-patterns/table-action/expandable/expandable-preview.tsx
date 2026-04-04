@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { DataTable, type Column } from '@/components/shared/data-table';
-import { Pagination } from '@/components/shared/pagination';
+import { DataTable, type Column } from '@/components/shared/forms/data-table';
+import { Pagination } from '@/components/shared/forms/pagination';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { TableRow, TableCell } from '@/components/ui/table';

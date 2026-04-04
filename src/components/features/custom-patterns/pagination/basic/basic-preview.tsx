@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Pagination } from '@/components/shared/pagination';
+import { Pagination } from '@/components/shared/forms/pagination';
 
 const MOCK_ITEMS = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,

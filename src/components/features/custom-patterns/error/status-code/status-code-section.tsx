@@ -1,4 +1,4 @@
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { ERROR_PATTERNS } from '@/constants/custom-patterns/error.constant';
 import { StatusCodePreview } from './status-code-preview';

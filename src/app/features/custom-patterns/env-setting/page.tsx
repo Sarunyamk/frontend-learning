@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { EnvOverview } from '@/components/features/custom-patterns/env-setting/env-overview/env-overview';
 import { ServerEnv } from '@/components/features/custom-patterns/env-setting/server-env/server-env';
 import { ClientEnv } from '@/components/features/custom-patterns/env-setting/client-env/client-env';

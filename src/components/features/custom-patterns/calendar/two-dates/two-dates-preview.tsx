@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { differenceInDays } from 'date-fns';
-import { DatePicker } from '@/components/shared/date-picker';
+import { DatePicker } from '@/components/shared/forms/date-picker';
 
 export function TwoDatesPreview() {
   const [checkIn, setCheckIn] = useState<Date>();

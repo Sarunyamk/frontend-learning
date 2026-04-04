@@ -1,7 +1,7 @@
 'use client';
 
-import { FormTextField } from '@/components/forms/form-text-field';
-import { ImageDropzone } from '@/components/forms/image-dropzone';
+import { FormTextField } from '@/components/shared/forms/form-text-field';
+import { ImageDropzone } from '@/components/shared/forms/image-dropzone';
 import { Button } from '@/components/ui/button';
 import {
   Form,

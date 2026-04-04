@@ -1,7 +1,7 @@
 'use client';
 
-import { FormSelect } from '@/components/forms/form-select';
-import { FormTextField } from '@/components/forms/form-text-field';
+import { FormSelect } from '@/components/shared/forms/form-select';
+import { FormTextField } from '@/components/shared/forms/form-text-field';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { MEMBER_ROLE_OPTIONS } from '@/constants/form.constant';

@@ -4,7 +4,7 @@ import { SortableSection } from '@/components/features/custom-patterns/table-act
 import { ExpandableSection } from '@/components/features/custom-patterns/table-action/expandable/expandable-section';
 import { RowActionsSection } from '@/components/features/custom-patterns/table-action/row-actions/row-actions-section';
 import { RowSelectionSection } from '@/components/features/custom-patterns/table-action/row-selection/row-selection-section';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

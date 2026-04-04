@@ -1,6 +1,6 @@
 import { NAV_ITEMS } from '@/constants/navigation.constant';
 import { ROUTES } from '@/constants/route.constant';
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import Link from 'next/link';
 
 export default function Footer() {

@@ -1,6 +1,6 @@
 'use client';
 
-import { ErrorCard } from '@/components/shared/error-card';
+import { ErrorCard } from '@/components/shared/base-page/error-card';
 
 export default function GlobalError({
   reset,

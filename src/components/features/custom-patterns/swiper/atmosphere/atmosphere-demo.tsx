@@ -1,6 +1,6 @@
 'use client';
 
-import { AtmosphereCarousel } from '@/components/shared/atmosphere-carousel';
+import { AtmosphereCarousel } from '@/components/shared/swiper/atmosphere-carousel';
 
 const COLORS = [
   { bg: '4f8cff', text: 'fff' },

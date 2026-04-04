@@ -1,4 +1,4 @@
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { PAGINATION_PATTERNS } from '@/constants/custom-patterns/pagination.constant';
 import { WithSizePreview } from './with-size-preview';

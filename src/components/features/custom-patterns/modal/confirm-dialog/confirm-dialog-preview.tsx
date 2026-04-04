@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ConfirmDialog } from '@/components/shared/confirm-dialog';
-import { showToast } from '@/components/shared/show-toast';
+import { ConfirmDialog } from '@/components/shared/dialog-overlay/confirm-dialog';
+import { showToast } from '@/components/shared/ui-primitives/show-toast';
 
 export function ConfirmDialogPreview() {
   const [openDefault, setOpenDefault] = useState(false);

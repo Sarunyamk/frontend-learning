@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { TOAST_PATTERNS } from '@/constants/custom-patterns/toast.constant';
 
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CustomToastPreview } from './custom-toast-preview';
 
 const pattern = TOAST_PATTERNS.find((p) => p.key === 'custom')!;

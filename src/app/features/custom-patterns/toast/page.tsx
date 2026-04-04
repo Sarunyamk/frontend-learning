@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { ToastReuseDemo } from '@/components/features/custom-patterns/toast/toast-reuse/toast-reuse-demo';
 import { ActionToast } from '@/components/features/custom-patterns/toast/action/action-toast';
 import { PromiseToast } from '@/components/features/custom-patterns/toast/promise/promise-toast';

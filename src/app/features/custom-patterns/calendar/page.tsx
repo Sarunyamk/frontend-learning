@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { SingleDateSection } from '@/components/features/custom-patterns/calendar/single/single-section';
 import { DateRangeSection } from '@/components/features/custom-patterns/calendar/range/range-section';
 import { TwoDatesSection } from '@/components/features/custom-patterns/calendar/two-dates/two-dates-section';

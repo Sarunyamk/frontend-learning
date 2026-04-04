@@ -1,6 +1,6 @@
 'use client';
 
-import { showToast } from '@/components/shared/show-toast';
+import { showToast } from '@/components/shared/ui-primitives/show-toast';
 import { Button } from '@/components/ui/button';
 
 const DEMOS = [

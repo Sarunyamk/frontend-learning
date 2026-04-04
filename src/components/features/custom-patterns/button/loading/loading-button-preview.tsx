@@ -1,6 +1,6 @@
 'use client';
 
-import { CustomButton } from '@/components/shared/custom-button';
+import { CustomButton } from '@/components/shared/ui-primitives/custom-button';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 

@@ -7,7 +7,7 @@ import { headerVariants } from '@/lib/framer-motion/header';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import { ThemeToggle } from '../theme/theme-toggle';
 import { MobileNav } from './mobile-nav';
 

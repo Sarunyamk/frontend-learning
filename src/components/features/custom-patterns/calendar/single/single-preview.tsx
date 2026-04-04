@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { DatePicker } from '@/components/shared/date-picker';
+import { DatePicker } from '@/components/shared/forms/date-picker';
 
 export function SingleDatePreview() {
   const [date, setDate] = useState<Date>();

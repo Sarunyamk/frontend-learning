@@ -1,6 +1,6 @@
 'use client';
 
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 
 export function AnimatedUnderlinePreview() {
   return (

@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { AlertMessage } from '@/components/shared/dialog-overlay/alert-message';
+import { showToast } from '@/components/shared/ui-primitives/show-toast';
 import { Button } from '@/components/ui/button';
-import { AlertMessage } from '@/components/shared/alert-message';
-import { showToast } from '@/components/shared/show-toast';
+import { useState } from 'react';
 
 export function AlertMessagePreview() {
   const [openSession, setOpenSession] = useState(false);

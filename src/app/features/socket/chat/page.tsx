@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { ChatRoom } from '@/components/features/socket/chat/chat-room';
 
 import type { Metadata } from 'next';

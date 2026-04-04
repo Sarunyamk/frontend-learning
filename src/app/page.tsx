@@ -1,6 +1,6 @@
 import { FeatureSection } from '@/components/home/feature-section';
 import { HeroSection } from '@/components/home/hero-section';
-import { FloatingParticles } from '@/components/shared/floating-particles';
+import { FloatingParticles } from '@/components/shared/animation/floating-particles';
 import { homeMetadata } from '@/lib/seo/home-metadata';
 export const metadata = homeMetadata;
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ErrorCard } from '@/components/shared/error-card';
+import { ErrorCard } from '@/components/shared/base-page/error-card';
 import { Button } from '@/components/ui/button';
 
 const STATUS_CODES = [401, 403, 500] as const;

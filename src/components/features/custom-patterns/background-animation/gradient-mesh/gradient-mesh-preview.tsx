@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { GradientMesh } from '@/components/shared/gradient-mesh';
+import { GradientMesh } from '@/components/shared/animation/gradient-mesh';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { InfiniteScroll } from '@/components/shared/infinite-scroll';
+import { InfiniteScroll } from '@/components/shared/animation/infinite-scroll';
 
 const ALL_ITEMS = Array.from({ length: 40 }, (_, i) => ({
   id: i + 1,

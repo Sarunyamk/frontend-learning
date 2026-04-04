@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { LOADING_PATTERNS } from '@/constants/custom-patterns/loading.constant';
 
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { FancyLoadingPreview } from './fancy-loading-preview';
 
 const pattern = LOADING_PATTERNS.find((p) => p.key === 'fancy')!;
