@@ -4,9 +4,9 @@ import type { TextAnimatedFillProps, TextAnimatedFillSpeed } from '@/types/text.
 import { cn } from '@/lib/utils';
 
 const SPEED_DURATION: Record<TextAnimatedFillSpeed, string> = {
-  slow: '12s',
-  normal: '6s',
-  fast: '3s',
+  slow: '15s',
+  normal: '8s',
+  fast: '6s',
 };
 
 export function TextAnimatedFill({
