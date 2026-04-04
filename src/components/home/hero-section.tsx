@@ -9,7 +9,7 @@ export function HeroSection() {
     <section className="flex flex-col items-center gap-6 px-4 py-20 text-center">
       <h1>
         <TextAnimatedFill
-          text="Learning Fullstack"
+          text="MY LEARNING"
           imageSrc={TEXT_IMAGE.textImage}
           speed="slow"
           className="text-6xl font-black tracking-wider md:text-8xl"
