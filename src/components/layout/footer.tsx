@@ -12,10 +12,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="space-y-3">
             <Link href={ROUTES.HOME} className="text-xl font-bold">
-              BRAND
+              My Learning
             </Link>
             <p className="text-sm text-muted-foreground">
-              Your project description here.
+              A platform to track and share your learning journey. Built with
+              Next.js and TypeScript and designed for developers by a developer.
             </p>
           </div>
 
@@ -33,7 +34,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-semibold">Contact</h3>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-              <span>email@example.com</span>
+              <span>sarunya46mk@gmail.com</span>
             </div>
           </div>
         </div>

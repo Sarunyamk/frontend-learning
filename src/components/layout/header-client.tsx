@@ -30,7 +30,7 @@ export default function HeaderClient() {
           href={ROUTES.HOME}
           className="justify-self-center text-xl font-bold md:justify-self-auto"
         >
-          Brand
+          My Learning
         </Link>
 
         <nav className="hidden md:flex gap-6 items-center">
