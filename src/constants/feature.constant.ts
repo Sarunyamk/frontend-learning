@@ -176,6 +176,25 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         path: ROUTES.CUSTOM_PATTERNS_SWIPER,
         group: 'UI Components',
       },
+      // Animation
+      {
+        key: 'scroll-bar',
+        label: 'Scroll Bar',
+        path: ROUTES.CUSTOM_PATTERNS_SCROLL_BAR,
+        group: 'Animation',
+      },
+      {
+        key: 'cursor-animation',
+        label: 'Cursor',
+        path: ROUTES.CUSTOM_PATTERNS_CURSOR_ANIMATION,
+        group: 'Animation',
+      },
+      {
+        key: 'background-animation',
+        label: 'Background',
+        path: ROUTES.CUSTOM_PATTERNS_BACKGROUND_ANIMATION,
+        group: 'Animation',
+      },
       // Navigation
       {
         key: 'nav-link',
