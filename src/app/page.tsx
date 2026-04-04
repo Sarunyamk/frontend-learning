@@ -12,6 +12,7 @@ export default function Home() {
         sizeRange={[3, 8]}
         opacity={0.9}
         speedRange={[4, 8]}
+        particleClass='bg-floating-animation'
       />
       <HeroSection />
       <FeatureSection />
