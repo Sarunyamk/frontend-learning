@@ -441,7 +441,19 @@
   - [x] Build + Lint pass
   - [ ] (Parked) Variant 3: 3D Wave Mesh (Three.js — ต้อง install three + next/dynamic ssr:false)
 
-  **Step 20: Update .md files + final review**
+  **Step 20: Text Animation** (base: Custom Hook + CSS) ✅
+  - [x] `types/text.type.ts` — TextSequenceItem, TextTypeAnimationProps, TextImageFillProps, TextAnimatedFillProps
+  - [x] `hooks/useTypeAnimation.ts` — custom hook พิมพ์/ลบ/วนซ้ำ (pure setTimeout, 0 dependency)
+  - [x] `components/shared/ui-primitives/text-type-animation.tsx` — reusable base component (ส่ง items props)
+  - [x] `components/shared/ui-primitives/text-image-fill.tsx` — reusable base component (bg-clip-text + static image)
+  - [x] `components/shared/ui-primitives/text-animated-fill.tsx` — reusable base component (bg-clip-text + animate bg-position)
+  - [x] `constants/custom-patterns/text.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [x] `components/features/custom-patterns/text/` — 3 variant folders (type-animation, image-fill, animated-fill)
+  - [x] `app/features/custom-patterns/text/page.tsx` — Server page (○ Static)
+  - [x] `share.md` — เพิ่ม 3 base components + hook + constant
+  - [x] Build + Lint pass
+
+  **Step 21: Update .md files + final review**
   - [ ] Update share.md — document ทุก new component/constant
   - [ ] Update progress.md — mark completed
   - [ ] Build + Lint pass
