@@ -226,3 +226,43 @@ body {
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
+
+/* Background Animation: Gradient Mesh floating blobs */
+@keyframes gradient-float-0 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(30px, -50px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(-20px, 20px);
+  }
+}
+
+@keyframes gradient-float-1 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(-40px, 30px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(20px, -40px);
+  }
+}
+
+@keyframes gradient-float-2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(50px, 20px);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(-30px, -30px);
+  }
+}
