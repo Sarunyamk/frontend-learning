@@ -1,5 +1,5 @@
 import { FEATURE_CATEGORIES } from '@/constants/feature.constant';
-import { FeatureCard } from './feature-card';
+import { FeatureCarousel } from './feature-carousel';
 
 export function FeatureSection() {
   return (
@@ -11,7 +11,8 @@ export function FeatureSection() {
         <p className="mx-auto mb-10 max-w-2xl text-center text-muted-foreground">
           เลือกหัวข้อที่สนใจ แต่ละ feature มีตัวอย่างและคำอธิบายให้เรียนรู้
         </p>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* //? template for feature card animation */}
+        {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {FEATURE_CATEGORIES.map((category, index) => (
             <FeatureCard
               key={category.key}
@@ -22,7 +23,10 @@ export function FeatureSection() {
               index={index}
             />
           ))}
-        </div>
+        </div> */}
+
+        {/* //? template for feature swiper animation */}
+        <FeatureCarousel categories={FEATURE_CATEGORIES} />
       </div>
     </section>
   );
