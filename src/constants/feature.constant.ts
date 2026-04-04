@@ -195,6 +195,12 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
         path: ROUTES.CUSTOM_PATTERNS_BACKGROUND_ANIMATION,
         group: 'Animation',
       },
+      {
+        key: 'text',
+        label: 'Text',
+        path: ROUTES.CUSTOM_PATTERNS_TEXT,
+        group: 'Animation',
+      },
       // Navigation
       {
         key: 'nav-link',

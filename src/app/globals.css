@@ -70,6 +70,8 @@
   --color-gradient-4: var(--gradient-4);
   --color-gradient-5: var(--gradient-5);
   --color-floating-foreground: var(--floating-foreground);
+
+  --color-floating-animation: var(--floating-animation);
 }
 
 :root {
@@ -99,6 +101,7 @@
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --floating-animation: oklch(67.766% 0.11932 252.688);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -158,6 +161,7 @@
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  --floating-animation: oklch(61.088% 0.15961 254.388);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);

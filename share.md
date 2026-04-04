@@ -26,6 +26,13 @@
 | `showToast` | `src/components/shared/ui-primitives/show-toast.tsx` | Function | แจ้งเตือน user — `showToast({ type: 'success', title, description })` ใช้หลัง save/delete/error |
 | `LoadingScreen` | `src/components/shared/ui-primitives/loading-screen.tsx` | Server | หน้า loading เต็มจอ — import ไปใช้ใน `loading.tsx` ได้เลย |
 
+### Text Effect — text animation / image fill
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `TextTypeAnimation` | `src/components/shared/ui-primitives/text-type-animation.tsx` | Client | พิมพ์ทีละตัว + ลบ + วนซ้ำ — ส่ง `items: TextSequenceItem[]`, ปรับ typingSpeed/deletingSpeed/cursor |
+| `TextImageFill` | `src/components/shared/ui-primitives/text-image-fill.tsx` | Client | ตัวหนังสือใหญ่ที่ใช้ภาพนิ่งเป็น fill — ส่ง `text` + `imageSrc`, pure CSS bg-clip-text |
+| `TextAnimatedFill` | `src/components/shared/ui-primitives/text-animated-fill.tsx` | Client | เหมือน TextImageFill แต่ภาพเคลื่อนไหว — ส่ง `text` + `imageSrc` + `speed` (slow/normal/fast) |
+
 ### Animation — ครอบ content เพื่อเพิ่ม motion
 | Component | Path | Type | เหมาะกับ |
 |-----------|------|------|---------|
@@ -105,6 +112,7 @@
 | Hook | Path | Description |
 |------|------|-------------|
 | `useScroll` | `src/hooks/useScroll.ts` | Scroll position detection |
+| `useTypeAnimation` | `src/hooks/useTypeAnimation.ts` | Typing effect — พิมพ์/ลบ/วนซ้ำ, ส่ง items: TextSequenceItem[] |
 
 ---
 
@@ -183,6 +191,7 @@
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
 | `SCROLL_BAR_PATTERNS` | `src/constants/custom-patterns/scroll-bar.constant.ts` | Scroll bar animation pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (scroll-progress, scroll-bubble, scroll-gradient) |
 | `BACKGROUND_ANIMATION_PATTERNS` | `src/constants/custom-patterns/background-animation.constant.ts` | Background animation pattern data (key, title, description, code) — 4 entries: 2 patterns × source+usage (gradient-mesh, floating-particles) |
+| `TEXT_PATTERNS` | `src/constants/custom-patterns/text.constant.ts` | Text effect pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (type-animation, image-fill, animated-fill) |
 | `SWIPER_PATTERNS` | `src/constants/custom-patterns/swiper.constant.ts` | Swiper pattern data (key, title, description, code) — 9 entries: 4 source (Type, SwiperCarousel, ThumbnailGallery, AtmosphereCarousel) + 5 usage (basic, atmosphere, card, thumbnail, custom) |
 | `DEMO_GRADIENT_CLASSES` | `src/constants/custom-patterns/swiper.constant.ts` | Gradient class strings สำหรับ demo placeholder slides (6 colors) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |

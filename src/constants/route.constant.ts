@@ -58,6 +58,7 @@ export const ROUTES = {
   CUSTOM_PATTERNS_CURSOR_ANIMATION: '/features/custom-patterns/cursor-animation',
   CUSTOM_PATTERNS_BACKGROUND_ANIMATION:
     '/features/custom-patterns/background-animation',
+  CUSTOM_PATTERNS_TEXT: '/features/custom-patterns/text',
 
   // Forms
   FORMS: '/features/forms',
