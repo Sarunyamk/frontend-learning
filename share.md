@@ -6,62 +6,98 @@
 
 ## Components
 
-| Component | Path | Type | Description |
-|-----------|------|------|-------------|
-| `ColumnFade` | `src/components/framer-motion/fade.tsx` | Client | Scroll-triggered fade animation wrapper, รับ variant/delay/duration |
-| `AnimatedDropdown` | `src/components/framer-motion/dropdown.tsx` | Client | Animated dropdown menu |
-| `Button` | `src/components/ui/button.tsx` | Server | shadcn/ui button (variant: default/outline/secondary/ghost/destructive/link, size: xs/sm/default/lg/icon) |
-| `Header` | `src/components/layout/header.tsx` | Server | Header wrapper (Server) |
-| `HeaderClient` | `src/components/layout/header-client.tsx` | Client | Header interaction (nav, theme toggle, scroll effect) |
-| `Footer` | `src/components/layout/footer.tsx` | Server | Footer |
-| `MobileNav` | `src/components/layout/mobile-nav.tsx` | Client | Mobile slide-in navigation (from right) |
-| `HeroSection` | `src/components/home/hero-section.tsx` | Server | Home hero — heading, description, CTA |
-| `FeatureSection` | `src/components/home/feature-section.tsx` | Server | Feature grid wrapper — map FEATURE_CATEGORIES → FeatureCard |
-| `FeatureCard` | `src/components/home/feature-card.tsx` | Client | Feature card — fadeUp animation, icon map, link |
-| `FeatureBreadcrumb` | `src/components/shared/feature-breadcrumb.tsx` | Server | Breadcrumb สำหรับ feature pages — รับ `category: FeatureCategoryConfig`, render Home → Features → [Label] |
-| `FeatureSubItems` | `src/components/shared/feature-sub-items.tsx` | Server | Sub-item cards + Coming soon badge — รับ `items: readonly FeatureItem[]` |
-| `AppSidebar` | `src/components/sidebar/sidebar.tsx` | Server | shadcn Sidebar wrapper — map FEATURE_CATEGORIES → SidebarItem |
-| `SidebarItem` | `src/components/sidebar/sidebar-item.tsx` | Client | Collapsible sidebar menu item — active state via usePathname |
-| `ThemeProvider` | `src/components/theme/theme-provider.tsx` | Client | next-themes provider wrapper |
-| `ThemeToggle` | `src/components/theme/theme-toggle.tsx` | Client | Dark/light mode toggle button |
-| `FormTextField` | `src/components/forms/form-text-field.tsx` | Client | Reusable text input field — control, name, label, placeholder, type |
-| `FormCheckboxGroup` | `src/components/forms/form-checkbox-group.tsx` | Client | Reusable checkbox group — control, name, label, options, columns |
-| `FormRadioGroup` | `src/components/forms/form-radio-group.tsx` | Client | Reusable radio group — control, name, label, options, className |
-| `FormSelect` | `src/components/forms/form-select.tsx` | Client | Reusable select dropdown — control, name, label, placeholder, options |
-| `ImageDropzone` | `src/components/forms/image-dropzone.tsx` | Client | Reusable image upload — drag & drop, preview, remove, validate type/size. Props: value, onChange, multiple, maxFiles |
-| `StaggerContainer` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation container — once, amount, className |
-| `StaggerItem` | `src/components/framer-motion/stagger.tsx` | Client | Stagger animation child item — className |
-| `StepTransition` | `src/components/framer-motion/step-transition.tsx` | Client | AnimatePresence + fadeSlide wrapper — stepKey, duration, className |
-| `CodeBlockShiki` | `src/components/tailwind/code-block-shiki.tsx` | Server (async) | Shiki syntax highlighted code block. Props: code, language, className — ใช้แทน CodeBlock ลบออกไปแล้ว ใน Server components |
-| `CopyButton` | `src/components/tailwind/copy-button.tsx` | Client | Copy-to-clipboard button (extracted from CodeBlock) — ใช้ใน CodeBlockShiki. Props: code |
-| `AuthDemoHeader` | `src/components/features/next-auth/auth-demo-header.tsx` | Client | Auth demo header bar — session prop จาก server, login/logout button, role badge |
-| `LoginForm` | `src/components/features/next-auth/login-form.tsx` | Client | Login form — react-hook-form + zod, demo credentials buttons, error display |
-| `AuthSetupContent` | `src/components/features/next-auth/auth-setup-content.tsx` | Server | Auth setup tutorial — step-by-step code walkthrough |
-| `GoogleOAuthContent` | `src/components/features/next-auth/google-oauth-content.tsx` | Server | Google OAuth tutorial — step-by-step guide + demo button |
-| `GoogleOAuthDemo` | `src/components/features/next-auth/google-oauth-demo.tsx` | Client | Google Sign-in demo button — demo mode alert เมื่อยังไม่มี credentials |
-| `ProtectedContent` | `src/components/features/next-auth/protected-content.tsx` | Server | Protected & RBAC demo — user info, super admin gate, code examples (CodeBlockShiki) |
-| `SessionContent` | `src/components/features/next-auth/session-content.tsx` | Server | Server session card + code examples (CodeBlockShiki) |
-| `ClientSessionCard` | `src/components/features/next-auth/client-session-card.tsx` | Client | Client session card — useSession() demo |
-| `AnimationReadyToUse` | `src/components/features/framer-motion/animation-ready-to-use.tsx` | Server | Ready-to-use code section (Variant Presets, ColumnFade, Stagger) — CodeBlockShiki |
-| `TransitionReadyToUse` | `src/components/features/framer-motion/transition-ready-to-use.tsx` | Server | Ready-to-use + Used in Project + Code Examples — CodeBlockShiki |
-| `PresetCard` | `src/components/features/framer-motion/preset-card.tsx` | Client | Animation preset live demo — รับ codeSlot (Server JSX) จาก parent |
-| `CustomButton` | `src/components/shared/custom-button.tsx` | Server | Wrapper รอบ shadcn Button — รับ icon (LucideIcon), label, children, className, variant, size + ทุก button props. มี `gap-2` ในตัว |
-| `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | Collapsible card — live demo + code (codeSlot). ใช้ใน custom-patterns ทุกหน้า |
-| `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | Full-page overlay + backdrop blur + Loader2 spinner + "Loading..." — ไม่มี props, import ไปใช้ใน loading.tsx ได้เลย |
-| `showToast` | `src/components/shared/show-toast.tsx` | Function | Reusable toast function — showToast({ type, title, description }). Types: success/error/warning/info. ใช้ sonner + richColors |
-| `NavLink` | `src/components/shared/nav-link.tsx` | Client | Reusable nav link — wrap Next.js Link + usePathname() auto-detect isActive. Props: variant (default/underline/highlight/animated), icon (LucideIcon), exact |
-| `ConfirmDialog` | `src/components/shared/confirm-dialog.tsx` | Client | Reusable confirm dialog — async loading, destructive variant. Props: open, onOpenChange, title, description, onConfirm, variant, confirmText, cancelText |
-| `FormDialog` | `src/components/shared/form-dialog.tsx` | Client | Dialog wrapper สำหรับ form — รับ children เป็น form content. Props: open, onOpenChange, title, description, children |
-| `InfoSheet` | `src/components/shared/info-sheet.tsx` | Client | Side panel — filter, settings, detail view. Props: open, onOpenChange, title, description, side (left/right/top/bottom), children |
-| `AlertMessage` | `src/components/shared/alert-message.tsx` | Client | Force-acknowledge dialog — ไม่มี Cancel. Props: open, onOpenChange, title, description, onConfirm, confirmText |
-| `Pagination` | `src/components/shared/pagination.tsx` | Client | Reusable pagination — page numbers, ellipsis, prev/next. Props: currentPage, totalPages, onPageChange, siblings? |
-| `LoadMoreButton` | `src/components/shared/load-more-button.tsx` | Client | Load more button — auto spinner + hide เมื่อหมด. Props: onLoadMore, loading?, hasMore?, loadingText?, children? |
-| `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | Auto-load wrapper — IntersectionObserver. Props: onLoadMore, loading?, hasMore?, threshold?, children |
-| `DatePicker` | `src/components/shared/date-picker.tsx` | Client | Reusable date picker — Popover + Calendar + date-fns format. Props: value?, onChange, placeholder?, disabled?, className? |
-| `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | Reusable date range picker — Calendar mode="range" + 2 months. Props: value? (DateRange), onChange, placeholder?, disabled?, className? |
-| `ErrorCard` | `src/components/shared/error-card.tsx` | Client | Reusable error card — ColumnFade stagger + shake icon + title + description + Retry button + statusCode. Props: title?, description?, statusCode?, onRetry?, className? |
-| `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | Reusable 404 — ColumnFade stagger + bounce emoji + title + description + back link. Props: title?, description?, backHref?, backLabel?, className? |
-| `DataTable` | `src/components/shared/data-table.tsx` | Client | Generic data table — map Column<T>[] + data → shadcn Table. Props: columns, data, emptyMessage?, className?, renderRow? |
+### Layout & Navigation — โครงสร้างหลักของ app
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `Header` | `src/components/layout/header.tsx` | Server | โครงสร้าง layout — ใช้ใน root layout เท่านั้น |
+| `HeaderClient` | `src/components/layout/header-client.tsx` | Client | nav interaction ใน Header — ไม่ต้อง import เอง (Header ใช้อยู่แล้ว) |
+| `Footer` | `src/components/layout/footer.tsx` | Server | โครงสร้าง layout — ใช้ใน root layout เท่านั้น |
+| `MobileNav` | `src/components/layout/mobile-nav.tsx` | Client | Mobile slide-in nav — ไม่ต้อง import เอง (Header ใช้อยู่แล้ว) |
+| `HeroSection` | `src/components/home/hero-section.tsx` | Server | Hero section เฉพาะ home page |
+| `ThemeProvider` | `src/components/theme/theme-provider.tsx` | Client | next-themes wrapper — ใช้ใน root layout ครอบทั้ง app |
+| `ThemeToggle` | `src/components/theme/theme-toggle.tsx` | Client | ปุ่ม dark/light toggle — ใส่ตรงไหนก็ได้ |
+
+### UI Primitives — ใช้ได้ทุกที่ ทุกหน้า
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `Button` | `src/components/ui/button.tsx` | Server | ปุ่มทุกชนิด — variant: default/outline/secondary/ghost/destructive/link, size: xs/sm/default/lg/icon |
+| `CustomButton` | `src/components/shared/custom-button.tsx` | Server | ปุ่มที่มี icon + label — wrap shadcn Button + `gap-2` ในตัว, ใช้เมื่อต้องการ icon ข้างหน้า text |
+| `NavLink` | `src/components/shared/nav-link.tsx` | Client | Link ที่ highlight active state อัตโนมัติ — ใช้แทน `<Link>` เมื่อต้องการ isActive styling |
+| `showToast` | `src/components/shared/show-toast.tsx` | Function | แจ้งเตือน user — `showToast({ type: 'success', title, description })` ใช้หลัง save/delete/error |
+| `LoadingScreen` | `src/components/shared/loading-screen.tsx` | Server | หน้า loading เต็มจอ — import ไปใช้ใน `loading.tsx` ได้เลย |
+
+### Animation — ครอบ content เพื่อเพิ่ม motion
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `ColumnFade` | `src/components/framer-motion/fade.tsx` | Client | ครอบ element ใดก็ได้ → fade in เมื่อ scroll เข้าจอ. รับ variant/delay/duration |
+| `StaggerContainer` | `src/components/framer-motion/stagger.tsx` | Client | ครอบ list/grid → children fade in ทีละตัว. ใช้คู่กับ `StaggerItem` |
+| `StaggerItem` | `src/components/framer-motion/stagger.tsx` | Client | child ของ `StaggerContainer` — แต่ละตัว fade in ตามลำดับ |
+| `StepTransition` | `src/components/framer-motion/step-transition.tsx` | Client | slide transition ระหว่าง step/tab — ใช้เมื่อเปลี่ยน content แบบ animated |
+| `AnimatedDropdown` | `src/components/framer-motion/dropdown.tsx` | Client | dropdown menu ที่มี animation — ใช้แทน native dropdown |
+
+### Form — สร้าง form ด้วย react-hook-form + shadcn
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `FormTextField` | `src/components/forms/form-text-field.tsx` | Client | input text/email/password — ใช้กับ `control` จาก useForm |
+| `FormCheckboxGroup` | `src/components/forms/form-checkbox-group.tsx` | Client | กลุ่ม checkbox — ใช้เมื่อ user เลือกได้หลายตัว |
+| `FormRadioGroup` | `src/components/forms/form-radio-group.tsx` | Client | กลุ่ม radio — ใช้เมื่อ user เลือกได้ตัวเดียว |
+| `FormSelect` | `src/components/forms/form-select.tsx` | Client | dropdown select — ใช้เมื่อ options เยอะเกินไปสำหรับ radio |
+| `ImageDropzone` | `src/components/forms/image-dropzone.tsx` | Client | upload รูป — drag & drop, preview, validate type/size |
+
+### Dialog & Overlay — popup ถาม/แจ้ง user
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `ConfirmDialog` | `src/components/shared/confirm-dialog.tsx` | Client | ถาม "ยืนยันไหม?" ก่อน delete/action — มี Cancel + Confirm |
+| `AlertMessage` | `src/components/shared/alert-message.tsx` | Client | แจ้ง user แบบบังคับ acknowledge — มีแค่ OK ไม่มี Cancel |
+| `FormDialog` | `src/components/shared/form-dialog.tsx` | Client | dialog ที่มี form ข้างใน — ใช้เมื่อต้องการ modal form (create/edit) |
+| `InfoSheet` | `src/components/shared/info-sheet.tsx` | Client | side panel เลื่อนเข้ามา — ใช้สำหรับ filter, settings, detail view |
+
+### Data Display — แสดงข้อมูล list/table/pagination
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `DataTable` | `src/components/shared/data-table.tsx` | Client | ตาราง generic — ส่ง `columns` + `data` แสดงได้ทุก data type |
+| `Pagination` | `src/components/shared/pagination.tsx` | Client | page numbers + prev/next — ใช้กับ table หรือ list ที่แบ่งหน้า |
+| `LoadMoreButton` | `src/components/shared/load-more-button.tsx` | Client | ปุ่ม "Load more" — auto spinner + ซ่อนเมื่อหมด |
+| `InfiniteScroll` | `src/components/shared/infinite-scroll.tsx` | Client | auto-load เมื่อ scroll ถึงล่าง — ครอบ list แล้ว load อัตโนมัติ |
+| `DatePicker` | `src/components/shared/date-picker.tsx` | Client | เลือกวันที่ 1 วัน — Popover + Calendar |
+| `DateRangePicker` | `src/components/shared/date-range-picker.tsx` | Client | เลือกช่วงวันที่ — Calendar 2 เดือน |
+| `CodeBlockShiki` | `src/components/tailwind/code-block-shiki.tsx` | Server (async) | แสดง code + syntax highlight — ใช้ทุกที่ที่ต้องแสดง code snippet |
+| `CopyButton` | `src/components/tailwind/copy-button.tsx` | Client | ปุ่ม copy — ใช้คู่กับ CodeBlockShiki หรือใส่ข้าง text ที่ต้อง copy |
+
+### Error & Empty State — หน้า error/404
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `ErrorCard` | `src/components/shared/error-card.tsx` | Client | แสดง error + Retry — ใช้ใน `error.tsx` หรือ component ที่ fetch ล้มเหลว |
+| `NotFoundCard` | `src/components/shared/not-found-card.tsx` | Server | หน้า 404 — ใช้ใน `not-found.tsx` |
+
+### Feature-specific — reuse ได้ แต่เฉพาะบาง context
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `FeatureBreadcrumb` | `src/components/shared/feature-breadcrumb.tsx` | Server | breadcrumb สำหรับ feature pages — Home → Features → [Label] |
+| `FeatureSubItems` | `src/components/shared/feature-sub-items.tsx` | Server | sub-item cards + coming soon badge — ใช้ในหน้า feature ที่มี sub-pages |
+| `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | card แบบพับได้ (live demo + View Code) — ใช้ในหน้า custom-patterns ทุกหน้า |
+
+### Background — effect ระดับ section/page
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `GradientMesh` | `src/components/shared/gradient-mesh.tsx` | Client | **Animated gradient blobs** — CSS keyframes, 0 KB extra JS. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: blobCount, speed, blur, colors (CSS color), opacity |
+| `FloatingParticles` | `src/components/shared/floating-particles.tsx` | Client | **Floating dots** — Framer Motion infinite animation. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: count, sizeRange, speedRange (ตัวเลขสูง=ช้า), particleClass (Tailwind bg class), opacity, floatDistance |
+
+### Carousel — Swiper-based slider/gallery
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `SwiperCarousel` | `src/components/shared/swiper-carousel.tsx` | Client | **Reusable carousel** — 3 mode: `slides` (image), `renderSlide` (custom content), `children` (free-form). Auto-resolve modules จาก props (navigation, pagination, autoplay, effect). Props: effect (slide/fade/coverflow), autoplay, loop, slidesPerView, spaceBetween, breakpoints |
+| `SwiperThumbnailGallery` | `src/components/shared/swiper-thumbnail-gallery.tsx` | Client | **Thumbnail gallery** — 2 Swiper sync กัน (main + thumbs). Props: slides (CarouselSlide[]), thumbsPerView, loop |
+| `AtmosphereCarousel` | `src/components/shared/atmosphere-carousel.tsx` | Client | **Coverflow 3D gallery สำเร็จรูป** — ส่งแค่ images (CarouselSlide[]), auto loop เมื่อ >= 5 slides. Props: images, delay (default 1800), className |
+| `FeatureCarousel` | `src/components/home/feature-carousel.tsx` | Client | **Feature cards ใน coverflow** — ใช้ใน FeatureSection หน้า home. Props: categories (FeatureCategoryConfig[]) |
+
+### Scroll & Cursor — effect ระดับ page/layout
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `UnifiedScrollBar` | `src/components/shared/unified-scroll-bar.tsx` | Client | **scroll progress bar** — ใส่ layout.tsx ทดแทน native scrollbar. มี bubbles + gradient option |
+| `BubbleScrollIndicator` | `src/components/shared/bubble-scroll-indicator.tsx` | Client | (Legacy — demo เท่านั้น) scroll indicator ตัวเก่า ไม่มี performance fix |
+| `PageNeonCursor` | `src/components/shared/page-neon-cursor.tsx` | Client | **Neon cursor full version** — ครอบเฉพาะบางหน้า (composition pattern). 3 circles + 5 orbits + `data-cursor-zone` |
+| `CursorCustom` | `src/components/shared/cursor-custom.tsx` | Client | **Global lite cursor** — ใส่ layout.tsx ทั้งโปรเจค. 2 circles (dot + glow), mobile guard, reduced-motion check |
 
 ---
 
@@ -79,6 +115,7 @@
 |----------|------|-------------|
 | `cn()` | `src/lib/utils.ts` | clsx + tailwind-merge สำหรับ conditional className |
 | `sortByField()` | `src/utils/sort-by-field.ts` | Pure sort helper — sortByField(items, config), SortConfig<T>, SortDirection |
+| `generateParticles()` | `src/utils/generate-particles.ts` | สร้าง particle data array (id, x, y, size, duration, delay) — ใช้กับ FloatingParticles |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
 | `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
 | `fontVariables` | `src/lib/fonts.ts` | Combined font CSS variable className — Geist Sans + Geist Mono + Prompt, ใช้ใน layout.tsx `<html>` |
@@ -145,6 +182,10 @@
 | `CODE_SHIKI_SETUP_STEPS` | `src/constants/custom-patterns/code-shiki.constant.ts` | Shiki setup steps (step, title, description, code, language) — 5 steps: install → highlighter → component → copy button → global CSS |
 | `CODE_SHIKI_HOW_IT_WORKS` | `src/constants/custom-patterns/code-shiki.constant.ts` | How it works data — flow (data flow diagram), responsive (alternative CSS), themes (recommended themes) |
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
+| `SCROLL_BAR_PATTERNS` | `src/constants/custom-patterns/scroll-bar.constant.ts` | Scroll bar animation pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (scroll-progress, scroll-bubble, scroll-gradient) |
+| `BACKGROUND_ANIMATION_PATTERNS` | `src/constants/custom-patterns/background-animation.constant.ts` | Background animation pattern data (key, title, description, code) — 4 entries: 2 patterns × source+usage (gradient-mesh, floating-particles) |
+| `SWIPER_PATTERNS` | `src/constants/custom-patterns/swiper.constant.ts` | Swiper pattern data (key, title, description, code) — 9 entries: 4 source (Type, SwiperCarousel, ThumbnailGallery, AtmosphereCarousel) + 5 usage (basic, atmosphere, card, thumbnail, custom) |
+| `DEMO_GRADIENT_CLASSES` | `src/constants/custom-patterns/swiper.constant.ts` | Gradient class strings สำหรับ demo placeholder slides (6 colors) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 

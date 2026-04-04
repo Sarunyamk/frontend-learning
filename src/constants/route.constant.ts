@@ -54,6 +54,10 @@ export const ROUTES = {
   CUSTOM_PATTERNS_CODE_SHIKI: '/features/custom-patterns/code-shiki',
   CUSTOM_PATTERNS_FONT_SETTING: '/features/custom-patterns/font-setting',
   CUSTOM_PATTERNS_SWIPER: '/features/custom-patterns/swiper',
+  CUSTOM_PATTERNS_SCROLL_BAR: '/features/custom-patterns/scroll-bar',
+  CUSTOM_PATTERNS_CURSOR_ANIMATION: '/features/custom-patterns/cursor-animation',
+  CUSTOM_PATTERNS_BACKGROUND_ANIMATION:
+    '/features/custom-patterns/background-animation',
 
   // Forms
   FORMS: '/features/forms',

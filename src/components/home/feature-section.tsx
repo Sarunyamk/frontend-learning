@@ -11,6 +11,7 @@ export function FeatureSection() {
         <p className="mx-auto mb-10 max-w-2xl text-center text-muted-foreground">
           เลือกหัวข้อที่สนใจ แต่ละ feature มีตัวอย่างและคำอธิบายให้เรียนรู้
         </p>
+        {/* //? template for feature card animation */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {FEATURE_CATEGORIES.map((category, index) => (
             <FeatureCard
@@ -23,6 +24,9 @@ export function FeatureSection() {
             />
           ))}
         </div>
+
+        {/* //? template for feature swiper animation */}
+        {/* <FeatureCarousel categories={FEATURE_CATEGORIES} /> */}
       </div>
     </section>
   );

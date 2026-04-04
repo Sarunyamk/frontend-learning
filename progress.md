@@ -377,15 +377,71 @@
 
   #### Phase 4 — External libs
 
-  **Step 16: Swiper Patterns** (base: Swiper.js — ต้อง install)
-  - [ ] Install `swiper`
-  - [ ] `constants/custom-patterns/swiper.constant.ts` — pattern data
-  - [ ] `components/features/custom-patterns/swiper/` — components
-  - [ ] Variants: 1. Basic carousel 2. Autoplay + pagination 3. Thumbnail gallery 4. Card carousel (peek sides) 5. Fade transition
-  - [ ] `app/features/custom-patterns/swiper/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 16: Swiper Patterns** (base: Swiper.js) ✅
+  - [x] Install `swiper` (v12.1.3)
+  - [x] `types/swiper.type.ts` — CarouselSlide, SwiperCarouselProps<T>, SwiperThumbnailGalleryProps
+  - [x] `components/shared/swiper-carousel.tsx` — reusable: 3 mode (slides/renderSlide/children), auto-resolve modules, generic <T>
+  - [x] `components/shared/swiper-thumbnail-gallery.tsx` — reusable: 2 Swiper sync (main + thumbs)
+  - [x] `components/shared/atmosphere-carousel.tsx` — reusable: Coverflow 3D gallery สำเร็จรูป (images prop, auto loop >= 5 slides)
+  - [x] `components/home/feature-carousel.tsx` — FeatureCard ใน coverflow effect (ใช้ใน FeatureSection)
+  - [x] `components/home/feature-section.tsx` — เปลี่ยนจาก grid → FeatureCarousel (เก็บ grid เป็น comment template)
+  - [x] `constants/custom-patterns/swiper.constant.ts` — 9 entries (4 source + 5 usage) + DEMO_GRADIENT_CLASSES
+  - [x] `components/features/custom-patterns/swiper/` — 5 demo components + 3 section wrappers (Source, Props, Demos)
+  - [x] Variants: 1. Basic (navigation+pagination+autoplay) 2. AtmosphereCarousel (coverflow 3D) 3. Card carousel (renderSlide) 4. Thumbnail gallery 5. Children mode (free-form)
+  - [x] `app/features/custom-patterns/swiper/page.tsx` — Server page (○ Static)
+  - [x] Props Reference section — อธิบาย props ทุกตัว + Sizing Tips
+  - [x] Build + Lint pass
 
-  **Step 17: Update .md files + final review**
+  #### Phase 5 — Animation patterns
+
+  **Step 17: Scroll Bar Animation** (base: Framer Motion useScroll) ✅
+  - [x] `constants/custom-patterns/scroll-bar.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [x] `components/features/custom-patterns/scroll-bar/` — 3 variant folders (progress, bubble, gradient)
+  - [x] Variants: 1. Scroll Progress Bar (useScroll + scaleY) 2. Bubble Scroll Bar (progress + particles) 3. Gradient Progress Bar (horizontal + gradient shift)
+  - [x] `app/features/custom-patterns/scroll-bar/page.tsx` — Server page (○ Static)
+  - [x] Build + Lint pass
+  - [x] **layout.tsx** — เปลี่ยนจาก `BubbleScrollIndicator` → `UnifiedScrollBar` (performance fix: throttle, cleanup, Set filter, counter id)
+
+  **Step 18: Cursor Animation** (base: Framer Motion + CSS) ✅
+  - [x] `constants/custom-patterns/cursor-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
+  - [x] `components/features/custom-patterns/cursor-animation/` — 3 variant folders (follower, spotlight, trail)
+  - [x] Variants: 1. Cursor Follower (useSpring + custom icon) 2. Spotlight Effect (radial-gradient mask) 3. Cursor Trail (fading dots + renderDot) 4. Neon Cursor (multi-layer springs + orbits + click/hover states — rewrite จาก CustomCursor เดิม, performance fix: useMotionValue, event delegation, CSS orbit)
+  - [x] `app/features/custom-patterns/cursor-animation/page.tsx` — Server page (○ Static)
+  - [x] `NeonCursor` — page-level neon cursor ทำงานทั้งหน้า cursor-animation (composition pattern, children ยังเป็น Server)
+  - [x] `data-cursor-zone` — ซ่อน neon cursor ใน preview boxes เพื่อไม่ซ้อนทับ effect อื่น
+  - [x] Cursor semantic tokens — `--cursor-1` ถึง `--cursor-5`, `--cursor-orbit-1/2/3` (globals.css, auto dark/light)
+  - [x] `CursorCustom` (lite) — global cursor สำหรับใช้ทั้งโปรเจค (layout.tsx)
+  - [x] Build + Lint pass
+
+  **Cursor Components — เปรียบเทียบ:**
+  | | `CursorCustom` (lite) | `PageNeonCursor` (full) |
+  |---|---|---|
+  | **ใช้ที่** | `layout.tsx` — ทั้งโปรเจค | เฉพาะบางหน้า (composition pattern) |
+  | **Path** | `shared/cursor-custom.tsx` | `shared/page-neon-cursor.tsx` |
+  | **Elements** | 2 (dot + glow) | 8+ (center + inner orbits + outer orbits) |
+  | **blur** | 1 ตัว (4px glow) | หลายตัว (inner orbit blur) |
+  | **GPU layers** | 2 | 8+ |
+  | **Mobile guard** | ✅ `(hover: hover)` — ไม่ render บน touch | ❌ ไม่ได้เช็ค |
+  | **Reduced motion** | ✅ `prefers-reduced-motion` — ไม่ render | ❌ ไม่ได้เช็ค |
+  | **Re-renders** | 0 (useMotionValue) | 0 (useMotionValue) |
+  | **Listener scope** | `document` (global) | container ref (scoped) |
+  | **Preview zone** | ไม่มี | `data-cursor-zone` ซ่อน cursor ใน preview |
+  | **Theme** | cursor semantic tokens (auto dark/light) | cursor semantic tokens (auto dark/light) |
+
+  **Step 19: Background Animation** (base: CSS + Framer Motion)
+  - [x] `constants/custom-patterns/background-animation.constant.ts` — pattern data (2 variants × source+usage = 4 entries) พร้อม JSDoc ข้อควรระวัง + Config Reference
+  - [x] `components/features/custom-patterns/background-animation/` — 2 variant folders (gradient-mesh, floating-particles)
+  - [x] Variants: 1. Animated Gradient Mesh (CSS keyframes only, 0 KB JS) 2. Floating Particles (Framer Motion infinite)
+  - [x] `components/shared/gradient-mesh.tsx` — reusable component (ใช้ได้ทุกหน้า)
+  - [x] `components/shared/floating-particles.tsx` — reusable component (ใช้ได้ทุกหน้า)
+  - [x] `utils/generate-particles.ts` — pure helper สำหรับ FloatingParticles
+  - [x] `globals.css` — เพิ่ม `@keyframes gradient-float-0/1/2`
+  - [x] `app/features/custom-patterns/background-animation/page.tsx` — Server page (○ Static)
+  - [x] Hydration fix — ย้าย Math.random() จาก useMemo → useEffect (ป้องกัน server/client mismatch)
+  - [x] Build + Lint pass
+  - [ ] (Parked) Variant 3: 3D Wave Mesh (Three.js — ต้อง install three + next/dynamic ssr:false)
+
+  **Step 20: Update .md files + final review**
   - [ ] Update share.md — document ทุก new component/constant
   - [ ] Update progress.md — mark completed
   - [ ] Build + Lint pass
