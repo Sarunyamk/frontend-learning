@@ -3,7 +3,7 @@ import { FancyLoading } from '@/components/features/custom-patterns/loading/fanc
 import { LoadingScreenDemo } from '@/components/features/custom-patterns/loading/loading-screen/loading-screen-demo';
 import { SkeletonLoading } from '@/components/features/custom-patterns/loading/skeleton/skeleton-loading';
 import { SpinnerLoading } from '@/components/features/custom-patterns/loading/spinner/spinner-loading';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

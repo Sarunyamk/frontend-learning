@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FormReadyToUse } from '@/components/features/form/form-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';

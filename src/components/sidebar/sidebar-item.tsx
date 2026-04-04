@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import {
   Collapsible,
   CollapsibleTrigger,

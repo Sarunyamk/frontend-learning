@@ -1,6 +1,6 @@
 'use client';
 
-import { CustomButton } from '@/components/shared/custom-button';
+import { CustomButton } from '@/components/shared/ui-primitives/custom-button';
 import { useState } from 'react';
 
 export function MagneticButtonPreview() {

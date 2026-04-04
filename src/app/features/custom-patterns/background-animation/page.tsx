@@ -1,6 +1,6 @@
 import { FloatingParticles } from '@/components/features/custom-patterns/background-animation/floating-particles/floating-particles';
 import { GradientMesh } from '@/components/features/custom-patterns/background-animation/gradient-mesh/gradient-mesh';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

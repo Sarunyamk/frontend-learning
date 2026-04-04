@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DialogFooter } from '@/components/ui/dialog';
-import { FormDialog } from '@/components/shared/form-dialog';
-import { showToast } from '@/components/shared/show-toast';
+import { FormDialog } from '@/components/shared/dialog-overlay/form-dialog';
+import { showToast } from '@/components/shared/ui-primitives/show-toast';
 
 export function FormDialogPreview() {
   const [open, setOpen] = useState(false);

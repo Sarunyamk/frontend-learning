@@ -1,4 +1,4 @@
-import { ColumnFade } from '@/components/framer-motion/fade';
+import { ColumnFade } from '@/components/shared/framer-motion/fade';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 

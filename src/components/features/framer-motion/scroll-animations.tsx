@@ -1,9 +1,9 @@
 import { SCROLL_EXAMPLES } from '@/constants/framer-motion.constant';
-import { ColumnFade } from '@/components/framer-motion/fade';
+import { ColumnFade } from '@/components/shared/framer-motion/fade';
 import {
   StaggerContainer,
   StaggerItem,
-} from '@/components/framer-motion/stagger';
+} from '@/components/shared/framer-motion/stagger';
 import { slideLeft, slideRight } from '@/lib/framer-motion/framer-motion';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 

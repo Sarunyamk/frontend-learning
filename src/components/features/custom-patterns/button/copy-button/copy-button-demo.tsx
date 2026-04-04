@@ -1,7 +1,7 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CopyButtonPreview } from './copy-button-preview';
 
 const pattern = BUTTON_PATTERNS.find((p) => p.key === 'copy')!;

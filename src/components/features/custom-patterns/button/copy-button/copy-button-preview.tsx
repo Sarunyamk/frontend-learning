@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CustomButton } from '@/components/shared/custom-button';
+import { CustomButton } from '@/components/shared/ui-primitives/custom-button';
 import { Check, Copy } from 'lucide-react';
 
 export function CopyButtonPreview() {

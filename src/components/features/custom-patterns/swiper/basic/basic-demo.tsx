@@ -1,6 +1,6 @@
 'use client';
 
-import { SwiperCarousel } from '@/components/shared/swiper-carousel';
+import { SwiperCarousel } from '@/components/shared/swiper/swiper-carousel';
 import { DEMO_GRADIENT_CLASSES } from '@/constants/custom-patterns/swiper.constant';
 
 const SLIDES = DEMO_GRADIENT_CLASSES.map((gradient, i) => ({

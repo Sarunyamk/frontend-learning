@@ -1,6 +1,6 @@
 'use client';
 
-import { FormTextField } from '@/components/forms/form-text-field';
+import { FormTextField } from '@/components/shared/forms/form-text-field';
 import { Button } from '@/components/ui/button';
 import {
   Form,

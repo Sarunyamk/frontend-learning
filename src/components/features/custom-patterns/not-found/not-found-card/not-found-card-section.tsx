@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ROUTES } from '@/constants/route.constant';
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { NOT_FOUND_PATTERNS } from '@/constants/custom-patterns/not-found.constant';
 import { NotFoundCardPreview } from './not-found-card-preview';

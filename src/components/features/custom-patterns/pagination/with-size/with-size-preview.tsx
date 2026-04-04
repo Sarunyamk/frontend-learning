@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Pagination } from '@/components/shared/pagination';
+import { Pagination } from '@/components/shared/forms/pagination';
 import {
   Select,
   SelectContent,

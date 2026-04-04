@@ -1,7 +1,7 @@
 'use client';
 
 import { AlertTriangle, RefreshCw } from 'lucide-react';
-import { ColumnFade } from '@/components/framer-motion/fade';
+import { ColumnFade } from '@/components/shared/framer-motion/fade';
 import { shake } from '@/lib/framer-motion/framer-motion';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';

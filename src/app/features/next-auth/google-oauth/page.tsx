@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getFeatureCategory, FEATURE_CATEGORY } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { GoogleOAuthContent } from '@/components/features/next-auth/google-oauth-content';
 
 export async function generateMetadata() {

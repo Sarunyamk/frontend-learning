@@ -2,7 +2,7 @@ import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { Button } from '@/components/ui/button';
 import { BUTTON_PATTERNS } from '@/constants/custom-patterns/button.constant';
 
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 
 const SOCIAL_EXAMPLES = [
   {

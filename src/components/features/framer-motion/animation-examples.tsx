@@ -1,6 +1,6 @@
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { ANIMATION_PRESETS } from '@/constants/framer-motion.constant';
-import { StaggerContainer, StaggerItem } from '@/components/framer-motion/stagger';
+import { StaggerContainer, StaggerItem } from '@/components/shared/framer-motion/stagger';
 
 import { PresetCard } from './preset-card';
 

@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { DynamicForm } from '@/components/features/form/dynamic-form';
 import {
   Card,

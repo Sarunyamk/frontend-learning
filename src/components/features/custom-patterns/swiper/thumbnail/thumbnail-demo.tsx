@@ -1,6 +1,6 @@
 'use client';
 
-import { SwiperThumbnailGallery } from '@/components/shared/swiper-thumbnail-gallery';
+import { SwiperThumbnailGallery } from '@/components/shared/swiper/swiper-thumbnail-gallery';
 
 const COLORS = [
   { bg: '4f8cff', text: 'fff' },

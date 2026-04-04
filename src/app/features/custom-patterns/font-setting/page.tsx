@@ -1,7 +1,7 @@
 import { FontSetupSteps } from '@/components/features/custom-patterns/font-setting/font-setup-steps';
 import { FontHowItWorks } from '@/components/features/custom-patterns/font-setting/font-how-it-works';
 import { FontUsageGuide } from '@/components/features/custom-patterns/font-setting/font-usage-guide';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

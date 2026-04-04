@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { DataTable, type Column } from '@/components/shared/data-table';
-import { Pagination } from '@/components/shared/pagination';
-import { ConfirmDialog } from '@/components/shared/confirm-dialog';
-import { showToast } from '@/components/shared/show-toast';
+import { DataTable, type Column } from '@/components/shared/forms/data-table';
+import { Pagination } from '@/components/shared/forms/pagination';
+import { ConfirmDialog } from '@/components/shared/dialog-overlay/confirm-dialog';
+import { showToast } from '@/components/shared/ui-primitives/show-toast';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';

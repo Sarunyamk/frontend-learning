@@ -1,4 +1,4 @@
-import { PatternCard } from '@/components/shared/pattern-card';
+import { PatternCard } from '@/components/shared/ui-primitives/pattern-card';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import { ENV_SETTING_PATTERNS } from '@/constants/custom-patterns/env-setting.constant';
 import { EnvOverviewPreview } from './env-overview-preview';

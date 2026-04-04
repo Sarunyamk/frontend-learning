@@ -1,4 +1,4 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { ConfirmDialogSection } from '@/components/features/custom-patterns/modal/confirm-dialog/confirm-dialog-section';
 import { FormDialogSection } from '@/components/features/custom-patterns/modal/form-dialog/form-dialog-section';
 import { InfoSheetSection } from '@/components/features/custom-patterns/modal/info-sheet/info-sheet-section';

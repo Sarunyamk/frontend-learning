@@ -1,6 +1,6 @@
 'use client';
 
-import { SwiperCarousel } from '@/components/shared/swiper-carousel';
+import { SwiperCarousel } from '@/components/shared/swiper/swiper-carousel';
 
 type FeatureItem = {
   title: string;

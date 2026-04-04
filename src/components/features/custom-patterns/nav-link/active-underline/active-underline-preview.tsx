@@ -1,6 +1,6 @@
 'use client';
 
-import { NavLink } from '@/components/shared/nav-link';
+import { NavLink } from '@/components/shared/ui-primitives/nav-link';
 import { Home, Palette, Puzzle } from 'lucide-react';
 
 export function ActiveUnderlinePreview() {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Check, Copy, Save, Settings } from 'lucide-react';
-import { CustomButton } from '@/components/shared/custom-button';
+import { CustomButton } from '@/components/shared/ui-primitives/custom-button';
 
 export function BasicButtonsPreview() {
   const [copied, setCopied] = useState(false);

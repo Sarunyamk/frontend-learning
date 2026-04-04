@@ -1,7 +1,7 @@
 import { ShikiSetupSteps } from '@/components/features/custom-patterns/code-shiki/shiki-setup-steps';
 import { ShikiHowItWorks } from '@/components/features/custom-patterns/code-shiki/shiki-how-it-works';
 import { ShikiUsageGuide } from '@/components/features/custom-patterns/code-shiki/shiki-usage-guide';
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';

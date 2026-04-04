@@ -1,6 +1,6 @@
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
-import { UnifiedScrollBar } from '@/components/shared/unified-scroll-bar';
+import { UnifiedScrollBar } from '@/components/shared/animation/unified-scroll-bar';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';

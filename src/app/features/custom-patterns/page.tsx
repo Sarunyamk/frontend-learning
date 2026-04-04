@@ -1,5 +1,5 @@
-import { FeatureBreadcrumb } from '@/components/shared/feature-breadcrumb';
-import { FeatureSubItems } from '@/components/shared/feature-sub-items';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
+import { FeatureSubItems } from '@/components/shared/ui-primitives/feature-sub-items';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -40,7 +40,9 @@ export default async function CustomPatternsPage() {
       </div>
 
       {groups.map((group) => {
-        const groupItems = category.items.filter((item) => item.group === group);
+        const groupItems = category.items.filter(
+          (item) => item.group === group
+        );
         return (
           <div key={group} className="space-y-3">
             <h2 className="text-lg font-semibold text-foreground">{group}</h2>
