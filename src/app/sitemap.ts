@@ -21,8 +21,14 @@ function getChangeFrequency(
   return 'monthly';
 }
 
+const EXCLUDED_PREFIXES = [
+  '/features/payment',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = Object.values(ROUTES);
+  const routes = Object.values(ROUTES).filter(
+    (route) => !EXCLUDED_PREFIXES.some((prefix) => route.startsWith(prefix)),
+  );
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route === ROUTES.HOME ? '' : route}`,
