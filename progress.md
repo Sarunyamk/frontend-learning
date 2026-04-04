@@ -421,13 +421,18 @@
   | **Preview zone** | ไม่มี | `data-cursor-zone` ซ่อน cursor ใน preview |
   | **Theme** | cursor semantic tokens (auto dark/light) | cursor semantic tokens (auto dark/light) |
 
-  **Step 19: Background Animation** (base: CSS + Framer Motion + Three.js)
-  - [ ] Install `three @react-three/fiber @react-three/drei` + `@types/three`
-  - [ ] `constants/custom-patterns/background-animation.constant.ts` — pattern data (3 variants × source+usage = 6 entries)
-  - [ ] `components/features/custom-patterns/background-animation/` — 3 variant folders (gradient-mesh, floating-particles, threejs-waves)
-  - [ ] Variants: 1. Animated Gradient Mesh (CSS keyframes only) 2. Floating Particles (Framer Motion) 3. 3D Wave Mesh (Three.js — Advanced badge, next/dynamic ssr:false)
-  - [ ] `app/features/custom-patterns/background-animation/page.tsx` — Server page
-  - [ ] Build + Lint pass
+  **Step 19: Background Animation** (base: CSS + Framer Motion)
+  - [x] `constants/custom-patterns/background-animation.constant.ts` — pattern data (2 variants × source+usage = 4 entries) พร้อม JSDoc ข้อควรระวัง + Config Reference
+  - [x] `components/features/custom-patterns/background-animation/` — 2 variant folders (gradient-mesh, floating-particles)
+  - [x] Variants: 1. Animated Gradient Mesh (CSS keyframes only, 0 KB JS) 2. Floating Particles (Framer Motion infinite)
+  - [x] `components/shared/gradient-mesh.tsx` — reusable component (ใช้ได้ทุกหน้า)
+  - [x] `components/shared/floating-particles.tsx` — reusable component (ใช้ได้ทุกหน้า)
+  - [x] `utils/generate-particles.ts` — pure helper สำหรับ FloatingParticles
+  - [x] `globals.css` — เพิ่ม `@keyframes gradient-float-0/1/2`
+  - [x] `app/features/custom-patterns/background-animation/page.tsx` — Server page (○ Static)
+  - [x] Hydration fix — ย้าย Math.random() จาก useMemo → useEffect (ป้องกัน server/client mismatch)
+  - [x] Build + Lint pass
+  - [ ] (Parked) Variant 3: 3D Wave Mesh (Three.js — ต้อง install three + next/dynamic ssr:false)
 
   **Step 20: Update .md files + final review**
   - [ ] Update share.md — document ทุก new component/constant

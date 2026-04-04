@@ -77,6 +77,12 @@
 | `FeatureSubItems` | `src/components/shared/feature-sub-items.tsx` | Server | sub-item cards + coming soon badge — ใช้ในหน้า feature ที่มี sub-pages |
 | `PatternCard` | `src/components/shared/pattern-card.tsx` | Client | card แบบพับได้ (live demo + View Code) — ใช้ในหน้า custom-patterns ทุกหน้า |
 
+### Background — effect ระดับ section/page
+| Component | Path | Type | เหมาะกับ |
+|-----------|------|------|---------|
+| `GradientMesh` | `src/components/shared/gradient-mesh.tsx` | Client | **Animated gradient blobs** — CSS keyframes, 0 KB extra JS. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: blobCount, speed, blur, colors (CSS color), opacity |
+| `FloatingParticles` | `src/components/shared/floating-particles.tsx` | Client | **Floating dots** — Framer Motion infinite animation. Parent ต้อง `relative overflow-hidden`, content ต้อง `relative z-10`. Props: count, sizeRange, speedRange (ตัวเลขสูง=ช้า), particleClass (Tailwind bg class), opacity, floatDistance |
+
 ### Scroll & Cursor — effect ระดับ page/layout
 | Component | Path | Type | เหมาะกับ |
 |-----------|------|------|---------|
@@ -101,6 +107,7 @@
 |----------|------|-------------|
 | `cn()` | `src/lib/utils.ts` | clsx + tailwind-merge สำหรับ conditional className |
 | `sortByField()` | `src/utils/sort-by-field.ts` | Pure sort helper — sortByField(items, config), SortConfig<T>, SortDirection |
+| `generateParticles()` | `src/utils/generate-particles.ts` | สร้าง particle data array (id, x, y, size, duration, delay) — ใช้กับ FloatingParticles |
 | `getCurrentUser()` | `src/lib/auth/get-current-user.ts` | Get auth session (Server only), redirect ถ้าไม่ login |
 | `highlightCode()` | `src/lib/shiki.ts` | Shiki syntax highlight (server-only singleton) — dual theme (github-light/dark) |
 | `fontVariables` | `src/lib/fonts.ts` | Combined font CSS variable className — Geist Sans + Geist Mono + Prompt, ใช้ใน layout.tsx `<html>` |
@@ -168,6 +175,7 @@
 | `CODE_SHIKI_HOW_IT_WORKS` | `src/constants/custom-patterns/code-shiki.constant.ts` | How it works data — flow (data flow diagram), responsive (alternative CSS), themes (recommended themes) |
 | `CODE_SHIKI_USAGE_EXAMPLES` | `src/constants/custom-patterns/code-shiki.constant.ts` | Usage examples (key, title, description, code, language) — 5 examples: basic, PatternCard, constant, languages, warnings |
 | `SCROLL_BAR_PATTERNS` | `src/constants/custom-patterns/scroll-bar.constant.ts` | Scroll bar animation pattern data (key, title, description, code) — 6 entries: 3 patterns × source+usage (scroll-progress, scroll-bubble, scroll-gradient) |
+| `BACKGROUND_ANIMATION_PATTERNS` | `src/constants/custom-patterns/background-animation.constant.ts` | Background animation pattern data (key, title, description, code) — 4 entries: 2 patterns × source+usage (gradient-mesh, floating-particles) |
 | `homeMetadata` | `src/lib/seo/home-metadata.ts` | Home page SEO metadata (title, description, openGraph) |
 | `getFeatureMetadata()` | `src/lib/seo/features-metadata.ts` | Feature page metadata factory — รับ `FeatureCategoryConfig` คืน `Metadata` |
 
