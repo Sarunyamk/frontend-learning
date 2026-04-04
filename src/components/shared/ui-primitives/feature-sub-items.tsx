@@ -13,7 +13,7 @@ export function FeatureSubItems({ items }: FeatureSubItemsProps) {
         <Link
           key={item.key}
           href={item.path}
-          className="group flex items-center justify-between rounded-lg border bg-card p-5 transition-colors hover:border-2 hover:border-hover-blue"
+          className="group flex items-center justify-between rounded-lg border-2 border-border bg-card p-5 transition-colors hover:border-hover-blue"
         >
           <span className="font-medium text-card-foreground">{item.label}</span>
           <ArrowRight className="size-4 text-primary transition-transform group-hover:translate-x-1" />

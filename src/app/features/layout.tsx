@@ -8,7 +8,7 @@ export default function FeaturesLayout({
   return (
     <div className="flex min-h-screen">
       <AppSidebar />
-      <main className="flex-1 px-6 py-6 md:px-10 lg:px-12">{children}</main>
+      <main className="min-w-0 flex-1 px-6 py-6 md:px-10 lg:px-12">{children}</main>
     </div>
   );
 }

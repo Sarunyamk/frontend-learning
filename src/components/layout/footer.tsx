@@ -20,14 +20,14 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-sm font-semibold">Navigation</h3>
+            {/* <h3 className="text-sm font-semibold">Navigation</h3>
             <nav className="flex flex-col gap-2">
               {NAV_ITEMS.map((item) => (
                 <NavLink key={item.key} href={item.path}>
                   {item.key}
                 </NavLink>
               ))}
-            </nav>
+            </nav> */}
           </div>
 
           <div className="space-y-3">
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          &copy; {currentYear} ELATION. All rights reserved.
+          &copy; {currentYear} MY LEARNING. All rights reserved.
         </div>
       </div>
     </footer>
