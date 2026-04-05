@@ -1309,6 +1309,68 @@ pnpm test   # Unit tests
 
 ---
 
+## 19. next.config.ts — Configuration & Security
+
+### 19.1 Security Headers (เพิ่มแล้ว — ห้ามลบ)
+
+```typescript
+// next.config.ts — ห้ามลบ headers เหล่านี้
+
+const securityHeaders = [
+  { key: "X-DNS-Prefetch-Control",    value: "on" },
+  { key: "X-XSS-Protection",          value: "1; mode=block" },
+  { key: "X-Frame-Options",           value: "SAMEORIGIN" },
+  { key: "X-Content-Type-Options",    value: "nosniff" },
+  { key: "Referrer-Policy",           value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy",        value: "camera=(), microphone=(), geolocation=()" },
+];
+
+const nextConfig: NextConfig = {
+  poweredByHeader: false, // ซ่อน X-Powered-By: Next.js
+  async headers() {
+    return [{ source: "/(.*)", headers: securityHeaders }];
+  },
+};
+```
+
+| Header | ป้องกัน |
+|--------|---------|
+| `X-DNS-Prefetch-Control: on` | DNS timing attack + เร่ง prefetch |
+| `X-XSS-Protection: 1; mode=block` | Legacy XSS filter (browser เก่า) |
+| `X-Frame-Options: SAMEORIGIN` | Clickjacking (iframe จาก domain อื่น) |
+| `X-Content-Type-Options: nosniff` | MIME sniffing attack |
+| `Referrer-Policy` | ป้องกัน leak URL ผ่าน Referer header |
+| `Permissions-Policy` | ปิด camera / microphone / geolocation ที่ไม่ใช้ |
+| `poweredByHeader: false` | ซ่อน tech stack จาก attacker |
+
+### 19.2 Headers ที่ยังไม่ได้ทำ (ต้องระวัง project นี้)
+
+**Content-Security-Policy (CSP)** — ทรงพลังที่สุด แต่ project นี้ติดข้อจำกัด:
+```
+❌ Framer Motion   → ใช้ inline styles → ต้องการ style-src 'unsafe-inline'
+❌ next-themes     → theme init script → อาจต้องการ script-src 'unsafe-inline' หรือ nonce
+❌ Socket.io       → ต้องการ connect-src ws://[backend-url]
+```
+→ ทำได้เมื่อ switch production + ตั้งค่า connect-src ให้ตรง backend URL
+
+**Strict-Transport-Security (HSTS)** — force HTTPS
+→ ทำเฉพาะ production เท่านั้น (ห้ามใส่ตอน dev — browser จะ block HTTP ถาวร)
+
+### 19.3 กฎ next.config.ts
+
+```
+✅ securityHeaders ต้องครบ 6 headers เสมอ — ห้ามลบ
+✅ poweredByHeader: false เสมอ
+✅ images.remotePatterns — เพิ่มเมื่อมี remote image (ดู Section 4.2)
+✅ ถ้าเพิ่ม header ใหม่ — ตรวจว่าไม่ break Framer Motion / next-themes / Socket.io ก่อน
+
+❌ ห้ามใส่ HSTS ตอน dev/local — browser จะจำ และ block HTTP
+❌ ห้ามใส่ CSP โดยไม่ทดสอบ — อาจ break inline styles และ WebSocket
+❌ ห้ามลบ source: "/(.*)" — headers ต้อง apply ทุก route
+```
+
+---
+
 ## Notes / Decisions
 
 (บันทึก architecture decisions, trade-offs, ปัญหาที่เจอ และวิธีแก้)
