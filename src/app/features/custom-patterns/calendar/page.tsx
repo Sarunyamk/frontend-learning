@@ -1,9 +1,10 @@
-import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
-import { SingleDateSection } from '@/components/features/custom-patterns/calendar/single/single-section';
-import { DateRangeSection } from '@/components/features/custom-patterns/calendar/range/range-section';
-import { TwoDatesSection } from '@/components/features/custom-patterns/calendar/two-dates/two-dates-section';
 import { MonthYearSection } from '@/components/features/custom-patterns/calendar/month-year/month-year-section';
+import { DateRangeSection } from '@/components/features/custom-patterns/calendar/range/range-section';
+import { SingleDateSection } from '@/components/features/custom-patterns/calendar/single/single-section';
+import { TwoDatesSection } from '@/components/features/custom-patterns/calendar/two-dates/two-dates-section';
 import { WithTimeSection } from '@/components/features/custom-patterns/calendar/with-time/with-time-section';
+import { CalendarSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-calendar';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -30,6 +31,7 @@ export default async function CalendarPage() {
           dropdown, Date+Time พร้อมใช้งานทันที
         </p>
       </div>
+      <CalendarSetupInstall />
       <SingleDateSection />
       <DateRangeSection />
       <TwoDatesSection />

@@ -40,8 +40,22 @@ export default function RootLayout({
 export const MODAL_INSTALL_SECTIONS: readonly CodeSection[] = [
   {
     title: 'Install shadcn/ui',
-    description: 'ติดตั้ง library สำหรับ Modal)',
+    description: 'ติดตั้ง library สำหรับ Modal',
     language: 'bash',
     code: `pnpm dlx shadcn@latest add alert-dialog sheet`,
+  },
+];
+export const CALENDAR_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: '1. Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ Calendar',
+    language: 'bash',
+    code: `pnpm dlx shadcn@latest add button calendar popover`,
+  },
+  {
+    title: '2. Install date-fns',
+    description: 'ติดตั้ง library สำหรับ Calendar',
+    language: 'bash',
+    code: `pnpm add date-fns`,
   },
 ];
