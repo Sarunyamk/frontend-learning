@@ -3,7 +3,7 @@ import { CodeSection } from '@/types/share-code-section.type';
 export const BUTTON_INSTALL_SECTIONS: readonly CodeSection[] = [
   {
     title: 'Install shadcn/ui',
-    description: 'ติดตั้ง library สำหรับ component',
+    description: 'ติดตั้ง library สำหรับ Button',
     language: 'bash',
     code: `pnpm dlx shadcn@latest add button`,
   },
@@ -11,7 +11,7 @@ export const BUTTON_INSTALL_SECTIONS: readonly CodeSection[] = [
 export const TOAST_INSTALL_SECTIONS: readonly CodeSection[] = [
   {
     title: '1. Install shadcn/ui',
-    description: 'ติดตั้ง library สำหรับ toast (sonner)',
+    description: 'ติดตั้ง library สำหรับ Toast (Sonner)',
     language: 'bash',
     code: `pnpm dlx shadcn@latest add sonner`,
   },
@@ -35,5 +35,13 @@ export default function RootLayout({
     </html>
   );
 }`,
+  },
+];
+export const MODAL_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: 'Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ Modal)',
+    language: 'bash',
+    code: `pnpm dlx shadcn@latest add alert-dialog sheet`,
   },
 ];
