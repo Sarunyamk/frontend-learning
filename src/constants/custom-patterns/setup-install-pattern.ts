@@ -59,3 +59,11 @@ export const CALENDAR_INSTALL_SECTIONS: readonly CodeSection[] = [
     code: `pnpm add date-fns`,
   },
 ];
+export const SWIPER_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: 'Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ Swiper',
+    language: 'bash',
+    code: `pnpm add swiper`,
+  },
+];
