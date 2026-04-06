@@ -1,5 +1,7 @@
 // ===== Ready-to-Use Code =====
 
+import { CodeSection } from '@/types/share-code-section.type';
+
 export type ReadyToUseCode = {
   name: string;
   description: string;
@@ -63,7 +65,8 @@ export const staggerItem: Variants = {
   },
   {
     name: 'ColumnFade Component',
-    description: 'Scroll-triggered fade wrapper — รับ variant, delay, duration, once, amount',
+    description:
+      'Scroll-triggered fade wrapper — รับ variant, delay, duration, once, amount',
     filePath: 'src/components/framer-motion/fade.tsx',
     code: `'use client';
 
@@ -105,7 +108,8 @@ export function ColumnFade({
   },
   {
     name: 'Stagger Components',
-    description: 'Container + Item สำหรับ stagger animation — ใช้กับ list, grid',
+    description:
+      'Container + Item สำหรับ stagger animation — ใช้กับ list, grid',
     filePath: 'src/components/framer-motion/stagger.tsx',
     code: `'use client';
 
@@ -169,7 +173,8 @@ export const TRANSITION_READY_TO_USE_CODES: readonly ReadyToUseCode[] = [
   },
   {
     name: 'StepTransition Component',
-    description: 'AnimatePresence + fadeSlide wrapper — ส่ง stepKey เปลี่ยนทีไร animate ทีนั้น',
+    description:
+      'AnimatePresence + fadeSlide wrapper — ส่ง stepKey เปลี่ยนทีไร animate ทีนั้น',
     filePath: 'src/components/framer-motion/step-transition.tsx',
     code: `'use client';
 
@@ -252,7 +257,8 @@ export const ANIMATION_PRESETS: readonly AnimationPreset[] = [
   },
   {
     name: 'slideDown',
-    description: 'Fade in + slide down — ใช้กับ header, notification ที่เลื่อนลงมา',
+    description:
+      'Fade in + slide down — ใช้กับ header, notification ที่เลื่อนลงมา',
     variantCode: `export const slideDown: Variants = {
   hidden: { opacity: 0, y: -50 },
   show: { opacity: 1, y: 0 },
@@ -267,7 +273,8 @@ export const ANIMATION_PRESETS: readonly AnimationPreset[] = [
   },
   {
     name: 'slideLeft',
-    description: 'Fade in + slide from right — ใช้กับ sidebar, panel ที่เข้ามาจากขวา',
+    description:
+      'Fade in + slide from right — ใช้กับ sidebar, panel ที่เข้ามาจากขวา',
     variantCode: `export const slideLeft: Variants = {
   hidden: { opacity: 0, x: 50 },
   show: { opacity: 1, x: 0 },
@@ -392,7 +399,8 @@ export const SCROLL_EXAMPLES: readonly ScrollExample[] = [
   },
   {
     name: 'viewport options',
-    description: 'ปรับ amount เพื่อกำหนดว่า element ต้องเข้ามาเท่าไหร่ถึง trigger',
+    description:
+      'ปรับ amount เพื่อกำหนดว่า element ต้องเข้ามาเท่าไหร่ถึง trigger',
     code: `<motion.div
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
@@ -407,7 +415,8 @@ export const SCROLL_EXAMPLES: readonly ScrollExample[] = [
   },
   {
     name: 'Stagger on scroll',
-    description: 'cards ขึ้นมาทีละใบเมื่อ scroll ถึง — ใช้ staggerContainer + staggerItem',
+    description:
+      'cards ขึ้นมาทีละใบเมื่อ scroll ถึง — ใช้ staggerContainer + staggerItem',
     code: `<motion.div
   variants={staggerContainer}
   initial="hidden"
@@ -485,3 +494,12 @@ export const TRANSITION_EXAMPLES: readonly TransitionExample[] = [
 </AnimatePresence>`,
   },
 ] as const;
+
+export const FRAMER_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: 'Install Framer Motion',
+    description: 'ติดตั้ง library สำหรับ component',
+    language: 'bash',
+    code: `pnpm add framer-motion`,
+  },
+];
