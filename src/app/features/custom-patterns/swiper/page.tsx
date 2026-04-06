@@ -1,3 +1,4 @@
+import { SwiperSetupInstall } from '@/components/features/custom-patterns/setup-install-section/Install-swiper';
 import { SwiperDemosSection } from '@/components/features/custom-patterns/swiper/swiper-demos-section';
 import { SwiperPropsSection } from '@/components/features/custom-patterns/swiper/swiper-props-section';
 import { SwiperSourceSection } from '@/components/features/custom-patterns/swiper/swiper-source-section';
@@ -31,6 +32,7 @@ export default async function SwiperPage() {
           </code>
         </p>
       </div>
+      <SwiperSetupInstall />
       <SwiperSourceSection />
       <SwiperPropsSection />
       <SwiperDemosSection />

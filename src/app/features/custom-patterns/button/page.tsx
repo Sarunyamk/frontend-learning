@@ -11,6 +11,7 @@ import { SocialButtons } from '@/components/features/custom-patterns/button/soci
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
+import { ButtonSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-button';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.CUSTOM_PATTERNS);
@@ -33,6 +34,7 @@ export default async function ButtonPatternsPage() {
           รวม button patterns ที่ใช้บ่อย — copy-paste ready พร้อม live demo
         </p>
       </div>
+      <ButtonSetupInstall />
       <BasicButtons />
       <GradientButtons />
       <IconTextButtons />
