@@ -1,11 +1,4 @@
-import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { InstallSection } from '@/components/shared/install-section';
 import { BUTTON_INSTALL_SECTIONS } from '@/constants/custom-patterns/setup-install-pattern';
 
 export function ButtonSetupInstall() {
@@ -19,15 +12,7 @@ export function ButtonSetupInstall() {
       </div>
 
       {BUTTON_INSTALL_SECTIONS.map((section) => (
-        <Card key={section.title}>
-          <CardHeader>
-            <CardTitle className="text-base">{section.title}</CardTitle>
-            <CardDescription>{section.description}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <CodeBlockShiki code={section.code} language={section.language} />
-          </CardContent>
-        </Card>
+        <InstallSection key={section.title} section={section} />
       ))}
     </div>
   );
