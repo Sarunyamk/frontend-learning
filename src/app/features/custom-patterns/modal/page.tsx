@@ -1,8 +1,9 @@
-import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
+import { AlertMessageSection } from '@/components/features/custom-patterns/modal/alert-message/alert-message-section';
 import { ConfirmDialogSection } from '@/components/features/custom-patterns/modal/confirm-dialog/confirm-dialog-section';
 import { FormDialogSection } from '@/components/features/custom-patterns/modal/form-dialog/form-dialog-section';
 import { InfoSheetSection } from '@/components/features/custom-patterns/modal/info-sheet/info-sheet-section';
-import { AlertMessageSection } from '@/components/features/custom-patterns/modal/alert-message/alert-message-section';
+import { ModalSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-modal';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -29,6 +30,7 @@ export default async function ModalPage() {
           AlertMessage พร้อมใช้งานทันที
         </p>
       </div>
+      <ModalSetupInstall />
       <ConfirmDialogSection />
       <FormDialogSection />
       <InfoSheetSection />

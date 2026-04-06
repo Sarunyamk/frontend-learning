@@ -1,3 +1,5 @@
+import { CodeSection } from '@/types/share-code-section.type';
+
 export type FormReadyToUseCode = {
   name: string;
   description: string;
@@ -9,7 +11,8 @@ export type FormReadyToUseCode = {
 export const FORM_READY_TO_USE_CODES: readonly FormReadyToUseCode[] = [
   {
     name: 'FormTextField',
-    description: 'Text input field — รับ control, name, label, placeholder, type',
+    description:
+      'Text input field — รับ control, name, label, placeholder, type',
     filePath: 'src/components/forms/form-text-field.tsx',
     code: `'use client';
 
@@ -68,7 +71,8 @@ export function FormTextField<TFieldValues extends FieldValues>({
   },
   {
     name: 'FormSelect',
-    description: 'Select dropdown — รับ control, name, label, placeholder, options',
+    description:
+      'Select dropdown — รับ control, name, label, placeholder, options',
     filePath: 'src/components/forms/form-select.tsx',
     code: `'use client';
 
@@ -323,7 +327,8 @@ export function FormCheckboxGroup<TFieldValues extends FieldValues>({
   },
   {
     name: 'ImageDropzone',
-    description: 'Drag & drop image upload — preview, validate type/size, remove',
+    description:
+      'Drag & drop image upload — preview, validate type/size, remove',
     filePath: 'src/components/forms/image-dropzone.tsx',
     code: `// ดูโค้ดเต็มที่ src/components/forms/image-dropzone.tsx
 // ใช้ร่วมกับ schema จาก src/lib/schemas/upload-form.schema.ts
@@ -356,3 +361,24 @@ type ImageDropzoneProps = {
 />`,
   },
 ] as const;
+
+export const FORM_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: '1. Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ component',
+    language: 'bash',
+    code: `pnpm dlx shadcn@latest add input form select radio-group checkbox`,
+  },
+  {
+    title: '2. Install Zod',
+    description: 'ติดตั้ง library สำหรับ validation',
+    language: 'bash',
+    code: `pnpm add zod`,
+  },
+  {
+    title: '3. Install React Hook Form',
+    description: 'ติดตั้ง library สำหรับ form handling',
+    language: 'bash',
+    code: `pnpm add react-hook-form @hookform/resolvers`,
+  },
+];

@@ -1,0 +1,21 @@
+import { InstallSection } from '@/components/shared/install-section';
+import {
+  SWIPER_INSTALL_SECTIONS
+} from '@/constants/custom-patterns/setup-install-pattern';
+
+export function SwiperSetupInstall() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-xl font-semibold text-foreground">Installation</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          ติดตั้ง Swiper Carousel ด้วยคำสั่ง:
+        </p>
+      </div>
+
+      {SWIPER_INSTALL_SECTIONS.map((section) => (
+        <InstallSection key={section.title} section={section} />
+      ))}
+    </div>
+  );
+}

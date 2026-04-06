@@ -1,9 +1,10 @@
+import { TableSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-table';
 import { BasicTableSection } from '@/components/features/custom-patterns/table-action/basic/basic-section';
 import { ColumnSearchSection } from '@/components/features/custom-patterns/table-action/column-search/column-search-section';
-import { SortableSection } from '@/components/features/custom-patterns/table-action/sortable/sortable-section';
 import { ExpandableSection } from '@/components/features/custom-patterns/table-action/expandable/expandable-section';
 import { RowActionsSection } from '@/components/features/custom-patterns/table-action/row-actions/row-actions-section';
 import { RowSelectionSection } from '@/components/features/custom-patterns/table-action/row-selection/row-selection-section';
+import { SortableSection } from '@/components/features/custom-patterns/table-action/sortable/sortable-section';
 import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
@@ -31,6 +32,7 @@ export default async function TableActionPage() {
           Search/Filter, Sortable, Row Actions, Row Selection, Expandable Rows
         </p>
       </div>
+      <TableSetupInstall />
       <BasicTableSection />
       <ColumnSearchSection />
       <SortableSection />

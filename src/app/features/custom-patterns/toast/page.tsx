@@ -6,6 +6,7 @@ import { CustomToast } from '@/components/features/custom-patterns/toast/custom/
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
+import { ToastSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-sonner';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.CUSTOM_PATTERNS);
@@ -29,6 +30,7 @@ export default async function ToastPatternsPage() {
           promise, custom styles
         </p>
       </div>
+      <ToastSetupInstall/>
       <ToastReuseDemo />
       <ActionToast />
       <PromiseToast />

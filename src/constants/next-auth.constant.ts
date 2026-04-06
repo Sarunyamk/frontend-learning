@@ -1,3 +1,4 @@
+import { CodeSection } from '@/types/share-code-section.type';
 import type { UserRole } from './role.constant';
 
 // ===== Mock Users =====
@@ -29,13 +30,6 @@ export const MOCK_USERS: readonly MockUser[] = [
 
 // ===== Tutorial Code Sections =====
 
-export type CodeSection = {
-  readonly title: string;
-  readonly description: string;
-  readonly code: string;
-  readonly language: string;
-};
-
 // --- Auth Setup Page ---
 
 export const AUTH_SETUP_SECTIONS: readonly CodeSection[] = [
@@ -55,7 +49,8 @@ AUTH_URL="http://localhost:3000"`,
   },
   {
     title: '3. Auth Config (lib/auth/auth.ts)',
-    description: 'สร้าง auth config — Credentials provider + JWT strategy + callbacks',
+    description:
+      'สร้าง auth config — Credentials provider + JWT strategy + callbacks',
     language: 'typescript',
     code: `import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
@@ -164,7 +159,8 @@ if (!session?.user) {
   },
   {
     title: '7. Client-side Session (useSession)',
-    description: 'ใช้ useSession() ใน Client Component — ต้องมี SessionProvider ครอบ',
+    description:
+      'ใช้ useSession() ใน Client Component — ต้องมี SessionProvider ครอบ',
     language: 'typescript',
     code: `// Layout: ครอบด้วย SessionProvider
 import { SessionProvider } from 'next-auth/react';
@@ -192,7 +188,8 @@ export function UserInfo() {
   },
   {
     title: '8. Login Server Action',
-    description: 'Server Action สำหรับ login — ใช้ signIn() + redirect() ฝั่ง server ทั้งหมด',
+    description:
+      'Server Action สำหรับ login — ใช้ signIn() + redirect() ฝั่ง server ทั้งหมด',
     language: 'typescript',
     code: `// lib/actions/login/actions.ts
 'use server';
@@ -223,7 +220,8 @@ export async function loginAction(data: LoginInput) {
   },
   {
     title: '9. ⚠️ Server/Client Session Sync',
-    description: 'คำเตือนสำคัญ — signIn/signOut ทำงานฝั่ง Server แต่ useSession (Client) ไม่รู้ทันที',
+    description:
+      'คำเตือนสำคัญ — signIn/signOut ทำงานฝั่ง Server แต่ useSession (Client) ไม่รู้ทันที',
     language: 'typescript',
     code: `// ❌ ปัญหา: useSession ไม่ update หลัง login/logout
 // signIn/signOut เปลี่ยน session cookie ฝั่ง Server
@@ -283,7 +281,8 @@ AUTH_GOOGLE_SECRET="your-google-client-secret"`,
   },
   {
     title: '3. เพิ่ม Google Provider',
-    description: 'เพิ่ม Google provider ใน auth config — Auth.js จัดการ OAuth flow ให้อัตโนมัติ',
+    description:
+      'เพิ่ม Google provider ใน auth config — Auth.js จัดการ OAuth flow ให้อัตโนมัติ',
     language: 'typescript',
     code: `import Google from 'next-auth/providers/google';
 
@@ -297,7 +296,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   {
     title: '4. Sign In Button',
-    description: 'สร้างปุ่ม Sign in with Google — ใช้ Server Action หรือ Client signIn()',
+    description:
+      'สร้างปุ่ม Sign in with Google — ใช้ Server Action หรือ Client signIn()',
     language: 'typescript',
     code: `// Server Action
 import { signIn } from '@/lib/auth/auth';
@@ -349,7 +349,8 @@ export function proxy(request: NextRequest) {
   },
   {
     title: 'Server-side Guard (getCurrentUser)',
-    description: 'ใช้ auth() ตรวจ session ใน Server Component — redirect ถ้าไม่ login',
+    description:
+      'ใช้ auth() ตรวจ session ใน Server Component — redirect ถ้าไม่ login',
     language: 'typescript',
     code: `// lib/auth/get-current-user.ts
 import { redirect } from 'next/navigation';
@@ -390,7 +391,8 @@ if (user.role === USER_ROLE.ADMIN) {
 export const SESSION_CODE_SECTIONS: readonly CodeSection[] = [
   {
     title: 'Server Session — auth()',
-    description: 'เรียก auth() ใน Server Component — ได้ session ทันที ไม่ต้อง Provider',
+    description:
+      'เรียก auth() ใน Server Component — ได้ session ทันที ไม่ต้อง Provider',
     language: 'typescript',
     code: `// Server Component (page.tsx, layout.tsx)
 import { auth } from '@/lib/auth/auth';
@@ -404,7 +406,8 @@ export default async function Page() {
   },
   {
     title: 'Client Session — useSession()',
-    description: 'ใช้ useSession() ใน Client Component — ต้องมี SessionProvider ครอบ',
+    description:
+      'ใช้ useSession() ใน Client Component — ต้องมี SessionProvider ครอบ',
     language: 'typescript',
     code: `'use client';
 import { useSession } from 'next-auth/react';
@@ -424,7 +427,8 @@ export function SessionDisplay() {
   },
   {
     title: 'Server vs Client — เมื่อไหร่ใช้อะไร',
-    description: 'เลือกให้ถูก — auth() สำหรับ Server, useSession() สำหรับ Client ที่ต้อง react ต่อ session change',
+    description:
+      'เลือกให้ถูก — auth() สำหรับ Server, useSession() สำหรับ Client ที่ต้อง react ต่อ session change',
     language: 'typescript',
     code: `// ✅ Server Component — ใช้ auth()
 // - ไม่เพิ่ม JS bundle
