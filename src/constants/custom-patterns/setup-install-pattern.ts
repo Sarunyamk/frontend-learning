@@ -80,6 +80,6 @@ export const TABLE_INSTALL_SECTIONS: readonly CodeSection[] = [
     title: 'Install shadcn/ui',
     description: 'ติดตั้ง library สำหรับ Table',
     language: 'bash',
-    code: `pnpm dlx shadcn@latest add table`,
+    code: `pnpm dlx shadcn@latest add table select input button dropdown-menu checkbox`,
   },
 ];
