@@ -3,6 +3,7 @@ import { FormReadyToUse } from '@/components/features/form/form-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
+import { FormSetupInstall } from '@/components/features/form/setup-form-install';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.FORMS);
@@ -26,6 +27,7 @@ export default async function FormReadyToUsePage() {
           shadcn/ui
         </p>
       </div>
+      <FormSetupInstall />
       <FormReadyToUse />
     </div>
   );
