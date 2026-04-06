@@ -61,9 +61,25 @@ export const CALENDAR_INSTALL_SECTIONS: readonly CodeSection[] = [
 ];
 export const SWIPER_INSTALL_SECTIONS: readonly CodeSection[] = [
   {
-    title: 'Install shadcn/ui',
+    title: 'Install Swiper Carousel',
     description: 'ติดตั้ง library สำหรับ Swiper',
     language: 'bash',
     code: `pnpm add swiper`,
+  },
+];
+export const PAGINATION_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: 'Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ Pagination',
+    language: 'bash',
+    code: `pnpm dlx shadcn@latest add pagination`,
+  },
+];
+export const TABLE_INSTALL_SECTIONS: readonly CodeSection[] = [
+  {
+    title: 'Install shadcn/ui',
+    description: 'ติดตั้ง library สำหรับ Table',
+    language: 'bash',
+    code: `pnpm dlx shadcn@latest add table`,
   },
 ];

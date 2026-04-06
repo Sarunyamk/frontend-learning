@@ -1,8 +1,9 @@
-import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { BasicPaginationSection } from '@/components/features/custom-patterns/pagination/basic/basic-section';
-import { WithSizeSection } from '@/components/features/custom-patterns/pagination/with-size/with-size-section';
-import { LoadMoreSection } from '@/components/features/custom-patterns/pagination/load-more/load-more-section';
 import { InfiniteScrollSection } from '@/components/features/custom-patterns/pagination/infinite-scroll/infinite-scroll-section';
+import { LoadMoreSection } from '@/components/features/custom-patterns/pagination/load-more/load-more-section';
+import { WithSizeSection } from '@/components/features/custom-patterns/pagination/with-size/with-size-section';
+import { PaginationSetupInstall } from '@/components/features/custom-patterns/setup-install-section/install-pagination';
+import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
@@ -29,6 +30,7 @@ export default async function PaginationPage() {
           Infinite scroll พร้อมใช้งานทันที
         </p>
       </div>
+      <PaginationSetupInstall />
       <BasicPaginationSection />
       <WithSizeSection />
       <LoadMoreSection />
