@@ -1,7 +1,5 @@
 'use client';
 
-import { NavLink } from '@/components/shared/ui-primitives/nav-link';
-import { NAV_ITEMS } from '@/constants/navigation.constant';
 import { ROUTES } from '@/constants/route.constant';
 import { useScroll } from '@/hooks/useScroll';
 import { headerVariants } from '@/lib/framer-motion/header';
@@ -30,7 +28,7 @@ export default function HeaderClient() {
           href={ROUTES.HOME}
           className="justify-self-center text-xl font-bold md:justify-self-auto"
         >
-          My Learning
+          MLN
         </Link>
 
         <nav className="hidden md:flex gap-6 items-center">
