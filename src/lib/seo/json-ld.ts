@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/constants/important.constant';
+import { BASE_DESCRIPTION, BASE_URL } from '@/constants/important.constant';
 import { SITE_NAME } from '@/lib/seo/seo.constant';
 
 export function getWebsiteJsonLd() {
@@ -7,26 +7,41 @@ export function getWebsiteJsonLd() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: BASE_URL,
-    description:
-      'เรียนรู้ Next.js 16 + TypeScript แบบ best practice ผ่านตัวอย่าง feature จริง ตั้งแต่ Payment, Auth, Real-time ไปจนถึง Animation',
+    description: BASE_DESCRIPTION,
     inLanguage: 'th',
   };
 }
 
-export function getEducationalJsonLd() {
+export function getSoftwareJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
-    name: `${SITE_NAME} — Next.js 16 + TypeScript`,
-    description:
-      'เรียนรู้ Next.js 16 + TypeScript แบบ best practice ผ่านตัวอย่าง feature จริง ตั้งแต่ Payment, Auth, Real-time ไปจนถึง Animation สามารถนำไปใช้กับโปรเจกต์จริงได้ทันที',
-    provider: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: BASE_URL,
+    '@type': 'SoftwareApplication',
+    name: SITE_NAME,
+    url: BASE_URL,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Web',
+    description: BASE_DESCRIPTION,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
     },
-    educationalLevel: 'Intermediate',
-    programmingLanguage: 'TypeScript',
-    isAccessibleForFree: true,
+  };
+}
+type BreadcrumbItem = {
+  name: string;
+  url: string;
+};
+
+export function getBreadcrumbJsonLd(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
