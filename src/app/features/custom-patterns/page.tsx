@@ -2,6 +2,7 @@ import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-bre
 import { FeatureSubItems } from '@/components/shared/ui-primitives/feature-sub-items';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
+import { buildFeatureBreadcrumb } from '@/lib/utils/build-jsonLd.helper';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
@@ -27,29 +28,39 @@ export default async function CustomPatternsPage() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.CUSTOM_PATTERNS);
   if (!category) notFound();
 
+  const breadcrumbJsonLd = buildFeatureBreadcrumb(category);
+
   const groups = getGroups(category.items);
 
   return (
-    <div className="space-y-6">
-      <FeatureBreadcrumb category={category} />
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          {category.label}
-        </h1>
-        <p className="mt-2 text-muted-foreground">{category.description}</p>
-      </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
+      <div className="space-y-6">
+        <FeatureBreadcrumb category={category} />
+        <div>
+          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
+            {category.label}
+          </h1>
+          <p className="mt-2 text-muted-foreground">{category.description}</p>
+        </div>
 
-      {groups.map((group) => {
-        const groupItems = category.items.filter(
-          (item) => item.group === group
-        );
-        return (
-          <div key={group} className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">{group}</h2>
-            <FeatureSubItems items={groupItems} />
-          </div>
-        );
-      })}
-    </div>
+        {groups.map((group) => {
+          const groupItems = category.items.filter(
+            (item) => item.group === group
+          );
+          return (
+            <div key={group} className="space-y-3">
+              <h2 className="text-lg font-semibold text-foreground">{group}</h2>
+              <FeatureSubItems items={groupItems} />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
