@@ -1,5 +1,5 @@
 import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
-import { MultiStepForm } from '@/components/features/form/multi-step-form';
+import { MultiStepForm } from '@/components/features/form/form-pattern/multi-step-form';
 import {
   Card,
   CardContent,

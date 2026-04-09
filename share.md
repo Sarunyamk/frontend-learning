@@ -42,7 +42,7 @@
 | `StepTransition` | `src/components/shared/framer-motion/step-transition.tsx` | Client | slide transition ระหว่าง step/tab — ใช้เมื่อเปลี่ยน content แบบ animated |
 | `AnimatedDropdown` | `src/components/shared/framer-motion/dropdown.tsx` | Client | dropdown menu ที่มี animation — ใช้แทน native dropdown |
 
-### Form — สร้าง form ด้วย react-hook-form + shadcn
+### Form — สร้าง form ด้วย react-hook-form + shadcn (form แบบ เก่า)
 | Component | Path | Type | เหมาะกับ |
 |-----------|------|------|---------|
 | `FormTextField` | `src/components/shared/forms/form-text-field.tsx` | Client | input text/email/password — ใช้กับ `control` จาก useForm |
@@ -50,6 +50,21 @@
 | `FormRadioGroup` | `src/components/shared/forms/form-radio-group.tsx` | Client | กลุ่ม radio — ใช้เมื่อ user เลือกได้ตัวเดียว |
 | `FormSelect` | `src/components/shared/forms/form-select.tsx` | Client | dropdown select — ใช้เมื่อ options เยอะเกินไปสำหรับ radio |
 | `ImageDropzone` | `src/components/shared/forms/image-dropzone.tsx` | Client | upload รูป — drag & drop, preview, validate type/size |
+
+### Form (Field-based) — react-hook-form + shadcn (Field + Adapter)
+
+| Component | Path | Type | Layer | เหมาะกับ |
+|-----------|------|------|--------|---------|
+| `BaseFieldInput` | `src/components/shared/field-form/base-field-input.tsx` | Client | UI | input พื้นฐาน (text/email/password) — ใช้ standalone หรือ reuse |
+| `BaseFieldSelect` | `src/components/shared/field-form/base-field-select.tsx` | Client | UI | select dropdown UI |
+| `BaseFieldRadioGroup` | `src/components/shared/field-form/base-field-radio-group.tsx` | Client | UI | radio group UI |
+| `BaseFieldCheckboxGroup` | `src/components/shared/field-form/base-field-checkbox.tsx` | Client | UI | checkbox multi-select UI |
+
+| `FieldInputForm` | `src/components/shared/field-form/adapter-hook-form/field-input-form.tsx` | Client | Adapter | input ที่เชื่อมกับ react-hook-form (`control`) |
+| `FieldSelectForm` | `src/components/shared/field-form/adapter-hook-form/field-select-form.tsx` | Client | Adapter | select ที่เชื่อมกับ form |
+| `FieldRadioGroupForm` | `src/components/shared/field-form/adapter-hook-form/field-radio-group.tsx` | Client | Adapter | radio group ที่เชื่อมกับ form |
+| `FieldCheckboxGroupForm` | `src/components/shared/field-form/adapter-hook-form/field-checkbox.tsx` | Client | Adapter | checkbox group ที่เชื่อมกับ form |
+
 
 ### Dialog & Overlay — popup ถาม/แจ้ง user
 | Component | Path | Type | เหมาะกับ |
