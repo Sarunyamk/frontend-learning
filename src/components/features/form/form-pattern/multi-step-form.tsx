@@ -4,6 +4,7 @@ import { FormCheckboxGroup } from '@/components/shared/forms/form-checkbox-group
 import { FormRadioGroup } from '@/components/shared/forms/form-radio-group';
 import { FormSelect } from '@/components/shared/forms/form-select';
 import { FormTextField } from '@/components/shared/forms/form-text-field';
+import { StepTransition } from '@/components/shared/framer-motion/step-transition';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Progress } from '@/components/ui/progress';
@@ -14,7 +15,6 @@ import {
   STEP_FIELDS,
   STEPS,
 } from '@/constants/form.constant';
-import { StepTransition } from '@/components/shared/framer-motion/step-transition';
 import {
   multiStepFormSchema,
   type MultiStepFormInput,

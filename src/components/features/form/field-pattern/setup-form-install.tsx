@@ -1,7 +1,7 @@
 import { InstallSection } from '@/components/shared/install-section';
-import { FORM_INSTALL_SECTIONS } from '@/constants/form-ready-to-use.constant';
+import { FORM_INSTALL_SECTIONS_PATTERN2 } from '@/constants/form-ready-to-use-pattern2.constant';
 
-export function FormSetupInstall() {
+export function FormFieldSetupInstall() {
   return (
     <div className="space-y-6">
       <div>
@@ -12,7 +12,7 @@ export function FormSetupInstall() {
         </p>
       </div>
 
-      {FORM_INSTALL_SECTIONS.map((section) => (
+      {FORM_INSTALL_SECTIONS_PATTERN2.map((section) => (
         <InstallSection key={section.title} section={section} />
       ))}
     </div>

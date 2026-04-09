@@ -66,5 +66,6 @@ export const ROUTES = {
   FORMS_MULTI_STEP: '/features/forms/multi-step',
   FORMS_DYNAMIC: '/features/forms/dynamic',
   FORMS_UPLOAD: '/features/forms/upload',
-  FORMS_READY_TO_USE: '/features/forms/ready-to-use',
+  FORMS_READY_TO_USE1: '/features/forms/ready-to-use-1',
+  FORMS_READY_TO_USE2: '/features/forms/ready-to-use-2',
 } as const;

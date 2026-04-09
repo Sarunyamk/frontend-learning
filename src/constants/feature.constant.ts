@@ -115,9 +115,14 @@ export const FEATURE_CATEGORIES: readonly FeatureCategoryConfig[] = [
       { key: 'dynamic', label: 'Dynamic Fields', path: ROUTES.FORMS_DYNAMIC },
       { key: 'upload', label: 'File Upload', path: ROUTES.FORMS_UPLOAD },
       {
-        key: 'ready-to-use',
-        label: 'Ready to Use',
-        path: ROUTES.FORMS_READY_TO_USE,
+        key: 'ready-to-use-1',
+        label: 'Ready to Use 1',
+        path: ROUTES.FORMS_READY_TO_USE1,
+      },
+      {
+        key: 'ready-to-use-2',
+        label: 'Ready to Use 2',
+        path: ROUTES.FORMS_READY_TO_USE2,
       },
     ],
   },

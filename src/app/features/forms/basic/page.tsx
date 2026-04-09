@@ -1,5 +1,5 @@
 import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
-import { BasicForm } from '@/components/features/form/basic-form';
+import { BasicForm } from '@/components/features/form/form-pattern/basic-form';
 import {
   Card,
   CardContent,
