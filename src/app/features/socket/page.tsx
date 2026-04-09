@@ -3,6 +3,7 @@ import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-bre
 import { FeatureSubItems } from '@/components/shared/ui-primitives/feature-sub-items';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
+import { buildFeatureBreadcrumb } from '@/lib/utils/build-jsonLd.helper';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
@@ -15,21 +16,31 @@ export default async function SocketPage() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.SOCKET);
   if (!category) notFound();
 
+  const breadcrumbJsonLd = buildFeatureBreadcrumb(category);
+
   return (
-    <div className="space-y-8">
-      <FeatureBreadcrumb category={category} />
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          {category.label}
-        </h1>
-        <p className="mt-2 text-muted-foreground">{category.description}</p>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
+
+      <div className="space-y-6">
+        <FeatureBreadcrumb category={category} />
+
+        <div>
+          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
+            {category.label}
+          </h1>
+          <p className="mt-2 text-muted-foreground">{category.description}</p>
+        </div>
+
+        <FeatureSubItems items={category.items} />
+
+        <SocketTutorial />
       </div>
-
-      {/* Demo pages */}
-      <FeatureSubItems items={category.items} />
-
-      {/* Tutorial section */}
-      <SocketTutorial />
-    </div>
+    </>
   );
 }
