@@ -1,9 +1,9 @@
 import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
-import { FormReadyToUse } from '@/components/features/form/form-ready-to-use';
+import { FormReadyToUse } from '@/components/features/form/form-pattern/form-ready-to-use';
 import { FEATURE_CATEGORY, getFeatureCategory } from '@/lib/api/features';
 import { getFeatureMetadata } from '@/lib/seo/features-metadata';
 import { notFound } from 'next/navigation';
-import { FormSetupInstall } from '@/components/features/form/setup-form-install';
+import { FormSetupInstall } from '@/components/features/form/form-pattern/setup-form-install';
 
 export async function generateMetadata() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.FORMS);
@@ -11,7 +11,7 @@ export async function generateMetadata() {
   return getFeatureMetadata(category);
 }
 
-export default async function FormReadyToUsePage() {
+export default async function FormReadyToUsePagePattern1() {
   const category = await getFeatureCategory(FEATURE_CATEGORY.FORMS);
   if (!category) notFound();
 
@@ -20,7 +20,7 @@ export default async function FormReadyToUsePage() {
       <FeatureBreadcrumb category={category} subItem="Ready to Use" />
       <div>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Ready to Use
+          Ready to Use form pattern (oldly called `Form Playground`)
         </h1>
         <p className="mt-2 text-muted-foreground">
           Reusable form components พร้อม copy ไปใช้ — react-hook-form + zod +

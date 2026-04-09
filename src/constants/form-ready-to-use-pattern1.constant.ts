@@ -8,7 +8,7 @@ export type FormReadyToUseCode = {
   usageCode: string;
 };
 
-export const FORM_READY_TO_USE_CODES: readonly FormReadyToUseCode[] = [
+export const FORM_READY_TO_USE_CODES_PATTERN1: readonly FormReadyToUseCode[] = [
   {
     name: 'FormTextField',
     description:
@@ -362,7 +362,7 @@ type ImageDropzoneProps = {
   },
 ] as const;
 
-export const FORM_INSTALL_SECTIONS: readonly CodeSection[] = [
+export const FORM_INSTALL_SECTIONS_PATTERN1: readonly CodeSection[] = [
   {
     title: '1. Install shadcn/ui',
     description: 'ติดตั้ง library สำหรับ component',
@@ -380,5 +380,75 @@ export const FORM_INSTALL_SECTIONS: readonly CodeSection[] = [
     description: 'ติดตั้ง library สำหรับ form handling',
     language: 'bash',
     code: `pnpm add react-hook-form @hookform/resolvers`,
+  },
+  {
+    title: '4. ตัวอย่างการใช้งาน',
+    description: 'ตัวอย่างการใช้งาน React Hook Form + Zod validation',
+    language: 'typescript',
+    code: `import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTransition } from 'react';
+
+import { Form } from '@/components/ui/form';
+import { Button } from '@/components/ui/button';
+import { FormTextField } from '@/components/forms/form-text-field';
+
+import { z } from 'zod';
+
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+type FormInput = z.infer<typeof schema>;
+
+export default function ExampleForm() {
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<FormInput>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'all',
+  });
+
+  function onSubmit(data: FormInput) {
+    startTransition(async () => {
+      // 👉 call API หรือ server action ที่นี่
+      // await login(data);
+
+      form.reset();
+    });
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <FormTextField
+          control={form.control}
+          name="email"
+          type="email"
+          label="Email"
+          placeholder="john@example.com"
+          description="We'll never share your email"
+        />
+
+        <FormTextField
+          control={form.control}
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="••••••••"
+        />
+
+        <Button type="submit" disabled={isPending}>
+          {isPending ? 'Submitting...' : 'Submit'}
+        </Button>
+      </form>
+    </Form>
+  );
+}`,
   },
 ];

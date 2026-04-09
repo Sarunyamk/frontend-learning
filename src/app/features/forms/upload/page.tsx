@@ -1,6 +1,6 @@
 import { FeatureBreadcrumb } from '@/components/shared/ui-primitives/feature-breadcrumb';
-import { MultiUploadForm } from '@/components/features/form/multi-upload-form';
-import { SingleUploadForm } from '@/components/features/form/single-upload-form';
+import { MultiUploadForm } from '@/components/features/form/form-pattern/multi-upload-form';
+import { SingleUploadForm } from '@/components/features/form/form-pattern/single-upload-form';
 import {
   Card,
   CardContent,
