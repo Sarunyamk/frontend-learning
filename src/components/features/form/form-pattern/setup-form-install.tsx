@@ -1,5 +1,5 @@
 import { InstallSection } from '@/components/shared/install-section';
-import { FORM_INSTALL_SECTIONS } from '@/constants/form-ready-to-use.constant';
+import { FORM_INSTALL_SECTIONS_PATTERN1 } from '@/constants/form-ready-to-use-pattern1.constant';
 
 export function FormSetupInstall() {
   return (
@@ -12,7 +12,7 @@ export function FormSetupInstall() {
         </p>
       </div>
 
-      {FORM_INSTALL_SECTIONS.map((section) => (
+      {FORM_INSTALL_SECTIONS_PATTERN1.map((section) => (
         <InstallSection key={section.title} section={section} />
       ))}
     </div>

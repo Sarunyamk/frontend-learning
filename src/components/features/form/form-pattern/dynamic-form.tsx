@@ -14,7 +14,11 @@ import { Plus, Trash2 } from 'lucide-react';
 import { useTransition } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
-const EMPTY_MEMBER = { name: '', email: '', role: '' as DynamicFormInput['members'][number]['role'] };
+const EMPTY_MEMBER = {
+  name: '',
+  email: '',
+  role: '' as DynamicFormInput['members'][number]['role'],
+};
 const MAX_MEMBERS = 5;
 
 export function DynamicForm() {

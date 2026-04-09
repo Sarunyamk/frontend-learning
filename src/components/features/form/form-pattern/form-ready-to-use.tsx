@@ -1,4 +1,3 @@
-import { FORM_READY_TO_USE_CODES } from '@/constants/form-ready-to-use.constant';
 import { CodeBlockShiki } from '@/components/tailwind/code-block-shiki';
 import {
   Card,
@@ -12,12 +11,13 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { FORM_READY_TO_USE_CODES_PATTERN1 } from '@/constants/form-ready-to-use-pattern1.constant';
 import { ChevronRight } from 'lucide-react';
 
 export function FormReadyToUse() {
   return (
     <div className="space-y-3">
-      {FORM_READY_TO_USE_CODES.map((item) => (
+      {FORM_READY_TO_USE_CODES_PATTERN1.map((item) => (
         <Collapsible key={item.name}>
           <Card>
             <CollapsibleTrigger asChild>
